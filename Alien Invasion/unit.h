@@ -4,6 +4,7 @@ class unit
 {
 private:
 	int ID;
+	int health;
 
 public:
 
