@@ -15,8 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h">
+    <ClInclude Include="unit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="unit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
