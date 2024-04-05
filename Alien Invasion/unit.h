@@ -3,7 +3,7 @@
 class unit
 {
 private:
-
+	int ID;
 
 public:
 
