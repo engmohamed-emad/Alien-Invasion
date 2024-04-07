@@ -56,7 +56,7 @@ public:
 		return Acapacity;
 	}
 
-	virtual void dec_health(float damege) = 0;
+	virtual void dec_health(float damage) = 0;
 	virtual void inc_health(float heal) {}
 	virtual bool is_dead()
 	{
