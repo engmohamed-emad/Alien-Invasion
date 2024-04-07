@@ -1,29 +1,31 @@
-#ifndef ArrayStack_h
-#define ArrayStack_h
+#pragma once
+//	This is an updated version of code originally
+//  created by Frank M. Carrano and Timothy M. Henry.
+//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
+/** ADT stack: Array-based implementation.
+ @file ArrayStack.h */
 
+#ifndef ARRAY_STACK_
+#define ARRAY_STACK_
+
+#include "StackADT.h"
+
+ //Unless spesificed by the stack user, the default size is 100
 template<typename T>
-class ArrayStack  
+class ArrayStack : public StackADT<T>
 {
+	enum { MAX_SIZE = 100 };
 private:
-	T* items;		// Array of stack items
-	int      top;                   // Index to top of stack
-	const int STACK_SIZE;
+	T items[MAX_SIZE];		// Array of stack items
+	int top;                   // Index to top of stack
 
 public:
 
-	ArrayStack(int MaxSize) : STACK_SIZE(MaxSize)
+	ArrayStack()
 	{
-		items = new T[STACK_SIZE];
 		top = -1;
 	}  // end default constructor
-
-	//Function getCapacity() returns the stack max size
-	//added for array implementaion only // (14)
-	int getCapacity()
-	{
-		return STACK_SIZE;
-	}
 
 	bool isEmpty() const
 	{
@@ -32,7 +34,7 @@ public:
 
 	bool push(const T& newEntry)
 	{
-		if (top == STACK_SIZE - 1) return false;	//Stack is FULL
+		if (top == MAX_SIZE - 1) return false;	//Stack is FULL
 
 		top++;
 		items[top] = newEntry;
@@ -56,24 +58,6 @@ public:
 		return true;
 	}  // end peek
 
-	//Destructor
-	~ArrayStack()
-	{
-		delete[]items;
-	}
-
-	//Copy constructor
-	ArrayStack(const ArrayStack<T>& S) :STACK_SIZE(S.STACK_SIZE)
-	{
-		items = new T[STACK_SIZE];
-		for (int i = 0; i <= S.top; i++)
-			items[i] = S.items[i];
-		top = S.top;
-	}
-
 }; // end ArrayStack
-
-
-
 
 #endif

@@ -18,7 +18,16 @@
     <ClInclude Include="unit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
+    <ClInclude Include="priNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="priQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StackADT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ArrayStack.h">
@@ -27,16 +36,7 @@
     <ClInclude Include="LinkedQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="priNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="priQueue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SatckADT.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="QueueADT.h">
+    <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -25,7 +25,7 @@
     <ClInclude Include="priNode.h" />
     <ClInclude Include="priQueue.h" />
     <ClInclude Include="QueueADT.h" />
-    <ClInclude Include="SatckADT.h" />
+    <ClInclude Include="StackADT.h" />
     <ClInclude Include="unit.h" />
   </ItemGroup>
   <ItemGroup>
