@@ -15,68 +15,22 @@ private:
 	int Acapacity;
 	string type;
 public:
-	void setID(int id)
-	{
-		this->ID = id;
-	}
-	int getID()
-	{
-		return ID;
-	}
-	void sethealth(float h)
-	{
-		this->health = h;
-	}
-	int getcurrhealth()
-	{
-		return currhealth;
-	}
-	void setJtime(int t)
-	{
-		Jtime = t;
-	}
-	int getJtime()
-	{
-		return Jtime;
-	}
-	void setApower(float p)
-	{
-		Apower = p;
-	}
-	int getApower()
-	{
-		return Apower;
-	}
-	void setAcapacity(int c)
-	{
-		Acapacity = c;
-	}
-	int getAcapacity()
-	{
-		return Acapacity;
-	}
-	void set_type(string type)
-	{
-		this->type = type;
-	}
-	string get_type()
-	{
-		return type;
-	}
+	void setID(int id);
+	int getID();
+	void sethealth(float h);
+	int getcurrhealth();
+	void setJtime(int t);
+	int getJtime();
+	void setApower(float p);
+	int getApower();
+	void setAcapacity(int c);
+	int getAcapacity();
+	void set_type(string type);
+	string get_type();
 	virtual void dec_health(float damage) = 0;
 	virtual void inc_health(float heal) {}
-	virtual bool is_dead()
-	{
-		if (currhealth <= 0)
-			return true;
-		return false;
-	}
-	virtual bool need_help()
-	{
-		if ((currhealth / health) < 0.2)
-			return true;
-		return false;
-	}
+	virtual bool is_dead();
+	virtual bool need_help();
 	virtual int attack(int enhealth) = 0;
 };
 #endif
