@@ -55,7 +55,14 @@ public:
 	{
 		return Acapacity;
 	}
-
+	void set_type(string type)
+	{
+		this->type = type;
+	}
+	string get_type()
+	{
+		return type;
+	}
 	virtual void dec_health(float damage) = 0;
 	virtual void inc_health(float heal) {}
 	virtual bool is_dead()
@@ -71,9 +78,6 @@ public:
 		return false;
 	}
 	virtual int attack(int enhealth) = 0;
-
-
-
 };
 #endif
 
