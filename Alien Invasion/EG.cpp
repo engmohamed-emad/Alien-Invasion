@@ -1,5 +1,8 @@
 #include "EG.h"
 #include<cmath>
+EG::EG()
+{
+}
 EG::EG(int id, int jt, float h, float ap, int c)
 {
 	this->set_type("EG");
@@ -8,6 +11,7 @@ EG::EG(int id, int jt, float h, float ap, int c)
 	this->sethealth(h);
 	this->setApower(ap);
 	this->setAcapacity(c);
+	pri = getcurrhealth() + getApower();
 }
 void EG::Modfi_pri()
 {
@@ -19,7 +23,7 @@ int EG::get_pri()
 	return pri;
 }
 
-int EG::attack(int enhealth)
+float EG::attack(int enhealth)
 {
 	return (Apower * currhealth / 100) / sqrt(enhealth);
 }

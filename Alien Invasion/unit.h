@@ -31,7 +31,7 @@ public:
 	virtual void inc_health(float heal) {}
 	virtual bool is_dead();
 	virtual bool need_help();
-	virtual int attack(int enhealth) = 0;
+	virtual float attack(int enhealth) = 0;
 };
 #endif
 

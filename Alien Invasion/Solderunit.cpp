@@ -16,7 +16,7 @@ void Solderunit::dec_health(float damage)
 	this->currhealth = this->currhealth - damage;
 }
 
-int Solderunit::attack(int enhealth)
+float Solderunit::attack(int enhealth)
 {
 	return (Apower * currhealth / 100) / sqrt(enhealth);
 }

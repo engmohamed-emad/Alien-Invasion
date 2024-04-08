@@ -16,7 +16,7 @@ void unit::sethealth(float h)
 	this->currhealth = h;
 }
 
-int unit::getcurrhealth()
+float unit::getcurrhealth()
 {
 	return currhealth;
 }
