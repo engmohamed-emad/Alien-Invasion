@@ -39,10 +39,20 @@
     <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
     <ClInclude Include="SoModQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Solderunit.h">
+=======
+    <ClInclude Include="EG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Drones.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DronesQueue.h">
+>>>>>>> Stashed changes
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,7 +63,17 @@
     <ClCompile Include="unit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="Solderunit.cpp">
+=======
+    <ClCompile Include="EG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DronesQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Drones.cpp">
+>>>>>>> Stashed changes
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -13,7 +13,11 @@ int unit::getID()
 void unit::sethealth(float h)
 {
 	this->health = h;
+<<<<<<< Updated upstream
 	currhealth = health;
+=======
+	this->currhealth = h;
+>>>>>>> Stashed changes
 }
 
 float unit::getcurrhealth()
@@ -59,6 +63,22 @@ void unit::set_type(string type)
 string unit::get_type()
 {
 	return type;
+}
+
+void unit::dec_health(float damage)
+{
+	currhealth = currhealth - damage;
+}
+
+bool unit::inc_health(float heal)//take care when assign type of tank or earth solid. must be like in the cond. of if 
+{
+	if (get_type() == "ET" || get_type() == "ES")
+	{
+		currhealth = currhealth + heal;
+	}
+	else
+		return false;
+
 }
 
 bool unit::is_dead()

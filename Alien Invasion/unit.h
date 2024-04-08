@@ -25,10 +25,10 @@ public:
 	float getApower();
 	void setAcapacity(int c);
 	int getAcapacity();
-	void set_type(string type);
+	void set_type(const string type);
 	string get_type();
-	virtual void dec_health(float damage) = 0;
-	virtual void inc_health(float heal) {}
+	void dec_health(float damage);
+	bool inc_health(float heal);
 	virtual bool is_dead();
 	virtual bool need_help();
 	virtual int attack(int enhealth) = 0;
