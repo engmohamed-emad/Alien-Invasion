@@ -45,6 +45,15 @@
     <ClInclude Include="SoModQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Drones.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DronesQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -54,6 +63,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Solderunit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Drones.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DronesQueue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

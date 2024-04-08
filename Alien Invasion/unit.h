@@ -18,7 +18,7 @@ public:
 	void setID(int id);
 	int getID();
 	void sethealth(float h);
-	int getcurrhealth();
+	float getcurrhealth();
 	void setJtime(int t);
 	int getJtime();
 	void setApower(float p);

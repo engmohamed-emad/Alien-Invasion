@@ -13,6 +13,7 @@ int unit::getID()
 void unit::sethealth(float h)
 {
 	this->health = h;
+	this->currhealth = h;
 }
 
 int unit::getcurrhealth()
