@@ -1,4 +1,9 @@
-﻿  unit.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.cpp(20,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.cpp(40,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Alien Invasion.vcxproj -> C:\Users\LENONO\OneDrive\Documents\GitHub\project\x64\Debug\Alien Invasion.exe
+﻿  Solderunit.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Solderunit.cpp(21,37): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  SoModQueue.cpp
+  Source.cpp
+  unit.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\unit.cpp(20,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\unit.cpp(40,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  Alien Invasion.vcxproj -> C:\Users\pc\Documents\GitHub\project\x64\Debug\Alien Invasion.exe

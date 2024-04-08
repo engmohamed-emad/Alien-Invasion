@@ -6,7 +6,7 @@ using namespace std;
 //Abstract class for all army units
 class unit
 {
-private:
+protected:
 	int ID;
 	float health;
 	float currhealth;
