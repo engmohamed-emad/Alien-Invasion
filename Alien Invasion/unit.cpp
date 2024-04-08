@@ -13,9 +13,10 @@ int unit::getID()
 void unit::sethealth(float h)
 {
 	this->health = h;
+	currhealth = health;
 }
 
-int unit::getcurrhealth()
+float unit::getcurrhealth()
 {
 	return currhealth;
 }
@@ -35,7 +36,7 @@ void unit::setApower(float p)
 	Apower = p;
 }
 
-int unit::getApower()
+float unit::getApower()
 {
 	return Apower;
 }
