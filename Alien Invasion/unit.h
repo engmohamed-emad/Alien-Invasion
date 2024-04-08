@@ -6,7 +6,7 @@ using namespace std;
 //Abstract class for all army units
 class unit
 {
-protected:
+private:
 	int ID;
 	float health;
 	float currhealth;
@@ -18,17 +18,17 @@ public:
 	void setID(int id);
 	int getID();
 	void sethealth(float h);
-	float getcurrhealth();
+	int getcurrhealth();
 	void setJtime(int t);
 	int getJtime();
 	void setApower(float p);
-	float getApower();
+	int getApower();
 	void setAcapacity(int c);
 	int getAcapacity();
-	void set_type(const string type);
+	void set_type(string type);
 	string get_type();
-	void dec_health(float damage);
-	bool inc_health(float heal);
+	virtual void dec_health(float damage) = 0;
+	virtual void inc_health(float heal) {}
 	virtual bool is_dead();
 	virtual bool need_help();
 	virtual int attack(int enhealth) = 0;

@@ -1,6 +1,5 @@
 #pragma once
-#include <iostream>
-using namespace std;
+
 /*
 This is a program that implements the queue abstract data type using a linked list.
 The queue is implemented as a chain of linked nodes that has two pointers,
@@ -42,8 +41,7 @@ Single Node Case:
 
 #ifndef LINKED_QUEUE_
 #define LINKED_QUEUE_
-#include<iostream>
-using namespace std;
+
 
 #include "Node.h"
 #include "QueueADT.h"
@@ -51,7 +49,7 @@ using namespace std;
 template <typename T>
 class LinkedQueue :public QueueADT<T>
 {
-protected:
+private:
 	Node<T>* backPtr;
 	Node<T>* frontPtr;
 public:
@@ -174,15 +172,15 @@ LinkedQueue<T>::~LinkedQueue()
 {
 	//Note that the cout statements here is just for learning purpose
 	//They should be normally removed from the destructor
-	//cout << "\nStarting LinkedQueue destructor...";  *
-	//cout << "\nFreeing all nodes in the queue...";   *
+	cout << "\nStarting LinkedQueue destructor...";
+	cout << "\nFreeing all nodes in the queue...";
 
 	//Free all nodes in the queue
 	T temp;
 	while (dequeue(temp));
 
-	//cout << "\n Is LinkedQueue Empty now?? ==> " << boolalpha << isEmpty(); *
-	//cout << "\nEnding LinkedQueue destructor..." << endl; *
+	cout << "\n Is LinkedQueue Empty now?? ==> " << boolalpha << isEmpty();
+	cout << "\nEnding LinkedQueue destructor..." << endl;
 }
 
 #endif
