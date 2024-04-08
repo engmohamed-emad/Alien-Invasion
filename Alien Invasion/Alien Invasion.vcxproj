@@ -24,6 +24,7 @@
     <ClInclude Include="DronesQueue.h" />
     <ClInclude Include="EG.h" />
     <ClInclude Include="LinkedQueue.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="priNode.h" />
     <ClInclude Include="priQueue.h" />
@@ -31,14 +32,17 @@
     <ClInclude Include="Solderunit.h" />
     <ClInclude Include="SoModQueue.h" />
     <ClInclude Include="StackADT.h" />
+    <ClInclude Include="Tank.h" />
     <ClInclude Include="unit.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Drones.cpp" />
     <ClCompile Include="DronesQueue.cpp" />
     <ClCompile Include="EG.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Solderunit.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Tank.cpp" />
     <ClCompile Include="unit.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

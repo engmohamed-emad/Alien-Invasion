@@ -1,14 +1,2 @@
-﻿  Drones.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Drones.cpp(20,37): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  DronesQueue.cpp
-  EG.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(14,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(18,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(28,37): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  Solderunit.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Solderunit.cpp(21,37): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  unit.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.cpp(41,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\DronesQueue.cpp(13): warning C4715: 'DronesQueue::get_prev': not all control paths return a value
-  Alien Invasion.vcxproj -> C:\Users\LENONO\OneDrive\Documents\GitHub\project\x64\Debug\Alien Invasion.exe
+﻿  Source.cpp
+  Alien Invasion.vcxproj -> E:\Documents\GitHub\project\x64\Debug\Alien Invasion.exe
