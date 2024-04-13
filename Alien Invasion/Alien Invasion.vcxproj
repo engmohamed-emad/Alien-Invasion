@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AlianSounit.h" />
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="Drones.h" />
     <ClInclude Include="DronesQueue.h" />
@@ -36,6 +37,7 @@
     <ClInclude Include="unit.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlianSounit.cpp" />
     <ClCompile Include="Drones.cpp" />
     <ClCompile Include="DronesQueue.cpp" />
     <ClCompile Include="EG.cpp" />
