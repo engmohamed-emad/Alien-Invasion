@@ -8,7 +8,7 @@ class DronesQueue : public LinkedQueue<Drones>
 private:
 	Node<Drones>* get_prev();//utility func that get pointer of prev of last node 
 public:
-	bool enqueue_front(Drones& D);
+	bool enqueue_front(Drones& D);             //queue drones enqueue()
 	bool dequeue_rear(Drones& D);
 };
 #endif

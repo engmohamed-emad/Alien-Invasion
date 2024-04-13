@@ -10,9 +10,7 @@ class SoModQueue : public LinkedQueue<T>
 public:
 	bool rdequeue(Node<T>*& solderptr);
 	bool frontenqueue(Node<T>*& solderptr);
-
 };
-
 template<typename T>
 inline bool SoModQueue<T>::rdequeue(Node<T>*& solderptr)
 {

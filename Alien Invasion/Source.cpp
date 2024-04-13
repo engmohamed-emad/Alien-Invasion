@@ -1,16 +1,26 @@
 #include <iostream>
+#include<random>
 #include"Tank.h"
 #include"unit.h"
 using namespace std;
-
+double generate_ran(int num1, int num2)
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> dis(num1, num2); 
+	
+		int random_num = dis(gen);
+		return  random_num;
+	
+}
+// function for files 
 int main()
 {
-	Tank t;
-	Tank d(10,20,30,40,50);
-	string x;
-	cin >> x;
-	t.set_type(x);
-	cout << t.get_type();
-	cout << d.getID();
+	int n1, n2;
+	while (1)
+	{
+		cin >> n1>> n2;
+		cout << generate_ran(n1, n2) << endl;
+	}
 	return 0;
 }
