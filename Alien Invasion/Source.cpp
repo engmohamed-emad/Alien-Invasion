@@ -1,7 +1,7 @@
 #include <iostream>
 #include<random>
-#include"Tank.h"
-#include"unit.h"
+#include"EarthArmy.h"
+#include"AlienArmy.h"
 using namespace std;
 double generate_ran(int num1, int num2)
 {

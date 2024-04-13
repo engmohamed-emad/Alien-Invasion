@@ -63,6 +63,12 @@
     <ClInclude Include="AlianSounit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EarthArmy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlienArmy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -90,6 +96,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AlianSounit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EarthArmy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlienArmy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

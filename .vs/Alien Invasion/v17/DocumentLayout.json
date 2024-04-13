@@ -1,13 +1,49 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\pc\\Documents\\GitHub\\project\\",
+  "WorkspaceRootPath": "E:\\Documents\\GitHub\\project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|C:\\Users\\pc\\Documents\\GitHub\\project\\Alien Invasion\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\AlienArmy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\AlienArmy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|C:\\Users\\pc\\Documents\\GitHub\\project\\Alien Invasion\\unit.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\EarthArmy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\EarthArmy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\AlianSounit.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\AlianSounit.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\LinkedQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\LinkedQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\priNode.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\priNode.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\priQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\priQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\EG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\EG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\DronesQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\DronesQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\Drones.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\Drones.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|E:\\Documents\\GitHub\\project\\Alien Invasion\\unit.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1B8731ED-6D0D-4DE0-83A4-10F1BB79B8AB}|Alien Invasion\\Alien Invasion.vcxproj|solutionrelative:Alien Invasion\\unit.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -18,33 +54,157 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LinkedQueue.h",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\LinkedQueue.h",
+              "RelativeDocumentMoniker": "Alien Invasion\\LinkedQueue.h",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\LinkedQueue.h",
+              "RelativeToolTip": "Alien Invasion\\LinkedQueue.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-13T20:11:25.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EG.h",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\EG.h",
+              "RelativeDocumentMoniker": "Alien Invasion\\EG.h",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\EG.h",
+              "RelativeToolTip": "Alien Invasion\\EG.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-13T20:10:00.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "priNode.h",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\priNode.h",
+              "RelativeDocumentMoniker": "Alien Invasion\\priNode.h",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\priNode.h",
+              "RelativeToolTip": "Alien Invasion\\priNode.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-13T20:09:42.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AlianSounit.h",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\AlianSounit.h",
+              "RelativeDocumentMoniker": "Alien Invasion\\AlianSounit.h",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\AlianSounit.h",
+              "RelativeToolTip": "Alien Invasion\\AlianSounit.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-13T20:05:27.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "priQueue.h",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\priQueue.h",
+              "RelativeDocumentMoniker": "Alien Invasion\\priQueue.h",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\priQueue.h",
+              "RelativeToolTip": "Alien Invasion\\priQueue.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-13T20:09:33.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AlienArmy.h",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\AlienArmy.h",
+              "RelativeDocumentMoniker": "Alien Invasion\\AlienArmy.h",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\AlienArmy.h",
+              "RelativeToolTip": "Alien Invasion\\AlienArmy.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-13T20:02:35.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EarthArmy.h",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\EarthArmy.h",
+              "RelativeDocumentMoniker": "Alien Invasion\\EarthArmy.h",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\EarthArmy.h",
+              "RelativeToolTip": "Alien Invasion\\EarthArmy.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-13T20:01:48.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DronesQueue.h",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\DronesQueue.h",
+              "RelativeDocumentMoniker": "Alien Invasion\\DronesQueue.h",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\DronesQueue.h",
+              "RelativeToolTip": "Alien Invasion\\DronesQueue.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-13T20:00:53.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Drones.h",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\Drones.h",
+              "RelativeDocumentMoniker": "Alien Invasion\\Drones.h",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\Drones.h",
+              "RelativeToolTip": "Alien Invasion\\Drones.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-13T20:00:51.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Source.cpp",
-              "DocumentMoniker": "C:\\Users\\pc\\Documents\\GitHub\\project\\Alien Invasion\\Source.cpp",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\Source.cpp",
               "RelativeDocumentMoniker": "Alien Invasion\\Source.cpp",
-              "ToolTip": "C:\\Users\\pc\\Documents\\GitHub\\project\\Alien Invasion\\Source.cpp",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\Source.cpp",
               "RelativeToolTip": "Alien Invasion\\Source.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-09T02:06:31.643Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "unit.h",
-              "DocumentMoniker": "C:\\Users\\pc\\Documents\\GitHub\\project\\Alien Invasion\\unit.h",
+              "DocumentMoniker": "E:\\Documents\\GitHub\\project\\Alien Invasion\\unit.h",
               "RelativeDocumentMoniker": "Alien Invasion\\unit.h",
-              "ToolTip": "C:\\Users\\pc\\Documents\\GitHub\\project\\Alien Invasion\\unit.h",
+              "ToolTip": "E:\\Documents\\GitHub\\project\\Alien Invasion\\unit.h",
               "RelativeToolTip": "Alien Invasion\\unit.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-09T02:02:38.507Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-09T02:02:38.507Z"
             }
           ]
         }
