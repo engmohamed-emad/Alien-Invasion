@@ -8,5 +8,13 @@
 using namespace std;
 class AlienArmy
 {
+protected:
+	SoModQueue<AlianSounit> solders;
+
+
+public:
+	bool addSo_unit(AlianSounit& s);
+	bool getSo_unit(Node<AlianSounit>*& SoUnit);
+	bool ReturnSo_uint(Node<AlianSounit>*& SoUnit);
 };
 

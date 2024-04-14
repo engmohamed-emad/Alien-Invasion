@@ -1,6 +1,10 @@
 #include "Solderunit.h"
 #include <cmath>
 
+Solderunit::Solderunit()
+{
+}
+
 Solderunit::Solderunit(int id, int jt, float h, float ap, int c)
 {
 	this->set_type("ES");

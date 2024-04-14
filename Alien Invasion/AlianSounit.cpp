@@ -1,5 +1,9 @@
 #include "AlianSounit.h"
 
+AlianSounit::AlianSounit()
+{
+}
+
 AlianSounit::AlianSounit(int id, int jt, float h, float ap, int c)
 {
 	this->set_type("AS");

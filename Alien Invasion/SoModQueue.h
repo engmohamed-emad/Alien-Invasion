@@ -10,6 +10,7 @@ class SoModQueue : public LinkedQueue<T>
 public:
 	bool rdequeue(Node<T>*& solderptr);
 	bool frontenqueue(Node<T>*& solderptr);
+	~SoModQueue();
 };
 template<typename T>
 inline bool SoModQueue<T>::rdequeue(Node<T>*& solderptr)
@@ -30,8 +31,19 @@ inline bool SoModQueue<T>::frontenqueue(Node<T>*& solderptr)
 {
 	if (solderptr != nullptr)
 	{
-		solderptr->setnext(this->frontPtr);
+		solderptr->setNext(this->frontPtr);
 		this->frontPtr = solderptr;
+		if (this->backPtr == nullptr)//case :enpueue in an empty Queue
+			this->backPtr = this->frontPtr;
+		return true;
 	}
-};
+	return false;
+}
+template<typename T>
+inline SoModQueue<T>::~SoModQueue()
+{
+	T temp;
+	while (this->dequeue(temp));
+}
+;
 
