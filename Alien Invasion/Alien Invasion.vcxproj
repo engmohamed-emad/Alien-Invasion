@@ -26,6 +26,7 @@
     <ClInclude Include="DronesQueue.h" />
     <ClInclude Include="EarthArmy.h" />
     <ClInclude Include="EG.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Node.h" />
@@ -45,6 +46,7 @@
     <ClCompile Include="Drones.cpp" />
     <ClCompile Include="EarthArmy.cpp" />
     <ClCompile Include="EG.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="RandGen.cpp" />
     <ClCompile Include="Solderunit.cpp" />

@@ -8,42 +8,33 @@ template <typename T>
 class SoModQueue : public LinkedQueue<T>
 {
 public:
-	bool rdequeue(Node<T>*& solderptr);
-	bool frontenqueue(Node<T>*& solderptr);
+	bool enqueue_front(const T& D);
 	~SoModQueue();
 };
-template<typename T>
-inline bool SoModQueue<T>::rdequeue(Node<T>*& solderptr)
-{
-	if (this->isEmpty())
-		return false;
-	solderptr = this->frontPtr;
-	this->frontPtr = this->frontPtr->getNext();
-	// Queue is not empty; remove front
-	if (solderptr == this->backPtr)	 // Special case: last node in the queue
-		this->backPtr = nullptr;
-
-	return true;
-}
 
 template<typename T>
-inline bool SoModQueue<T>::frontenqueue(Node<T>*& solderptr)
+inline bool SoModQueue<T>::enqueue_front(const T& S)
 {
-	if (solderptr != nullptr)
+	Node<T>* newNodePtr = new Node<T>(S);
+	if (this->isEmpty())//case of empty Queue
 	{
-		solderptr->setNext(this->frontPtr);
-		this->frontPtr = solderptr;
-		if (this->backPtr == nullptr)//case :enpueue in an empty Queue
-			this->backPtr = this->frontPtr;
+		newNodePtr->setNext(nullptr);
+		this->frontPtr = newNodePtr;
+		this->backPtr = newNodePtr;
+		return true;
+	}
+	else
+	{
+		newNodePtr->setNext(this->frontPtr);
+		this->frontPtr = newNodePtr;
 		return true;
 	}
 	return false;
 }
+
 template<typename T>
 inline SoModQueue<T>::~SoModQueue()
 {
 	T temp;
 	while (this->dequeue(temp));
 }
-;
-

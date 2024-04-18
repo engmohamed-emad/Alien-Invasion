@@ -1,6 +1,6 @@
 #include "RandGen.h"
 
-int RandGen::gen_rand(int min, int max)
+float RandGen::gen_rand(int min, int max)
 {
 	random_device rd;
 	mt19937 gen(rd());
@@ -11,7 +11,18 @@ int RandGen::gen_rand(int min, int max)
 
 unit*& RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC)
 {
-	if (prob <= array[3])
+	//review in case of diffrant order of proplities
+	if (prob <= array[1])
+	{
+		unit* U = new Solderunit(ID, Jt, H, AP, AC);
+		return U;
+
+	}
+	else if (prob <= array[1] + array[2])
+	{
+		//proplity for tank
+	}
+	else if (prob <= array[1] + array[2] + array[3])
 	{
 		unit* U = new EG(ID, Jt, H, AP, AC);
 		return U;
@@ -19,8 +30,8 @@ unit*& RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, i
 }
 
 void RandGen::Create_Random()
-{    //you have to handle ID and Jt
-	int prob;
+{    //we have to handle ID and Jt
+	float prob;
 	int ID;
 	int Jt;
 	float H;
@@ -59,7 +70,17 @@ void RandGen::Create_Random()
 
 unit*& RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC)
 {
-	if (prob <= array[6])
+	if (prob <= array[4])
+	{
+		unit* U = new AlianSounit(ID, Jt, H, AP, AC);
+		return U;
+		
+	}
+	else if (prob <= array[4] + array[5])
+	{
+		//proplity if monstar
+	}
+	else if (prob <= array[4]+ array[6]+ array[5])
 	{
 		unit* U = new Drones(ID, Jt, H, AP, AC);
 		return U;

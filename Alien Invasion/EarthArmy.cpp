@@ -13,25 +13,22 @@ bool EarthArmy::Add_unit(unit* ptr)
 
 }
 
-bool EarthArmy::addSo_unit(Solderunit& s)
+bool EarthArmy::addSo_unit(Solderunit* s)
 {
     if (solders.enqueue(s))
         return true;
     return false;
 }
 
-bool EarthArmy::getSo_unit(Node<Solderunit>*& SoUnit)
+bool EarthArmy::getSo_unit(Solderunit*& SoUnit)
 {
-    if (solders.rdequeue(SoUnit))
-        return true;
-    return false;
+    return solders.dequeue(SoUnit);
 }
 
-bool EarthArmy::ReturnSo_uint(Node<Solderunit>*& SoUnit)
+bool EarthArmy::ReturnSo_uint(Solderunit* SoUnit)
 {
-    if (solders.frontenqueue(SoUnit))
-        return true;
-    return false;
+    return solders.enqueue_front(SoUnit);
+        
 }
 
 void EarthArmy::Add_Earth_Gun(EG* G)

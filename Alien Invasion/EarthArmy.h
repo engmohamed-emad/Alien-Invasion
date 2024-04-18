@@ -9,16 +9,16 @@
 class EarthArmy
 {
 protected:
-	SoModQueue<Solderunit> solders;
+	SoModQueue<Solderunit*> solders;
 	priQueue<EG*> Earth_Gun;
 	
 public:
 
 	bool Add_unit(unit* ptr);
 
-	bool addSo_unit(Solderunit& s);
-	bool getSo_unit(Node<Solderunit>*& SoUnit);
-	bool ReturnSo_uint(Node<Solderunit>*& SoUnit);
+	bool addSo_unit(Solderunit* s);
+	bool getSo_unit(Solderunit*& SoUnit);
+	bool ReturnSo_uint(Solderunit* SoUnit);
 
 	void Add_Earth_Gun(EG* G);              
 	bool Return_Gun(EG* G,int pri);

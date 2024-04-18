@@ -2,6 +2,8 @@
 #include<random>
 #include"unit.h"
 #include"Drones.h"
+#include "AlianSounit.h"
+#include "Solderunit.h"
 #include"EG.h"
 using namespace std;
 class RandGen
@@ -32,7 +34,7 @@ private:
 	//aarray[20]->empty place for H.U in phase 2
 	int Rand_Num;
 public:
-	int gen_rand(int min, int max);
+	float gen_rand(int min, int max);
 	unit*& Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC);
 	void Create_Random();
 	unit*& Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC);

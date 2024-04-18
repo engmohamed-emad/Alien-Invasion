@@ -10,25 +10,21 @@ bool AlienArmy::ADD_unit(unit*& ptr)
     }
 }
 
-bool AlienArmy::addSo_unit(AlianSounit& s)
+bool AlienArmy::addSo_unit(AlianSounit* s)
 {
     if (solders.enqueue(s))
         return true;
     return false;
 }
 
-bool AlienArmy::getSo_unit(Node<AlianSounit>*& SoUnit)
+bool AlienArmy::getSo_unit(AlianSounit*& SoUnit)
 {
-    if (solders.rdequeue(SoUnit))
-        return true;
-    return false;
+    return solders.dequeue(SoUnit);
 }
 
-bool AlienArmy::ReturnSo_uint(Node<AlianSounit>*& SoUnit)
+bool AlienArmy::ReturnSo_uint(AlianSounit*& SoUnit)
 {
-    if (solders.frontenqueue(SoUnit))
-        return true;
-    return false;
+    return solders.enqueue_front(SoUnit);
 }
 
 
