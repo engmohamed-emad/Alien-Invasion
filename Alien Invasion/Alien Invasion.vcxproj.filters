@@ -69,6 +69,9 @@
     <ClInclude Include="AlienArmy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RandGen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -86,9 +89,6 @@
     <ClCompile Include="EG.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DronesQueue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tank.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -102,6 +102,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AlienArmy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RandGen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

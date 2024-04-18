@@ -1,1 +1,16 @@
-﻿  Alien Invasion.vcxproj -> C:\Users\pc\Documents\GitHub\project\x64\Debug\Alien Invasion.exe
+﻿  AlienArmy.cpp
+  RandGen.cpp
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(5,2): error C2065: 'random_device': undeclared identifier
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(5,16): error C2146: syntax error: missing ';' before identifier 'rd'
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(5,16): error C2065: 'rd': undeclared identifier
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(6,2): error C2065: 'mt19937': undeclared identifier
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(6,10): error C2146: syntax error: missing ';' before identifier 'gen'
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(6,14): error C3861: 'rd': identifier not found
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(6,10): error C3861: 'gen': identifier not found
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(7,2): error C2065: 'uniform_int_distribution': undeclared identifier
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(7,27): error C2062: type 'int' unexpected
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(9,18): error C2065: 'gen': undeclared identifier
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(9,14): error C3861: 'dis': identifier not found
+  Source.cpp
+  Generating Code...
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\AlienArmy.cpp(11): warning C4715: 'AlienArmy::ADD_unit': not all control paths return a value

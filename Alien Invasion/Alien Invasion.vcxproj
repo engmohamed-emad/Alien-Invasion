@@ -32,6 +32,7 @@
     <ClInclude Include="priNode.h" />
     <ClInclude Include="priQueue.h" />
     <ClInclude Include="QueueADT.h" />
+    <ClInclude Include="RandGen.h" />
     <ClInclude Include="Solderunit.h" />
     <ClInclude Include="SoModQueue.h" />
     <ClInclude Include="StackADT.h" />
@@ -42,10 +43,10 @@
     <ClCompile Include="AlianSounit.cpp" />
     <ClCompile Include="AlienArmy.cpp" />
     <ClCompile Include="Drones.cpp" />
-    <ClCompile Include="DronesQueue.cpp" />
     <ClCompile Include="EarthArmy.cpp" />
     <ClCompile Include="EG.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="RandGen.cpp" />
     <ClCompile Include="Solderunit.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Tank.cpp" />

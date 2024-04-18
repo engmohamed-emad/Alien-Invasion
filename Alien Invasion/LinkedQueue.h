@@ -12,7 +12,7 @@ a frontPtr pointer for the front of the queue and a backPtr pointer for the back
 
 				The Node: item of type T and a "next" pointer
 					-------------
-					| item| next | --->
+					| item| next | --->__
 					-------------
 General Queue case:
 

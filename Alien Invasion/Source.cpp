@@ -1,9 +1,15 @@
 #include <iostream>
+#include"DronesQueue.h"
+#include"Drones.h"
 #include<random>
 #include"EarthArmy.h"
 #include"AlienArmy.h"
+#include"unit.h"
 #include <fstream>
+#include"SoModQueue.h"
+#include"priQueue.h"
 #include <string>
+#include"EG.h"
 using namespace std;
 double generate_ran(int num1, int num2)
 {
@@ -76,15 +82,9 @@ bool readfile(string name, int num[], int n)
 }
 int main()
 {
-	int arr[20];
-	bool test = readfile("hossam", arr, 20);
-	for (int i = 0; i < 20; i++)
-		cout << arr[i] << endl;
-	int n1, n2;
-	while (1)
-	{
-		cin >> n1>> n2;
-		cout << generate_ran(n1, n2) << endl;
-	}
+
+	
+
+	
 	return 0;
 }

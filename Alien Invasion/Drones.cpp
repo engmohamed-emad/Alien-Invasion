@@ -24,3 +24,8 @@ void Drones::dec_health(float damage)
 {
 	this->currhealth = this->currhealth - damage;
 }
+
+char Drones::kind()
+{
+	return 'D';
+}
