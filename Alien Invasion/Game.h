@@ -6,7 +6,7 @@
 #include"unit.h"
 #include"RandGen.h"
 class Game
-{
+{    //mohamed Ayman
 	AlienArmy* Aarmy;
 		EarthArmy* Earmy;
 		RandGen* rand;
