@@ -30,6 +30,6 @@ public:
 	//bool Return_Drones(Node<Drones>*& D, int Num_Drones);
 	//edit
 	bool Add_monster(Monster* M);
-	void print();
+	void print(int countS, int countM, int countD);
 };
 

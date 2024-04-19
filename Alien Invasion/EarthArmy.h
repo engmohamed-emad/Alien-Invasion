@@ -29,6 +29,6 @@ public:
 	bool Return_Gun(EG* G,int pri);
 	//edit
 	bool Add_tank(Tank* tank);
-	void print();
+	void print(int countS, int countT, int countG);
 };
 
