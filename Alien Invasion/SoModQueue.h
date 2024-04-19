@@ -1,40 +1,70 @@
 #pragma once
+#include <iostream>
 #include "Node.h"
 #include "QueueADT.h"
+#include "Solderunit.h"
+#include "AlianSounit.h"
+#include "unit.h"
 #include "LinkedQueue.h"
+using namespace std;
 
 
 template <typename T>
 class SoModQueue : public LinkedQueue<T>
 {
 public:
-	bool enqueue_front(const T& D);
-	~SoModQueue();
+	
+	~SoModQueue()
+	{
+		T temp;
+		while (this->dequeue(temp));
+	}
 };
 
-template<typename T>
-inline bool SoModQueue<T>::enqueue_front(const T& S)
-{
-	Node<T>* newNodePtr = new Node<T>(S);
-	if (this->isEmpty())//case of empty Queue
-	{
-		newNodePtr->setNext(nullptr);
-		this->frontPtr = newNodePtr;
-		this->backPtr = newNodePtr;
-		return true;
-	}
-	else
-	{
-		newNodePtr->setNext(this->frontPtr);
-		this->frontPtr = newNodePtr;
-		return true;
-	}
-	return false;
-}
 
-template<typename T>
-inline SoModQueue<T>::~SoModQueue()
+template <>
+class SoModQueue<Solderunit*> : public LinkedQueue<Solderunit*>
 {
-	T temp;
-	while (this->dequeue(temp));
-}
+public:
+	void print()
+	{
+		Node<Solderunit*>* ptr = this->frontPtr;
+		while (ptr)
+		{
+			cout << ptr->getItem()->getID() << ", ";
+			ptr = ptr->getNext();
+		}
+	}
+	
+	~SoModQueue()
+	{
+		Solderunit* temp;
+		while (this->dequeue(temp));
+	}
+};
+/// //////////////////////////////////////////////////////////
+template <>
+class SoModQueue<AlianSounit*> : public LinkedQueue<AlianSounit*>
+{
+public:
+	void print()
+	{
+		Node<AlianSounit*>* ptr = this->frontPtr;
+		while (ptr)
+		{
+			cout << ptr->getItem()->getID() << ", ";
+			ptr = ptr->getNext();
+		}
+	}
+
+	~SoModQueue()
+	{
+		AlianSounit* temp;
+		while (this->dequeue(temp));
+	}
+};
+
+
+
+
+

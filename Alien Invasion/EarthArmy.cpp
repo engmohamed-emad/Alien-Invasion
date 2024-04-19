@@ -1,4 +1,6 @@
 #include "EarthArmy.h"
+#include <iostream>
+using namespace std;
 
 bool EarthArmy::Add_unit(unit* ptr)
 {
@@ -27,7 +29,7 @@ bool EarthArmy::getSo_unit(Solderunit*& SoUnit)
 
 bool EarthArmy::ReturnSo_uint(Solderunit* SoUnit)
 {
-    return solders.enqueue_front(SoUnit);
+    return solders.enqueue(SoUnit);
         
 }
 
@@ -54,9 +56,20 @@ bool EarthArmy::Add_tank(Tank* tank)
     else return false;
 }
 
-void EarthArmy::print()
+void EarthArmy::print(int countS, int countT, int countG)
 {
+    cout << "==============  Earth Army Alive Units ==============" << endl;
+    cout << countS << " ES [";
+    solders.print();
+    cout << "]" << endl;
 
+
+
+    cout << countG << " EG [";
+    Earth_Gun.print();
+    cout << "]" << endl;
 }
+
+
 
 

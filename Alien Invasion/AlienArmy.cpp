@@ -26,7 +26,7 @@ bool AlienArmy::getSo_unit(AlianSounit*& SoUnit)
 
 bool AlienArmy::ReturnSo_uint(AlianSounit*& SoUnit)
 {
-    return solders.enqueue_front(SoUnit);
+    return solders.enqueue(SoUnit);
 }
 
 
@@ -73,9 +73,21 @@ bool AlienArmy::Add_monster(Monster* M)
     else return false;
 }
 
-void AlienArmy::print()
+void AlienArmy::print(int countS, int countM, int countD)
 {
-    
+    cout << "==============  Alien Army Alive Units ==============" << endl;
+    cout << countS << " AS [";
+    solders.print();
+    cout << "]" << endl;
+
+
+
+
+    cout << countS << " AD [";
+    Drone.print();
+    cout << "]" << endl;
+
+
 }
 
 

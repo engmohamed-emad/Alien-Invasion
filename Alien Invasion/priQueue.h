@@ -1,6 +1,10 @@
 #pragma once
 #pragma once
 #include "priNode.h"
+#include "unit.h"
+#include "EG.h"
+#include <iostream>
+using namespace std;
 
 
 //This class impelements the priority queue as a sorted list (Linked List)
@@ -60,5 +64,74 @@ public:
 
     bool isEmpty() const {
         return head == nullptr;
+    }
+};
+///////////////////////////////////////////////////////////////
+
+template <>
+class priQueue<EG*>
+{
+protected:
+    priNode<EG*>* head;
+public:
+    priQueue() : head(nullptr) {}
+
+    ~priQueue() {
+        EG* tmp;
+        int p;
+        while (dequeue(tmp, p));
+    }
+
+    //insert the new node in its correct position according to its priority
+    void enqueue(EG*& data, int priority) {
+        priNode<EG*>* newNode = new priNode<EG*>(data, priority);
+
+        if (head == nullptr || priority > head->getPri()) {
+
+            newNode->setNext(head);
+            head = newNode;
+            return;
+        }
+
+        priNode<EG*>* current = head;
+        while (current->getNext() && priority <= current->getNext()->getPri()) {
+            current = current->getNext();
+        }
+        newNode->setNext(current->getNext());
+        current->setNext(newNode);
+    }
+
+    bool dequeue(EG*& topEntry, int& pri) {
+        if (isEmpty())
+            return false;
+
+        topEntry = head->getItem(pri);
+        priNode<EG*>* temp = head;
+        head = head->getNext();
+        delete temp;
+        return true;
+    }
+
+    bool peek(EG*& topEntry, int& pri) {
+        if (isEmpty())
+            return false;
+        pri = head->getPri();
+        topEntry = head->getItem(pri);
+        return true;
+    }
+
+    bool isEmpty() const {
+        return head == nullptr;
+    }
+    void print()
+    {
+        int pri;
+        priNode<EG*>* ptr = this->head;
+        while (ptr)
+        {
+            pri = head->getPri();
+            cout << ptr->getItem(pri)->getID() << ", ";
+            ptr = ptr->getNext();
+        }
     }
 };

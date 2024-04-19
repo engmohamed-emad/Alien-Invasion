@@ -1,41 +1,5 @@
-﻿  Game.cpp
-E:\Documents\GitHub\project\Alien Invasion\RandGen.h(39,6): error C2143: syntax error: missing ';' before '*'
-  (compiling source file 'Game.cpp')
-  
-E:\Documents\GitHub\project\Alien Invasion\RandGen.h(39,6): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-  (compiling source file 'Game.cpp')
-  
-E:\Documents\GitHub\project\Alien Invasion\RandGen.h(39,12): error C2238: unexpected token(s) preceding ';'
-  (compiling source file 'Game.cpp')
-  
-E:\Documents\GitHub\project\Alien Invasion\RandGen.h(46,16): error C2061: syntax error: identifier 'Game'
-  (compiling source file 'Game.cpp')
-  
-E:\Documents\GitHub\project\Alien Invasion\Game.cpp(10,6): error C2660: 'RandGen::set_game': function does not take 1 arguments
-  E:\Documents\GitHub\project\Alien Invasion\RandGen.h(46,7):
-  see declaration of 'RandGen::set_game'
-  E:\Documents\GitHub\project\Alien Invasion\Game.cpp(10,6):
-  while trying to match the argument list '(Game *)'
-  
-  Monster.cpp
-E:\Documents\GitHub\project\Alien Invasion\Monster.cpp(19,37): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  RandGen.cpp
-E:\Documents\GitHub\project\Alien Invasion\Game.h(12,10): error C2143: syntax error: missing ';' before '*'
-  (compiling source file 'RandGen.cpp')
-  
-E:\Documents\GitHub\project\Alien Invasion\Game.h(12,10): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-  (compiling source file 'RandGen.cpp')
-  
-E:\Documents\GitHub\project\Alien Invasion\Game.h(12,16): error C2238: unexpected token(s) preceding ';'
-  (compiling source file 'RandGen.cpp')
-  
-E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(8,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(49,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(51,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(62,18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(64,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Solderunit.cpp
-E:\Documents\GitHub\project\Alien Invasion\Solderunit.cpp(26,37): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  unit.cpp
-E:\Documents\GitHub\project\Alien Invasion\unit.cpp(41,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+﻿  AlienArmy.cpp
+  Source.cpp
   Generating Code...
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\AlienArmy.cpp(11,1): warning C4715: 'AlienArmy::ADD_unit': not all control paths return a value
+  Alien Invasion.vcxproj -> C:\Users\pc\Documents\GitHub\project\x64\Debug\Alien Invasion.exe

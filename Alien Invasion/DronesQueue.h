@@ -1,5 +1,8 @@
 #include"LinkedQueue.h"
 #include"Drones.h"
+#include "unit.h"
+#include <iostream>
+using namespace std;
 #pragma once
 template<class T>
 class DronesQueue : public LinkedQueue<T>
@@ -83,6 +86,74 @@ DronesQueue<T>::~DronesQueue()
 		  while (this->dequeue(temp));
 	  }
 
+/////////////////////////////////////////////////////////////////////////////
+template<>
+class DronesQueue<Drones*> : public LinkedQueue<Drones*>
+{
+private:
+
+public:
+	bool enqueue_front(Drones*& D)
+	{
+		Node<Drones*>* newNodePtr = new Node<Drones*>(D);
+		if (this->isEmpty())
+		{
+			newNodePtr->setNext(nullptr);
+			this->frontPtr = newNodePtr;
+			this->backPtr = newNodePtr;
+			return true;
+		}
+		else
+		{
+			newNodePtr->setNext(this->frontPtr);
+			this->frontPtr = newNodePtr;
+			return true;
+		}
+	}
+	bool can_attacks();
+	bool dequeue_rear(Drones*& D)
+	{
+		if (this->isEmpty())
+			return false;
+		else if (this->frontPtr == this->backPtr)//case one node
+		{
+			Node<Drones*>* nodetodelete = this->backPtr;
+			D = this->backPtr->getItem();
+			delete nodetodelete;
+			this->frontPtr = nullptr;
+			this->backPtr = nullptr;
+			return true;
+		}
+
+		else //case more than one
+		{
+			Node<Drones*>* nodetodelete = this->backPtr;
+			D = this->backPtr->getItem();
+			Node<Drones*>* ptr = this->frontPtr;
+			while (ptr)
+			{
+				if (ptr->getNext() == this->backPtr)
+					break;
+				else
+					ptr = ptr->getNext();
+			}
+			this->backPtr = ptr;
+			delete nodetodelete;
+			this->backPtr->setNext(nullptr);
+			return true;
+		}
+	}
+	void print()
+	{
+		Node<Drones*>* ptr = this->frontPtr;
+		while (ptr)
+		{
+			cout << ptr->getItem()->getID() << ", ";
+			ptr = ptr->getNext();
+		}
+	}
+	~DronesQueue();
+};
 
 
 
