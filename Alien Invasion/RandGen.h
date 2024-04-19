@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RandGen_h
+#define RandGen_h
 #include<random>
 #include"Game.h"
 #include"unit.h"
@@ -7,6 +8,7 @@
 #include "Solderunit.h"
 #include"EG.h"
 using namespace std;
+class Game;
 class RandGen
 {
 
@@ -38,11 +40,13 @@ private:
 	int Rand_Num;
 	Game* game;
 public:
+	RandGen( Game* g);
 	float gen_rand(int min, int max);
 	void Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC);
 	void Create_Random();
 	void Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC);
 	void trans_data();
-	void set_game(Game* g);
+	/*void set_game(Game* g);*/
 };
+#endif
 // game random

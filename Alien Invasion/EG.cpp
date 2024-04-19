@@ -1,10 +1,12 @@
 #include "EG.h"
 #include<cmath>
 void EG::setAttack_Cap_Drone()
-{
-	Attack_Cap_Drone = ceil(Acapacity / 2.0);
+{   
+	Attack_Cap_Drone = floor(Acapacity / 2.0);
+	
 	if (Attack_Cap_Drone % 2 != 0)
-		Attack_Cap_Drone = floor(Acapacity / 2.0);
+		Attack_Cap_Drone = ceil(Acapacity / 2.0);
+		
 }
 void EG::setAttack_Cap_Monster()
 {

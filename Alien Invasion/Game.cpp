@@ -6,8 +6,8 @@ using namespace std;
 Game::Game(){
 	Aarmy = new AlienArmy;
 	Earmy = new EarthArmy;
-	rand = new RandGen;
-	rand->set_game(this);
+	rand = new RandGen(this);
+	//rand->set_game(this);
 }
 
 AlienArmy* Game:: get_Aarmy()
@@ -18,9 +18,14 @@ EarthArmy* Game::get_Earmy()
 {
 	return Earmy;
 }
+RandGen* Game::get_RandGen()
+{
+	return rand;
+}
 void Game::set_data(int a[])
 {
-	a = num;
+	for (int i = 0; i < 21; i++)
+		a[i] == num[i];
 }
 void Game::set_timestep(int t)
 {

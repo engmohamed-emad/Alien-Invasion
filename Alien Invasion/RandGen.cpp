@@ -1,4 +1,8 @@
 #include "RandGen.h"
+RandGen::RandGen(Game*g)
+{
+	game = g;
+}
 float RandGen::gen_rand(int min, int max)
 {
 	random_device rd;
@@ -92,7 +96,7 @@ void RandGen::trans_data()
 	 game->set_data(array);
 }
 
-void RandGen::set_game(Game* g)
-{
-	game = g;
-}
+//void RandGen::set_game(Game* g)
+//{
+//	game = g;
+//}

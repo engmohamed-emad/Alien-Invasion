@@ -84,7 +84,7 @@ int main()
 {
 
 	//mohamed Ayman
-
+	//in each loop you have to set JT
 	
 	return 0;
 }
