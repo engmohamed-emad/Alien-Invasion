@@ -9,11 +9,13 @@ bool AlienArmy::ADD_unit(unit*& ptr)
         return true;
     }
 }
-
 bool AlienArmy::addSo_unit(AlianSounit* s)
 {
     if (solders.enqueue(s))
+    {
+        num_sol++;
         return true;
+    }
     return false;
 }
 
@@ -33,12 +35,14 @@ bool AlienArmy::Add_Drones(Drones* D)
     if (!place1)//front
     {
         place1 = true;
+        num_drones++;
         return Drone.enqueue_front(D);
-
+       
     }
     else
     {
         place1 = false;
+        num_drones++;
         return Drone.enqueue(D);
     }
 
@@ -58,7 +62,21 @@ bool AlienArmy::Get_Drones(Drones* D)
     }
 }
 
+bool AlienArmy::Add_monster(Monster* M)
+{
+    if (num_monster < 1000)
+    {
+        monsters[num_monster] = M;
+        num_monster++;
+        return true;
+    }
+    else return false;
+}
 
+void AlienArmy::print()
+{
+    
+}
 
 
 

@@ -3,13 +3,13 @@
 
 Drones::Drones()
 {
+	set_type("Drone");
 }
-
 Drones::Drones(int id, int jt, float h, float ap, int c)
 {
 	this->set_type("Drone");
 	this->setID(id);
-	this->setJtime(jt);
+	this->set_Tj(jt);
 	this->sethealth(h);
 	this->setApower(ap);
 	this->setAcapacity(c);

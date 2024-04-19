@@ -8,15 +8,15 @@ bool EarthArmy::Add_unit(unit* ptr)
         Add_Earth_Gun(derivedPtr);
         return true;
     }
-
-
-
 }
 
 bool EarthArmy::addSo_unit(Solderunit* s)
 {
-    if (solders.enqueue(s))
+    if (solders.enqueue(s)) {
+        num_sol++;
         return true;
+    }
+       
     return false;
 }
 
@@ -34,6 +34,7 @@ bool EarthArmy::ReturnSo_uint(Solderunit* SoUnit)
 void EarthArmy::Add_Earth_Gun(EG* G)
 {
      Earth_Gun.enqueue(G, G->get_pri());
+     num_EG++;
 }
 
 
@@ -42,7 +43,20 @@ bool EarthArmy::Return_Gun(EG* G,int pri)
 {
     return Earth_Gun.dequeue(G,pri);
 }
+//edit
+bool EarthArmy::Add_tank(Tank* tank)
+{
+    if (tanks.push(tank))
+    {
+        num_tank++;
+        return true;
+    }
+    else return false;
+}
 
+void EarthArmy::print()
+{
 
+}
 
 

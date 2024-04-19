@@ -21,14 +21,14 @@ float unit::getcurrhealth()
 	return currhealth;
 }
 
-void unit::setJtime(int t)
+void unit::set_Tj(int t)
 {
-	Jtime = t;
+	Tj = t;
 }
 
-int unit::getJtime()
+int unit::get_Tj()
 {
-	return Jtime;
+	return Tj;
 }
 
 void unit::setApower(float p)
@@ -73,4 +73,24 @@ bool unit::need_help()
 	if ((currhealth / health) < 0.2)
 		return true;
 	return false;
+}
+void unit::set_Ta(int t)
+{
+	Ta = t;
+}
+void unit::set_Td(int t)
+{
+	Td = t;
+}
+int unit::get_Dd()
+{
+	return Td - Ta;
+}
+int unit::get_Df()
+{
+	return Ta - Tj;
+}
+int unit::get_Db()
+{
+	return Td - Tj;
 }

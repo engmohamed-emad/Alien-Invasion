@@ -12,13 +12,13 @@ void EG::setAttack_Cap_Monster()
 }
 EG::EG()
 {
-
+	set_type("EG");
 }
 EG::EG(int id, int jt, float h, float ap, int c)
 {
 	this->set_type("EG");
 	this->setID(id);
-	this->setJtime(jt);
+	this->set_Tj(jt);
 	this->sethealth(h);
 	this->setApower(ap);
 	this->setAcapacity(c);

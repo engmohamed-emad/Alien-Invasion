@@ -2,12 +2,14 @@
 #include"unit.h"
 #include<iostream>
 Monster::Monster()
-{}
+{
+	set_type("Monster");
+}
 Monster::Monster(int id, int jt, float h, float ap, int c)
 {
-	this->set_type("Tank");
+	this->set_type("Monster");
 	this->setID(id);
-	this->setJtime(jt);
+	this->set_Tj(jt);
 	this->sethealth(h);
 	this->setApower(ap);
 	this->setAcapacity(c);

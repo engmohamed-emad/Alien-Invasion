@@ -10,23 +10,33 @@ protected:
 	int ID;
 	float health;
 	float currhealth;
-	int Jtime;
+	int Tj=0;  
 	float Apower;
 	int Acapacity;
 	string type;
+	int Ta=0;
+	int Td=0;
+	int Db;
+	int Df;
+	int Dd;
 public:
 	void setID(int id);
 	int getID();
 	void sethealth(float h);
 	float getcurrhealth();
-	void setJtime(int t);
-	int getJtime();
+	void set_Tj(int t);
+	int get_Tj();
 	void setApower(float p);
 	int getApower();
 	void setAcapacity(int c);
 	int getAcapacity();
 	void set_type(string type);
 	string get_type();
+	void set_Ta(int t);
+	void set_Td(int t);
+	int get_Db();
+	int get_Df();
+	int get_Dd();
 	virtual void dec_health(float damage) = 0;
 	virtual void inc_health(float heal) {}
 	virtual bool is_dead();

@@ -1,5 +1,6 @@
 #pragma once
 #include<random>
+#include"Game.h"
 #include"unit.h"
 #include"Drones.h"
 #include "AlianSounit.h"
@@ -32,16 +33,16 @@ private:
 	//array[18]-> min of attack capcity for Alien
 	//array[19]-> max of attack capcity for Alien
 	//aarray[20]->empty place for H.U in phase 2
+	int Earth_count_id=1;
+	int Alien_count_id = 2000;
 	int Rand_Num;
+	Game* game;
 public:
 	float gen_rand(int min, int max);
-	unit*& Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC);
+	void Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC);
 	void Create_Random();
-	unit*& Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC);
-	
-
-
-
-
-
+	void Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC);
+	void trans_data();
+	void set_game(Game* g);
 };
+// game random

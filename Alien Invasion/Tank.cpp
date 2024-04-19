@@ -3,12 +3,14 @@
 #include<iostream>
 #include<cmath>
 Tank::Tank()
-{}
+{
+	set_type("Tank");
+}
 Tank::Tank(int id, int jt, float h, float ap, int c)
 {
 	this->set_type("Tank");
 	this->setID(id);
-	this->setJtime(jt);
+	this->set_Tj(jt);
 	this->sethealth(h);
 	this->setApower(ap);
 	this->setAcapacity(c);

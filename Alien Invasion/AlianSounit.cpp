@@ -2,13 +2,13 @@
 
 AlianSounit::AlianSounit()
 {
+	set_type("AS");
 }
-
 AlianSounit::AlianSounit(int id, int jt, float h, float ap, int c)
 {
 	this->set_type("AS");
 	this->setID(id);
-	this->setJtime(jt);
+	this->set_Tj(jt);
 	this->sethealth(h);
 	this->setApower(ap);
 	this->setAcapacity(c);
