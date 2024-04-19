@@ -80,8 +80,10 @@ void AlienArmy::print(int countS, int countM, int countD)
     solders.print();
     cout << "]" << endl;
 
-
-
+    cout << num_monster << " AM [";
+    for (int i = 0; i < num_monster; i++)
+        cout << monsters[i]->getID() << " ,";
+    cout << "]" << endl;
 
     cout << countS << " AD [";
     Drone.print();

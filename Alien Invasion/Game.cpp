@@ -7,7 +7,7 @@ Game::Game() {
 	Aarmy = new AlienArmy;
 	Earmy = new EarthArmy;
 	rand = new RandGen(this);
-	//rand->set_game(this);
+	
 }
 
 AlienArmy* Game::get_Aarmy()

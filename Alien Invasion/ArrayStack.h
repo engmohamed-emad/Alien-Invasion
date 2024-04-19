@@ -10,7 +10,7 @@
 #define ARRAY_STACK_
 
 #include "StackADT.h"
-
+#include"Tank.h"
  //Unless spesificed by the stack user, the default size is 100
 template<typename T>
 class ArrayStack : public StackADT<T>
@@ -57,7 +57,16 @@ public:
 		TopEntry = items[top];
 		return true;
 	}  // end peek
-
+	void print()
+	{
+	}
 }; // end ArrayStack
-
+template<>
+inline void ArrayStack<Tank*>::print()
+{
+	for (int i = 0; i <= top; i++)
+	{
+		cout << items[i]->getID() << ", ";
+	}
+}
 #endif

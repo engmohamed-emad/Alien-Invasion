@@ -63,7 +63,9 @@ void EarthArmy::print(int countS, int countT, int countG)
     solders.print();
     cout << "]" << endl;
 
-
+    cout << num_tank << " ET [";
+    tanks.print();
+    cout << "]" << endl;
 
     cout << countG << " EG [";
     Earth_Gun.print();
