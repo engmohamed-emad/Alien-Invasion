@@ -19,13 +19,13 @@ private:
 	//array[2]-> % of ET
 	//array[3]-> % of EG
 	//array[4]-> % of AS
-    //array[5]-> % of AM
+	//array[5]-> % of AM
 	//array[6]-> % of AD
 	//array[7]->prob used by randgen to generate new units of not
 	//array[8]-> min for unit power for Earth
 	//array[9]-> max for unit power for Earth
 	//array[10]-> min of health for Earth
-    //array[11]-> max of health for Earth
+	//array[11]-> max of health for Earth
 	//array[12]-> min of attack capcity for Earth
 	//array[13]-> max of attack capcity for Earth
 	//array[14]-> min for unit power for Alien
@@ -35,12 +35,12 @@ private:
 	//array[18]-> min of attack capcity for Alien
 	//array[19]-> max of attack capcity for Alien
 	//aarray[20]->empty place for H.U in phase 2
-	int Earth_count_id=1;
+	int Earth_count_id = 1;
 	int Alien_count_id = 2000;
 	int Rand_Num;
 	Game* game;
 public:
-	RandGen( Game* g);
+	RandGen(Game* g);
 	float gen_rand(int min, int max);
 	void Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC);
 	void Create_Random();

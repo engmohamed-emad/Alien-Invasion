@@ -1,5 +1,5 @@
 #include "RandGen.h"
-RandGen::RandGen(Game*g)
+RandGen::RandGen(Game* g)
 {
 	game = g;
 }
@@ -17,7 +17,7 @@ void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int
 	if (prob <= array[1])
 	{
 		//edit
-		Solderunit* U = new Solderunit(ID, Jt, H, AP, AC); 
+		Solderunit* U = new Solderunit(ID, Jt, H, AP, AC);
 		game->get_Earmy()->addSo_unit(U);
 	}
 	else if (prob <= array[1] + array[2])
@@ -41,17 +41,17 @@ void RandGen::Create_Random()
 	float H;
 	float AP;
 	int AC;
-	prob=gen_rand(1, 100);
+	prob = gen_rand(1, 100);
 	if (prob <= array[7])
-	{   
+	{
 		for (int i = 0; i < array[0]; i++)
 		{
 			Jt = game->get_timestep();
 			ID = Earth_count_id++;
 			prob = gen_rand(1, 100);
 			H = gen_rand(array[10], array[11]);
-			AC= gen_rand(array[12], array[13]);
-			AP= gen_rand(array[8], array[9]);
+			AC = gen_rand(array[12], array[13]);
+			AP = gen_rand(array[8], array[9]);
 			Create_Unit_Earth(prob, ID, Jt, H, AP, AC);
 			//call Earth arramy using game pointer to add this unit
 		}
@@ -65,7 +65,7 @@ void RandGen::Create_Random()
 				H = gen_rand(array[16], array[17]);
 				AC = gen_rand(array[18], array[19]);
 				AP = gen_rand(array[14], array[15]);
-				Create_Unit_Alian(prob,ID ,Jt , H, AP, AC);
+				Create_Unit_Alian(prob, ID, Jt, H, AP, AC);
 				//call Alian arramy using game pointer to add this unit
 			}
 		}
@@ -78,13 +78,13 @@ void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int
 	{
 		AlianSounit* U = new AlianSounit(ID, Jt, H, AP, AC);
 		game->get_Aarmy()->addSo_unit(U);
-		
+
 	}
 	else if (prob <= array[4] + array[5])
 	{
 		//proplity if monstar
 	}
-	else if (prob <= array[4]+ array[6]+ array[5])
+	else if (prob <= array[4] + array[6] + array[5])
 	{
 		Drones* U = new Drones(ID, Jt, H, AP, AC);
 		game->get_Aarmy()->Add_Drones(U);
@@ -93,7 +93,7 @@ void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int
 
 void RandGen::trans_data()
 {
-	 game->set_data(array);
+	game->set_data(array);
 }
 
 //void RandGen::set_game(Game* g)

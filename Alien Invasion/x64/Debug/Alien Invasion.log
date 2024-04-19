@@ -1,11 +1,13 @@
-﻿  Game.cpp
+﻿  AlienArmy.cpp
+  Game.cpp
 C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Game.cpp(28,8): warning C4553: '==': result of expression not used; did you intend '='?
   RandGen.cpp
 C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(12,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(53,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(53,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(55,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(66,18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(68,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Source.cpp
   Generating Code...
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\AlienArmy.cpp(11): warning C4715: 'AlienArmy::ADD_unit': not all control paths return a value
   Alien Invasion.vcxproj -> C:\Users\LENONO\OneDrive\Documents\GitHub\project\x64\Debug\Alien Invasion.exe

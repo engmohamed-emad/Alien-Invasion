@@ -152,7 +152,14 @@ public:
 			ptr = ptr->getNext();
 		}
 	}
-	~DronesQueue();
+	
+		~DronesQueue()
+		{
+			Drones* temp;
+			while (this->dequeue(temp));
+		}
+
+	
 };
 
 
