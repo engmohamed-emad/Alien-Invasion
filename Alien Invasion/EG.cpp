@@ -57,6 +57,7 @@ float EG::attack(int enhealth)
 void EG::dec_health(float damage)
 {
 	this->currhealth = this->currhealth - damage;
+	Modfi_pri();
 }
 
 

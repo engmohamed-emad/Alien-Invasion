@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 using namespace std;
-
+#include"unit.h"
 /*
 This is a program that implements the queue abstract data type using a linked list.
 The queue is implemented as a chain of linked nodes that has two pointers,
@@ -61,6 +61,10 @@ public:
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
 	~LinkedQueue();
+	void print()
+	{
+
+	}
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -145,7 +149,16 @@ bool LinkedQueue<T>::dequeue(T& frntEntry)
 	return true;
 }
 
-
+  template<>
+  inline void LinkedQueue<unit*>::print()
+  {
+	  Node<unit*>* ptr = this->frontPtr;
+	  while (ptr)
+	  {
+		  cout << ptr->getItem()->getID() << ", ";
+		  ptr = ptr->getNext();
+	  }
+  }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -168,6 +181,10 @@ bool LinkedQueue<T>::peek(T& frntEntry) const
 
 }
 ///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 template <typename T>
 LinkedQueue<T>::~LinkedQueue()

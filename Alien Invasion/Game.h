@@ -15,6 +15,7 @@ class Game
 	LinkedQueue<unit*>killedlist;
 	int num[21];
 	int timestep = 0;
+	int num_Killed;
 public:
 	Game();
 	AlienArmy* get_Aarmy();
@@ -26,13 +27,10 @@ public:
 	int get_timestep();
 	// edit
 	void set_arr(int arr[]);
-	void add_killedlist(unit*U);
+	void add_killedlist(unit*&U);
+	void print_Killed();
 	~Game();
 };
 #endif
-/*
-while (i<40||())
-{
 
-}
-*/
+

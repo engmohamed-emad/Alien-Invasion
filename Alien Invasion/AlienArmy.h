@@ -19,17 +19,16 @@ protected:
 	int num_sol = 0;
 	int num_monster = 0;
 	int num_drones=0;
-	int num_killed = 0;
 public:
 	bool ADD_unit(unit*& ptr);
-	bool addSo_unit(AlianSounit* s);
-	bool ReturnSo_uint(AlianSounit*& SoUnit);
-	bool get_monster(Monster* M);
-	bool Add_Drones(Drones* D);
-	bool Get_Drones(Drones* D);// dont forget to use fn can attack before make any attack
+	bool addSo_unit(AlianSounit*& s);
+	bool ReturnSo_uint(AlianSounit*& SoUnit,unit*& pt);
+	bool get_monster(Monster*& M, unit*& pt);
+	bool Add_Drones(Drones*& D);
+	bool Get_Drones(Drones*& D, unit*& pt);// dont forget to use fn can attack before make any attack
 	//bool Return_Drones(Node<Drones>*& D, int Num_Drones);
 	//edit
-	bool Add_monster(Monster* M);
+	bool Add_monster(Monster*& M);
 	void print();
 };
 

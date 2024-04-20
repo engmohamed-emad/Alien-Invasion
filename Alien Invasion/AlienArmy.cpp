@@ -9,7 +9,7 @@ bool AlienArmy::ADD_unit(unit*& ptr)
         return true;
     }
 }
-bool AlienArmy::addSo_unit(AlianSounit* s)
+bool AlienArmy::addSo_unit(AlianSounit*& s)
 {
     if (solders.enqueue(s))
     {
@@ -18,26 +18,28 @@ bool AlienArmy::addSo_unit(AlianSounit* s)
     }
     return false;
 }
-bool AlienArmy::ReturnSo_uint(AlianSounit*& SoUnit)
+bool AlienArmy::ReturnSo_uint(AlianSounit*& SoUnit, unit*& pt)
 {
     if (solders.dequeue(SoUnit))
     {
         num_sol--;
+        pt = dynamic_cast<unit*>(SoUnit);
         return true;
     }
     else return false;
 }
 
-bool AlienArmy::get_monster(Monster* M)
+bool AlienArmy::get_monster(Monster*& M, unit*& pt)
 {
     if (num_monster)
     {
         M = monsters[(--num_monster)];
+        pt = dynamic_cast<unit*>(M);
         return true;
     }
     else return false;
 }
-bool AlienArmy::Add_Drones(Drones* D)
+bool AlienArmy::Add_Drones(Drones*& D)
 {
     if (!place1)//front
     {
@@ -55,7 +57,7 @@ bool AlienArmy::Add_Drones(Drones* D)
 
 }
 
-bool AlienArmy::Get_Drones(Drones* D)
+bool AlienArmy::Get_Drones(Drones*& D, unit*& pt)
 {
     if (!place2)//front
     {
@@ -63,6 +65,7 @@ bool AlienArmy::Get_Drones(Drones* D)
         if (Drone.dequeue(D))
         {
             num_drones--;
+           pt= dynamic_cast<unit*>(D);
             return true;
         }
         else return false;
@@ -73,13 +76,14 @@ bool AlienArmy::Get_Drones(Drones* D)
         if (Drone.dequeue_rear(D))
         {
             num_drones--;
+            pt = dynamic_cast<unit*>(D);
             return true;
         }
         else return false;
     }
 }
 
-bool AlienArmy::Add_monster(Monster* M)
+bool AlienArmy::Add_monster(Monster*& M)
 {
     if (num_monster < 1000)
     {

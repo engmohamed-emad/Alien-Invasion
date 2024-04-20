@@ -7,6 +7,7 @@ Game::Game() {
 	Aarmy = new AlienArmy;
 	Earmy = new EarthArmy;
 	rand = new RandGen(this);
+	num_Killed = 0;
 
 }
 
@@ -33,9 +34,22 @@ void Game::set_arr(int arr[])
 	for (int i = 0; i < 21; i++)
 		num[i] = arr[i];
 }
-void Game::add_killedlist(unit* U)
+void Game::add_killedlist(unit*& U)
 {
-	killedlist.enqueue(U);
+	if (U != nullptr)
+	{
+		killedlist.enqueue(U);
+		num_Killed++;
+	}
+	else
+		return;
+}
+void Game::print_Killed()
+{    
+	cout << "==============  Killed Units ==============" << endl;
+	cout << num_Killed << "  [";
+	killedlist.print();
+	cout << "]" << endl;
 }
 void Game::set_timestep(int t)
 {
@@ -56,7 +70,7 @@ Game::~Game()
 bool Game::read_data()
 {
 	fstream infile;
-	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
@@ -102,6 +116,7 @@ bool Game::read_data()
 		num[18] = stoi(line.c_str());
 		getline(infile, line);
 		num[19] = stoi(line.c_str());
+		num[20] = 0;
 		return true;
 	}
 	else

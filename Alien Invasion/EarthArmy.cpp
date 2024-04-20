@@ -12,7 +12,7 @@ bool EarthArmy::Add_unit(unit* ptr)
     }
 }
 
-bool EarthArmy::addSo_unit(Solderunit* s)
+bool EarthArmy::addSo_unit(Solderunit*& s)
 {
     if (solders.enqueue(s)) {
         num_sol++;
@@ -22,25 +22,28 @@ bool EarthArmy::addSo_unit(Solderunit* s)
     return false;
 }
 
-bool EarthArmy::ReturnSo_uint(Solderunit* SoUnit)
+bool EarthArmy::ReturnSo_uint(Solderunit*& SoUnit,unit*&pt)
 {
     if (solders.dequeue(SoUnit)) {
         num_sol--;
+        pt = dynamic_cast<unit*>(SoUnit);
         return true;
     }
     else return false;
 }
 
-bool EarthArmy::get_tank(Tank* t)
+bool EarthArmy::return_tank(Tank*& t,unit*&pt)
 {
     if (tanks.pop(t))
     {
         num_tank--;
+        pt= dynamic_cast<unit*>(t);
         return true;
     }
-    else return false;
+    else 
+        return false;
 }
-void EarthArmy::Add_Earth_Gun(EG* G)
+void EarthArmy::Add_Earth_Gun(EG*& G)
 {
      Earth_Gun.enqueue(G, G->get_pri());
      num_EG++;
@@ -48,17 +51,18 @@ void EarthArmy::Add_Earth_Gun(EG* G)
 
 
 
-bool EarthArmy::Return_Gun(EG* G,int pri)
+bool EarthArmy::Return_Gun(EG*& G,int pri,unit*&pt)
 {
     if (Earth_Gun.dequeue(G, pri))
     {
         num_EG--;
+        pt = dynamic_cast<unit*>(G);
         return true;
     }
     else return false;
 }
 //edit
-bool EarthArmy::Add_tank(Tank* tank)
+bool EarthArmy::Add_tank(Tank*& tank)
 {
     if (tanks.push(tank))
     {
