@@ -130,8 +130,10 @@ public:
         while (ptr)
         {
             pri = head->getPri();
-            cout << ptr->getItem(pri)->getID() << ", ";
+            cout << ptr->getItem(pri)->getID();
             ptr = ptr->getNext();
+            if (ptr)
+                cout << ", ";
         }
     }
 };

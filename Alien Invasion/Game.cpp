@@ -8,7 +8,6 @@ Game::Game() {
 	Earmy = new EarthArmy;
 	rand = new RandGen(this);
 	num_Killed = 0;
-
 }
 
 AlienArmy* Game::get_Aarmy()
@@ -69,13 +68,14 @@ Game::~Game()
 	while (killedlist.dequeue(temp))
 	{
 		delete temp;
+		temp = nullptr;
 	}
 }
 
 bool Game::read_data()
 {
 	fstream infile;
-	infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");
+	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;

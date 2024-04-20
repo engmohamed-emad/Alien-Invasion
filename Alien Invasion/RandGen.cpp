@@ -66,7 +66,7 @@ void RandGen::Create_Random()
 			//call Alian arramy using game pointer to add this unit			}
 		}
 	}
-	else cout << "can not generate\n";
+	
 }
 
 void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC)

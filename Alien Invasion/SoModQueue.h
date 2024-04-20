@@ -31,8 +31,10 @@ public:
 		Node<Solderunit*>* ptr = this->frontPtr;
 		while (ptr)
 		{
-			cout << ptr->getItem()->getID() << ", ";
+			cout << ptr->getItem()->getID();
 			ptr = ptr->getNext();
+			if (ptr)
+				cout << ", ";
 		}
 	}
 	
@@ -52,8 +54,10 @@ public:
 		Node<AlianSounit*>* ptr = this->frontPtr;
 		while (ptr)
 		{
-			cout << ptr->getItem()->getID() << ", ";
+			cout << ptr->getItem()->getID();
 			ptr = ptr->getNext();
+			if (ptr)
+				cout << ", ";
 		}
 	}
 

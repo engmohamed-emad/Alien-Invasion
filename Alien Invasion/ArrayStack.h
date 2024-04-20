@@ -66,7 +66,9 @@ inline void ArrayStack<Tank*>::print()
 {
 	for (int i = 0; i <= top; i++)
 	{
-		cout << items[i]->getID() << ", ";
+		cout << items[i]->getID();
+		if (i < top)
+			cout << ", ";
 	}
 }
 #endif

@@ -27,10 +27,10 @@ int main()
 {
 	unit* pt = nullptr;
 	int x;
-	int n;
+	string s;
 	//int arr[21] = { 7, 70, 20, 10, 50, 30, 20, 30, 3, 50, 30, 90, 2, 5, 1, 20, 40, 80, 1, 4, 0 };
-	Game* mygame = new Game;
 	//mygame->set_arr(arr);
+	Game* mygame = new Game;
 	mygame->read_data();
 	RandGen* rand = mygame->get_RandGen();
 	rand->trans_data();
@@ -40,14 +40,15 @@ int main()
 		rand->Create_Random();
 		x = generate_ran(1, 100);
 		cout << "Current time step " << i << endl;
-		cout << "X= " << x << endl;
-		mygame->get_Aarmy()->print();
+		cout << "X= " << x << endl; 
+		//we did this to check before and after 
+		/*mygame->get_Aarmy()->print();
 		cout << endl;
 		mygame->get_Earmy()->print();
 		cout << endl;
 		mygame->print_Killed();
 		cout << endl;
-		cout << "=================================================" << endl;
+		cout << "=================================================" << endl;*/
 		if (x < 10)
 		{
 			Solderunit* ES = nullptr;
@@ -138,8 +139,9 @@ int main()
 		cout << endl;
 		mygame->print_Killed();
 		cout << endl;
-		cin >> n;
-	}
+		//print enter to continue
+		getline(cin,s);
+}
 
 	delete mygame;
 	mygame = nullptr;

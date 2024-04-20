@@ -145,7 +145,13 @@ void AlienArmy::print()
 
     cout << num_monster << " AM [";
     for (int i = 0; i < num_monster; i++)
-        cout << monsters[i]->getID() << " ,";
+    {
+        cout << monsters[i]->getID();
+        if (i < num_monster - 1)
+        {
+            cout << ", ";
+        }
+    }
     cout << "]" << endl;
 
     cout << num_drones << " AD [";

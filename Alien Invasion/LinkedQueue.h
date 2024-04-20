@@ -155,8 +155,10 @@ bool LinkedQueue<T>::dequeue(T& frntEntry)
 	  Node<unit*>* ptr = this->frontPtr;
 	  while (ptr)
 	  {
-		  cout << ptr->getItem()->getID() << ", ";
+		  cout << ptr->getItem()->getID();
 		  ptr = ptr->getNext();
+		  if (ptr)
+			  cout << ", ";
 	  }
   }
 
