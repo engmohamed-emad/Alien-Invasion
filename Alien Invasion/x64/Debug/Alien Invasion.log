@@ -1,7 +1,2 @@
-﻿  RandGen.cpp
-E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(12,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(52,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(54,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(62,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(64,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  Game.cpp
   Alien Invasion.vcxproj -> E:\Documents\GitHub\project\x64\Debug\Alien Invasion.exe
