@@ -25,8 +25,6 @@ public:
 	void set_data(int a[]);
 	void set_timestep(int t);
 	int get_timestep();
-	// edit
-	void set_arr(int arr[]);
 	void add_killedlist(unit*&U);
 	void print_Killed();
 	~Game();

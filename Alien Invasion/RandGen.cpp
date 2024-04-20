@@ -13,10 +13,8 @@ float RandGen::gen_rand(int min, int max)
 }
 void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC)
 {
-	//review in case of diffrant order of proplities
 	if (prob <= array[1])
 	{
-		//edit
 		Solderunit* U = new Solderunit(ID, Jt, H, AP, AC);
 		game->get_Earmy()->addSo_unit(U);
 	}
@@ -28,20 +26,19 @@ void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int
 	}
 	else if (prob <= array[1] + array[2] + array[3])
 	{
-		//edit
 		EG* U = new EG(ID, Jt, H, AP, AC);
 		game->get_Earmy()->Add_Earth_Gun(U);
 	}
 }
 void RandGen::Create_Random()
-{    //we have to handle ID and Jt
+{  
 	float prob;
 	int ID;
 	int Jt;
 	float H;
 	float AP;
 	int AC;
-	prob = 1;//gen_rand(1, 100);
+	prob = gen_rand(1, 100);
 	if (prob <= array[7])
 	{
 		for (int i = 0; i < array[0]; i++)
