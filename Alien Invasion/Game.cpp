@@ -7,7 +7,7 @@ Game::Game() {
 	Aarmy = new AlienArmy;
 	Earmy = new EarthArmy;
 	rand = new RandGen(this);
-	
+
 }
 
 AlienArmy* Game::get_Aarmy()
@@ -25,7 +25,17 @@ RandGen* Game::get_RandGen()
 void Game::set_data(int a[])
 {
 	for (int i = 0; i < 21; i++)
-		a[i] == num[i];
+		a[i] = num[i];
+}
+//edit
+void Game::set_arr(int arr[])
+{
+	for (int i = 0; i < 21; i++)
+		num[i] = arr[i];
+}
+void Game::add_killedlist(unit* U)
+{
+	killedlist.enqueue(U);
 }
 void Game::set_timestep(int t)
 {

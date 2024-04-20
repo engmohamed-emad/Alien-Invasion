@@ -22,17 +22,24 @@ bool EarthArmy::addSo_unit(Solderunit* s)
     return false;
 }
 
-bool EarthArmy::getSo_unit(Solderunit*& SoUnit)
-{
-    return solders.dequeue(SoUnit);
-}
-
 bool EarthArmy::ReturnSo_uint(Solderunit* SoUnit)
 {
-    return solders.enqueue(SoUnit);
-        
+    if (solders.dequeue(SoUnit)) {
+        num_sol--;
+        return true;
+    }
+    else return false;
 }
 
+bool EarthArmy::get_tank(Tank* t)
+{
+    if (tanks.pop(t))
+    {
+        num_tank--;
+        return true;
+    }
+    else return false;
+}
 void EarthArmy::Add_Earth_Gun(EG* G)
 {
      Earth_Gun.enqueue(G, G->get_pri());
@@ -43,7 +50,12 @@ void EarthArmy::Add_Earth_Gun(EG* G)
 
 bool EarthArmy::Return_Gun(EG* G,int pri)
 {
-    return Earth_Gun.dequeue(G,pri);
+    if (Earth_Gun.dequeue(G, pri))
+    {
+        num_EG--;
+        return true;
+    }
+    else return false;
 }
 //edit
 bool EarthArmy::Add_tank(Tank* tank)
@@ -56,10 +68,10 @@ bool EarthArmy::Add_tank(Tank* tank)
     else return false;
 }
 
-void EarthArmy::print(int countS, int countT, int countG)
+void EarthArmy::print()
 {
     cout << "==============  Earth Army Alive Units ==============" << endl;
-    cout << countS << " ES [";
+    cout << num_sol << " ES [";
     solders.print();
     cout << "]" << endl;
 
@@ -67,7 +79,7 @@ void EarthArmy::print(int countS, int countT, int countG)
     tanks.print();
     cout << "]" << endl;
 
-    cout << countG << " EG [";
+    cout << num_EG << " EG [";
     Earth_Gun.print();
     cout << "]" << endl;
 }

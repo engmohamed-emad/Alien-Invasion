@@ -18,18 +18,25 @@ bool AlienArmy::addSo_unit(AlianSounit* s)
     }
     return false;
 }
-
-bool AlienArmy::getSo_unit(AlianSounit*& SoUnit)
-{
-    return solders.dequeue(SoUnit);
-}
-
 bool AlienArmy::ReturnSo_uint(AlianSounit*& SoUnit)
 {
-    return solders.enqueue(SoUnit);
+    if (solders.dequeue(SoUnit))
+    {
+        num_sol--;
+        return true;
+    }
+    else return false;
 }
 
-
+bool AlienArmy::get_monster(Monster* M)
+{
+    if (num_monster)
+    {
+        M = monsters[(--num_monster)];
+        return true;
+    }
+    else return false;
+}
 bool AlienArmy::Add_Drones(Drones* D)
 {
     if (!place1)//front
@@ -53,12 +60,22 @@ bool AlienArmy::Get_Drones(Drones* D)
     if (!place2)//front
     {
         place2 = true;
-        return Drone.dequeue(D);
+        if (Drone.dequeue(D))
+        {
+            num_drones--;
+            return true;
+        }
+        else return false;
     }
     else
     {
         place2 = false;
-        return Drone.dequeue_rear(D);
+        if (Drone.dequeue_rear(D))
+        {
+            num_drones--;
+            return true;
+        }
+        else return false;
     }
 }
 
@@ -73,10 +90,10 @@ bool AlienArmy::Add_monster(Monster* M)
     else return false;
 }
 
-void AlienArmy::print(int countS, int countM, int countD)
+void AlienArmy::print()
 {
     cout << "==============  Alien Army Alive Units ==============" << endl;
-    cout << countS << " AS [";
+    cout << num_sol<< " AS [";
     solders.print();
     cout << "]" << endl;
 
@@ -85,7 +102,7 @@ void AlienArmy::print(int countS, int countM, int countD)
         cout << monsters[i]->getID() << " ,";
     cout << "]" << endl;
 
-    cout << countS << " AD [";
+    cout << num_drones << " AD [";
     Drone.print();
     cout << "]" << endl;
 

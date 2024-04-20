@@ -23,13 +23,13 @@ protected:
 public:
 	bool ADD_unit(unit*& ptr);
 	bool addSo_unit(AlianSounit* s);
-	bool getSo_unit(AlianSounit*& SoUnit);
 	bool ReturnSo_uint(AlianSounit*& SoUnit);
+	bool get_monster(Monster* M);
 	bool Add_Drones(Drones* D);
 	bool Get_Drones(Drones* D);// dont forget to use fn can attack before make any attack
 	//bool Return_Drones(Node<Drones>*& D, int Num_Drones);
 	//edit
 	bool Add_monster(Monster* M);
-	void print(int countS, int countM, int countD);
+	void print();
 };
 

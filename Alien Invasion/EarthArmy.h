@@ -22,13 +22,12 @@ public:
 	bool Add_unit(unit* ptr);
 
 	bool addSo_unit(Solderunit* s);
-	bool getSo_unit(Solderunit*& SoUnit);
 	bool ReturnSo_uint(Solderunit* SoUnit);
-	
+	bool get_tank(Tank* t);
 	void Add_Earth_Gun(EG* G);              
 	bool Return_Gun(EG* G,int pri);
 	//edit
 	bool Add_tank(Tank* tank);
-	void print(int countS, int countT, int countG);
+	void print();
 };
 

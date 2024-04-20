@@ -41,7 +41,7 @@ void RandGen::Create_Random()
 	float H;
 	float AP;
 	int AC;
-	prob = gen_rand(1, 100);
+	prob = 1;//gen_rand(1, 100);
 	if (prob <= array[7])
 	{
 		for (int i = 0; i < array[0]; i++)
@@ -55,21 +55,18 @@ void RandGen::Create_Random()
 			Create_Unit_Earth(prob, ID, Jt, H, AP, AC);
 			//call Earth arramy using game pointer to add this unit
 		}
-
 		for (int i = 0; i < array[0]; i++)
 		{
-			for (int i = 0; i < array[0]; i++)
-			{
-				ID = Alien_count_id++;
-				prob = gen_rand(1, 100);
-				H = gen_rand(array[16], array[17]);
-				AC = gen_rand(array[18], array[19]);
-				AP = gen_rand(array[14], array[15]);
-				Create_Unit_Alian(prob, ID, Jt, H, AP, AC);
-				//call Alian arramy using game pointer to add this unit
-			}
+			ID = Alien_count_id++;
+			prob = gen_rand(1, 100);
+			H = gen_rand(array[16], array[17]);
+			AC = gen_rand(array[18], array[19]);
+			AP = gen_rand(array[14], array[15]);
+			Create_Unit_Alian(prob, ID, Jt, H, AP, AC);
+			//call Alian arramy using game pointer to add this unit			}
 		}
 	}
+	else cout << "can not generate\n";
 }
 
 void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC)
@@ -82,6 +79,8 @@ void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int
 	}
 	else if (prob <= array[4] + array[5])
 	{
+		Monster* U = new Monster(ID, Jt, H, AP, AC);
+		game->get_Aarmy()->Add_monster(U);
 		//proplity if monstar
 	}
 	else if (prob <= array[4] + array[6] + array[5])
