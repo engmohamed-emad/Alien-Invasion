@@ -33,12 +33,14 @@ void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int
 void RandGen::Create_Random()
 {  
 	float prob;
+
 	int ID;
 	int Jt;
 	float H;
 	float AP;
 	int AC;
 	prob = gen_rand(1, 100);
+	cout << "prop = " << prob << endl;
 	if (prob <= array[7])
 	{
 		for (int i = 0; i < array[0]; i++)

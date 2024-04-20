@@ -28,6 +28,7 @@ int main()
 	unit* pt = nullptr;
 	int x;
 	string s;
+	// we used it while testing the file while working as it was easier than file
 	//int arr[21] = { 7, 70, 20, 10, 50, 30, 20, 30, 3, 50, 30, 90, 2, 5, 1, 20, 40, 80, 1, 4, 0 };
 	//mygame->set_arr(arr);
 	Game* mygame = new Game;
@@ -40,38 +41,36 @@ int main()
 		rand->Create_Random();
 		x = generate_ran(1, 100);
 		cout << "Current time step " << i << endl;
-		cout << "X= " << x << endl; 
-		//we did this to check before and after 
-		/*mygame->get_Aarmy()->print();
+		cout << "X= " << x << endl<<"Afer generating and before changing\n";
+		//we did this to check after generating before changing 
+		mygame->get_Aarmy()->print();
 		cout << endl;
 		mygame->get_Earmy()->print();
 		cout << endl;
 		mygame->print_Killed();
 		cout << endl;
-		cout << "=================================================" << endl;*/
+		cout << "=================================================\nAfter changing" << endl;
 		if (x < 10)
 		{
 			Solderunit* ES = nullptr;
-			mygame->get_Earmy()->ReturnSo_uint(ES, pt);
+			if(mygame->get_Earmy()->ReturnSo_uint(ES, pt))
 			mygame->get_Earmy()->addSo_unit(ES);
 		}
 		else if (x>10 && x < 20)
 		{
 			Tank* t = nullptr;
-			mygame->get_Earmy()->print();
-			mygame->get_Earmy()->return_tank(t, pt);
+			if(mygame->get_Earmy()->return_tank(t, pt))
 			mygame->add_killedlist(pt);
-			mygame->get_Earmy()->print();
-			cout << endl;
-			mygame->print_Killed();
 		}
 		else if (x>20 && x < 30)
 		{
 			int pri = 0;
 			EG* G = nullptr;
-			mygame->get_Earmy()->Return_Gun(G, pri, pt);
-			G->dec_health((G->getcurrhealth() / 2));
-			mygame->get_Earmy()->Add_Earth_Gun(G);
+			if (mygame->get_Earmy()->Return_Gun(G, pri, pt))
+			{
+				G->dec_health((G->getcurrhealth() / 2));
+				mygame->get_Earmy()->Add_Earth_Gun(G);
+			}
 		}
 		else if (x>30 && x < 40)
 		{

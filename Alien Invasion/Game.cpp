@@ -54,6 +54,11 @@ int Game::get_timestep()
 	return timestep;
 }
 
+void Game::set_arr(int arr[])
+{
+	for (int i = 0; i < 21; i++)
+		num[i] = arr[i];
+}
 Game::~Game()
 {
 	delete Aarmy;
