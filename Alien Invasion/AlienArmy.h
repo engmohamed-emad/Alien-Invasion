@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include<random>
 #include"ArrayStack.h"
 #include"Tank.h"
 #include"AlianSounit.h"
@@ -28,6 +29,7 @@ public:
 	bool Get_Drones(Drones*& D, unit*& pt);// dont forget to use fn can attack before make any attack
 	//bool Return_Drones(Node<Drones>*& D, int Num_Drones);
 	//edit
+	~AlienArmy();
 	bool Add_monster(Monster*& M);
 	void print();
 };

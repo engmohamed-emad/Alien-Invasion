@@ -88,6 +88,33 @@ void EarthArmy::print()
     cout << "]" << endl;
 }
 
+EarthArmy::~EarthArmy()
+{
+    int pri = 0;
+    Tank* temp1;
+    EG* temp2;
+   Solderunit* temp3;
+   while (solders.dequeue(temp3))
+   {
+       delete temp3;
+       temp3 = nullptr;
+   }
+
+   while (Earth_Gun.dequeue(temp2,pri))
+   {
+       delete temp2;
+       temp2 = nullptr;
+   }
+
+   while (tanks.pop(temp1))
+   {
+       delete temp1;
+       temp1 = nullptr;
+   }
+
+
+}
+
 
 
 

@@ -65,6 +65,11 @@ Game::~Game()
 	delete Aarmy;
 	delete Earmy;
 	delete rand;
+	unit* temp;
+	while (killedlist.dequeue(temp))
+	{
+		delete temp;
+	}
 }
 
 bool Game::read_data()

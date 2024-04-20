@@ -28,5 +28,6 @@ public:
 	//edit
 	bool Add_tank(Tank*& tank);
 	void print();
+	~EarthArmy();
 };
 

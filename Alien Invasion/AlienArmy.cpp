@@ -1,5 +1,16 @@
 #include "AlienArmy.h"
 
+int generate_ran(int num1, int num2)
+{
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<int> dis(num1, num2);
+
+    int random_num = dis(gen);
+    return  random_num;
+
+}
+
 bool AlienArmy::ADD_unit(unit*& ptr)
 {
     if (ptr->get_type() == "Drone")
@@ -30,10 +41,17 @@ bool AlienArmy::ReturnSo_uint(AlianSounit*& SoUnit, unit*& pt)
 }
 
 bool AlienArmy::get_monster(Monster*& M, unit*& pt)
-{
+{    
+    
     if (num_monster)
     {
-        M = monsters[(--num_monster)];
+       
+        random_device rd;
+        mt19937 gen(rd());
+        uniform_int_distribution<int> dis(0, num_monster-1);
+        int index = dis(gen);
+        M = monsters[index];
+        monsters[index] = monsters[(--num_monster)];
         pt = dynamic_cast<unit*>(M);
         return true;
     }
@@ -81,6 +99,30 @@ bool AlienArmy::Get_Drones(Drones*& D, unit*& pt)
         }
         else return false;
     }
+}
+
+AlienArmy::~AlienArmy()
+{ 
+    AlianSounit* temp1;
+    Drones* temp2;
+    while (solders.dequeue(temp1))
+    {
+        delete temp1;
+        temp1 = nullptr;
+    }
+    
+    while (Drone.dequeue(temp2))
+    {
+        delete temp2;
+        temp2 = nullptr;
+    }
+    for (int i = 0; i < num_monster; i++)
+    {     
+        delete monsters[i];
+        monsters[i] = nullptr;
+    }
+
+
 }
 
 bool AlienArmy::Add_monster(Monster*& M)
