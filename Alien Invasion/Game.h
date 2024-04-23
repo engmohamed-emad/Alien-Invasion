@@ -27,6 +27,9 @@ public:
 	int get_timestep();
 	void add_killedlist(unit*&U);
 	void print_Killed();
+	void print_armys();
+	void Earmy_attak();
+	void Aarmy_attak();
 	// to be able to run project with array (easier to test while working)
 	void set_arr(int arr[]);
 	~Game();

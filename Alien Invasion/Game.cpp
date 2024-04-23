@@ -45,6 +45,13 @@ void Game::print_Killed()
 	killedlist.print();
 	cout << "]" << endl;
 }
+void Game::print_armys()
+{
+	this->get_Earmy()->print();
+	cout << endl;
+	this->get_Aarmy()->print();
+	cout << endl;
+}
 void Game::set_timestep(int t)
 {
 	timestep = t;
@@ -76,7 +83,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
