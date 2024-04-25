@@ -19,9 +19,6 @@ void AlianSounit::dec_health(float damage)
 	this->currhealth = this->currhealth - damage;
 }
 
-float AlianSounit::attack(int enhealth)
-{
-	return (Apower * currhealth / 100) / sqrt(enhealth);
-}
+
 
 

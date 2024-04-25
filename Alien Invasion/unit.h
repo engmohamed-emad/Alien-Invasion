@@ -19,6 +19,7 @@ protected:
 	int Db;
 	int Df;
 	int Dd;
+	bool first_attack = false;
 public:
 	void setID(int id);
 	int getID();
@@ -41,7 +42,12 @@ public:
 	virtual void inc_health(float heal) {}
 	virtual bool is_dead();
 	virtual bool need_help();
-	virtual float attack(int enhealth) = 0;
+	virtual float detect_damage(int enhealth)
+	{
+		return (Apower * currhealth / 100) / sqrt(enhealth);
+	}
+	//virtual bool attack()=0;
+	
 };
 #endif
 

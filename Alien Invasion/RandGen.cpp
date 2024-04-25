@@ -56,6 +56,7 @@ void RandGen::Create_Random()
 		}
 		for (int i = 0; i < array[0]; i++)
 		{
+			Jt = game->get_timestep();
 			ID = Alien_count_id++;
 			prob = gen_rand(1, 100);
 			H = gen_rand(array[16], array[17]);

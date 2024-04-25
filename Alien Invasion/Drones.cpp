@@ -15,10 +15,7 @@ Drones::Drones(int id, int jt, float h, float ap, int c)
 	this->setAcapacity(c);
 }
 
-float Drones::attack(int enhealth)
-{
-	return (Apower * currhealth / 100) / sqrt(enhealth);
-}
+
 
 void Drones::dec_health(float damage)
 {

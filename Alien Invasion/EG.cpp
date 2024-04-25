@@ -49,10 +49,6 @@ int EG::Get_Cap_Monster()
 	return Attack_Cap_Monster;
 }
 
-float EG::attack(int enhealth)
-{
-	return (Apower * currhealth / 100) / sqrt(enhealth);
-}
 
 void EG::dec_health(float damage)
 {

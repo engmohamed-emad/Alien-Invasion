@@ -27,6 +27,7 @@
     <ClInclude Include="EarthArmy.h" />
     <ClInclude Include="EG.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="HealingUnit.h" />
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Node.h" />
@@ -47,6 +48,7 @@
     <ClCompile Include="EarthArmy.cpp" />
     <ClCompile Include="EG.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HealingUnit.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="RandGen.cpp" />
     <ClCompile Include="Solderunit.cpp" />

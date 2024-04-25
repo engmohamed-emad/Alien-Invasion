@@ -18,7 +18,6 @@ public:
 	int get_pri();
 	int Get_Cap_Drone();
 	int Get_Cap_Monster();
-	virtual float attack(int enhealth);
 	virtual void dec_health(float damage);
 };
 #endif
