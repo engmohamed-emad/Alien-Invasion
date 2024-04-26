@@ -8,6 +8,8 @@
 #include"SoModQueue.h"
 #include"priQueue.h"
 #include "LinkedQueue.h"
+#include"Game.h"
+class Game;
 class EarthArmy
 {
 protected:

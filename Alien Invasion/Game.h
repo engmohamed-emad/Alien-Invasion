@@ -8,17 +8,18 @@
 #include"RandGen.h"
 #include"HealingUnit.h"
 class RandGen;
+class HealingUnit;
+class EarthArmy;
+class AlienArmy;
 class Game
 {    //mohamed Ayman
 	AlienArmy* Aarmy;
 	EarthArmy* Earmy;
 	RandGen* rand;
 	LinkedQueue<unit*>killedlist;
-	
 	LinkedQueue<HealingUnit*> HU;
-	priQueue<Solderunit*> UML_ES;
+	//priQueue<Solderunit*> UML_ES;        this give error
 	LinkedQueue<Tank*>UML_ET;
-
 	int num[21];
 	int timestep = 0;
 	int num_Killed;
@@ -34,9 +35,13 @@ public:
 	void add_killedlist(unit*&U);
 	void print_Killed();
 	void print_armys();
-	void Earmy_attak();
-	void Aarmy_attak();
-	void Heal_unit();
+	//void Earmy_attak();
+	//void Aarmy_attak();
+	//void Heal_unit();
+	// 
+	// 
+	// 
+	// 
 	//void fight()
 	// {
 	//		
@@ -50,6 +55,7 @@ public:
 	// }
 	// to be able to run project with array (easier to test while working)
 	void set_arr(int arr[]);
+	//LinkedQueue<unit*>* gt_temp();
 	~Game();
 };
 #endif

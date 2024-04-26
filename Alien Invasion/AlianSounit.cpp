@@ -12,12 +12,20 @@ AlianSounit::AlianSounit(int id, int jt, float h, float ap, int c)
 	this->sethealth(h);
 	this->setApower(ap);
 	this->setAcapacity(c);
+
 }
 
 void AlianSounit::dec_health(float damage)
 {
 	this->currhealth = this->currhealth - damage;
 }
+
+//void AlianSounit::attack(Game* g)
+//{
+//
+//}
+
+
 
 
 

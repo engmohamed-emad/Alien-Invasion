@@ -66,6 +66,10 @@ void Game::set_arr(int arr[])
 	for (int i = 0; i < 21; i++)
 		num[i] = arr[i];
 }
+//LinkedQueue<unit*>* Game::gt_temp()
+//{
+//	return &templist;
+//}
 Game::~Game()
 {
 	delete Aarmy;
@@ -83,7 +87,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;

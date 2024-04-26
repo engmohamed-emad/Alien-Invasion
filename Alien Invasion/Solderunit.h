@@ -1,8 +1,10 @@
 #pragma once
 #include "unit.h"
+class Game;
 class Solderunit : public unit
 {
 private:
+	
 	int numstep = 0;
 public:
 	Solderunit();

@@ -2,7 +2,7 @@
 #ifndef EG_h
 #define EG_h
 
-
+class Game;
 class EG :public unit
 {
 private:

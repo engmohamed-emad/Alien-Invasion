@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 //Abstract class for all army units
+class Game;
 class unit
 {
 protected:
@@ -14,6 +15,7 @@ protected:
 	float Apower;
 	int Acapacity;
 	string type;
+	Game* game;
 	int Ta=0;
 	int Td=0;
 	int Db;
