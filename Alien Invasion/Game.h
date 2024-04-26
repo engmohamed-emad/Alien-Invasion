@@ -11,6 +11,7 @@ class RandGen;
 class HealingUnit;
 class EarthArmy;
 class AlienArmy;
+class unit;
 class Game
 {    //mohamed Ayman
 	AlienArmy* Aarmy;
@@ -18,7 +19,7 @@ class Game
 	RandGen* rand;
 	LinkedQueue<unit*>killedlist;
 	LinkedQueue<HealingUnit*> HU;
-	//priQueue<Solderunit*> UML_ES;        this give error
+	priQueue<Solderunit*> UML_ES;        
 	LinkedQueue<Tank*>UML_ET;
 	int num[21];
 	int timestep = 0;
@@ -35,6 +36,7 @@ public:
 	void add_killedlist(unit*&U);
 	void print_Killed();
 	void print_armys();
+	void addto_UML_ES(Solderunit* s);
 	//void Earmy_attak();
 	//void Aarmy_attak();
 	//void Heal_unit();

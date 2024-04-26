@@ -6,12 +6,14 @@ class Solderunit : public unit
 private:
 	
 	int numstep = 0;
+	Game* game;
 public:
 	Solderunit();
-	Solderunit(int id, int jt, float h, float ap, int c);
+	Solderunit(int id, int jt, float h, float ap, int c, Game* g);
 	virtual void dec_health(float damage);
 	
 	virtual void inc_health(float heal);
+	virtual bool attack();
 	//attack2()
 	/*{
 	* 

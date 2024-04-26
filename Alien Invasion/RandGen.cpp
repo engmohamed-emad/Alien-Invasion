@@ -15,7 +15,7 @@ void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int
 {
 	if (prob <= array[1])
 	{
-		Solderunit* U = new Solderunit(ID, Jt, H, AP, AC);
+		Solderunit* U = new Solderunit(ID, Jt, H, AP, AC, this->game);
 		game->get_Earmy()->addSo_unit(U);
 	}
 	else if (prob <= array[1] + array[2])
@@ -73,7 +73,7 @@ void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int
 {
 	if (prob <= array[4])
 	{
-		AlianSounit* U = new AlianSounit(ID, Jt, H, AP, AC);
+		AlianSounit* U = new AlianSounit(ID, Jt, H, AP, AC, this->game);
 		game->get_Aarmy()->addSo_unit(U);
 
 	}

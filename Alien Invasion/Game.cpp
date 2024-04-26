@@ -52,6 +52,10 @@ void Game::print_armys()
 	this->get_Aarmy()->print();
 	cout << endl;
 }
+void Game::addto_UML_ES(Solderunit* s)
+{
+	UML_ES.enqueue(s, 1000 - s->getcurrhealth());
+}
 void Game::set_timestep(int t)
 {
 	timestep = t;
@@ -87,7 +91,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;

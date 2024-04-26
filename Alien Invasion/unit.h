@@ -15,7 +15,7 @@ protected:
 	float Apower;
 	int Acapacity;
 	string type;
-	Game* game;
+	//Game* game = nullptr;
 	int Ta=0;
 	int Td=0;
 	int Db;
