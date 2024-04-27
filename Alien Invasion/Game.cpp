@@ -91,7 +91,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
@@ -101,8 +101,10 @@ bool Game::read_data()
 		num[1] = stoi(line.c_str());
 		getline(infile, line, ' ');
 		num[2] = stoi(line.c_str());
-		getline(infile, line);
+		getline(infile, line, ' ');
 		num[3] = stoi(line.c_str());
+		getline(infile, line);
+		num[20] = stoi(line.c_str());
 		getline(infile, line, ' ');
 		num[4] = stoi(line.c_str());
 		getline(infile, line, ' ');
@@ -137,7 +139,6 @@ bool Game::read_data()
 		num[18] = stoi(line.c_str());
 		getline(infile, line);
 		num[19] = stoi(line.c_str());
-		num[20] = 0;
 		return true;
 	}
 	else

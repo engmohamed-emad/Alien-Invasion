@@ -1,7 +1,6 @@
 #pragma once
 #include "unit.h"
 
-
 //unit for Alian solder 
 class Game;
 class AlianSounit :  public unit

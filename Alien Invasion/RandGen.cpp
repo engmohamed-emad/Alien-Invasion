@@ -11,22 +11,29 @@ float RandGen::gen_rand(int min, int max)
 	Rand_Num = dis(gen);
 	return  Rand_Num;
 }
-void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC)
+void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC)//we didnt handle  case if prob changes
 {
-	if (prob <= array[1])
+	if (prob <= array[20])
+	{
+		HealingUnit* U = new HealingUnit(ID, Jt, H, AP, AC, this->game);
+		//game->get_Earmy()->      you have to use data structure and implement add in earth army
+	}
+    
+
+	if (prob <= array[1]+array[20])
 	{
 		Solderunit* U = new Solderunit(ID, Jt, H, AP, AC, this->game);
 		game->get_Earmy()->addSo_unit(U);
 	}
-	else if (prob <= array[1] + array[2])
+	else if (prob <= array[1] + array[2]+array[20])
 	{
 		//proplity for tank
 		Tank* U = new Tank(ID, Jt, H, AP, AC);
 		game->get_Earmy()->Add_tank(U);
 	}
-	else if (prob <= array[1] + array[2] + array[3])
+	else if (prob <= array[1] + array[2] + array[3]+array[20])
 	{
-		EG* U = new EG(ID, Jt, H, AP, AC);
+		EG* U = new EG(ID, Jt, H, AP, AC,this->game);
 		game->get_Earmy()->Add_Earth_Gun(U);
 	}
 }

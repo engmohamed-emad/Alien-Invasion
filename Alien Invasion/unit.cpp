@@ -87,6 +87,14 @@ int unit::get_Dd()
 {
 	return Td - Ta;
 }
+void unit::set_firtAttack()
+{
+	first_attack = true;
+}
+bool unit::get_firstAttack()
+{
+	return first_attack;
+}
 int unit::get_Df()
 {
 	return Ta - Tj;

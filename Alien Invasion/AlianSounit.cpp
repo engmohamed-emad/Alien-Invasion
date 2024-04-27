@@ -5,6 +5,8 @@
 AlianSounit::AlianSounit()
 {
 	set_type("AS");
+	game = nullptr;
+	
 }
 AlianSounit::AlianSounit(int id, int jt, float h, float ap, int c, Game* g)
 {
@@ -29,7 +31,7 @@ bool AlianSounit::attack()
 	unit* ptr = nullptr;
 	LinkedQueue<unit*> templist;
 	for (int i = 0; i < Acapacity; i++)
-	{
+	{     
 		if (game->get_Earmy()->ReturnSo_uint(Sptr, ptr))
 		{
 			templist.enqueue(ptr);
@@ -45,6 +47,11 @@ bool AlianSounit::attack()
 		if (templist.dequeue(ptr))
 		{
 			ptr->dec_health(this->detect_damage(ptr->getcurrhealth()));
+			if (!(ptr->get_firstAttack()))
+			{
+				ptr->set_Ta(game->get_timestep());
+				ptr->set_firtAttack();
+			}
 			if (ptr->is_dead())
 			{
 				game->add_killedlist(ptr);
@@ -53,6 +60,8 @@ bool AlianSounit::attack()
 			{
 				Sptr = dynamic_cast<Solderunit*>(ptr);
 				game->addto_UML_ES(Sptr);
+				// you need to set time 
+				//you need to handel 10 time step
 			}
 			else
 			{

@@ -12,6 +12,7 @@ class HealingUnit;
 class EarthArmy;
 class AlienArmy;
 class unit;
+class EG;
 class Game
 {    //mohamed Ayman
 	AlienArmy* Aarmy;

@@ -56,6 +56,13 @@ bool Solderunit::attack()
 		if (templist.dequeue(ptr))
 		{
 			ptr->dec_health(this->detect_damage(ptr->getcurrhealth()));
+
+			if (!(ptr->get_firstAttack()))
+			{
+				ptr->set_Ta(game->get_timestep());
+				ptr->set_firtAttack();
+			}
+
 			if (ptr->is_dead())
 			{
 				game->add_killedlist(ptr);

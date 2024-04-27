@@ -15,7 +15,6 @@ protected:
 	float Apower;
 	int Acapacity;
 	string type;
-	//Game* game = nullptr;
 	int Ta=0;
 	int Td=0;
 	int Db;
@@ -40,6 +39,8 @@ public:
 	int get_Db();
 	int get_Df();
 	int get_Dd();
+	void set_firtAttack();
+	bool get_firstAttack();
 	virtual void dec_health(float damage) = 0;
 	virtual void inc_health(float heal) {}
 	virtual bool is_dead();
@@ -48,6 +49,7 @@ public:
 	{
 		return (Apower * currhealth / 100) / sqrt(enhealth);
 	}
+
 	//virtual bool attack()=0;
 	
 };
