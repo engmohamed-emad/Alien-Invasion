@@ -27,6 +27,7 @@ public:
 	bool get_monster(Monster*& M, unit*& pt);
 	bool Add_Drones(Drones*& D);
 	bool Get_Drones(Drones*& D, unit*& pt);// dont forget to use fn can attack before make any attack
+	int get_num_sol();
 	//bool Return_Drones(Node<Drones>*& D, int Num_Drones);
 	//edit
 	~AlienArmy();

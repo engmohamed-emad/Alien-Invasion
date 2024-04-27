@@ -101,6 +101,11 @@ bool AlienArmy::Get_Drones(Drones*& D, unit*& pt)
     }
 }
 
+int AlienArmy::get_num_sol()
+{
+    return num_sol;
+}
+
 AlienArmy::~AlienArmy()
 { 
     AlianSounit* temp1;

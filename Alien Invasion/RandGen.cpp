@@ -28,7 +28,7 @@ void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int
 	else if (prob <= array[1] + array[2]+array[20])
 	{
 		//proplity for tank
-		Tank* U = new Tank(ID, Jt, H, AP, AC);
+		Tank* U = new Tank(ID, Jt, H, AP, AC,this->game);
 		game->get_Earmy()->Add_tank(U);
 	}
 	else if (prob <= array[1] + array[2] + array[3]+array[20])
@@ -86,7 +86,7 @@ void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int
 	}
 	else if (prob <= array[4] + array[5])
 	{
-		Monster* U = new Monster(ID, Jt, H, AP, AC);
+		Monster* U = new Monster(ID, Jt, H, AP, AC,this->game);
 		game->get_Aarmy()->Add_monster(U);
 		//proplity if monstar
 	}

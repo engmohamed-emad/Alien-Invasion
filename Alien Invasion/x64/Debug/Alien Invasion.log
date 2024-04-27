@@ -1,38 +1,78 @@
 ﻿  AlianSounit.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\AlianSounit.cpp(49,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'AlianSounit.cpp')
+  
+E:\Documents\GitHub\project\Alien Invasion\AlianSounit.cpp(49,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  AlienArmy.cpp
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'AlienArmy.cpp')
+  
   Drones.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Drones.cpp(75,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Drones.cpp(108,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  EG.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(28,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(35,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(94,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(132,56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(133,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(176,56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Drones.cpp')
+  
+E:\Documents\GitHub\project\Alien Invasion\Drones.cpp(75,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\Drones.cpp(108,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   EarthArmy.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'EarthArmy.cpp')
+  
+  EG.cpp
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'EG.cpp')
+  
+E:\Documents\GitHub\project\Alien Invasion\EG.cpp(28,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\EG.cpp(35,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\EG.cpp(94,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\EG.cpp(132,56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\EG.cpp(133,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\EG.cpp(176,56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Game.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Game.cpp(57,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Game.cpp')
+  
+E:\Documents\GitHub\project\Alien Invasion\Game.cpp(57,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   HealingUnit.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'HealingUnit.cpp')
+  
+  Monster.cpp
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Monster.cpp')
+  
+E:\Documents\GitHub\project\Alien Invasion\Monster.cpp(44,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\Monster.cpp(75,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   RandGen.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(12,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(59,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(61,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(70,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\RandGen.cpp(72,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RandGen.cpp')
+  
+E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(12,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(59,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(61,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(70,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\RandGen.cpp(72,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Solderunit.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Solderunit.cpp(58,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Solderunit.cpp')
+  
+E:\Documents\GitHub\project\Alien Invasion\Solderunit.cpp(58,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Source.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Source.cpp(42,19): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Source.cpp')
+  
+E:\Documents\GitHub\project\Alien Invasion\Source.cpp(42,19): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Tank.cpp
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Tank.cpp')
+  
+E:\Documents\GitHub\project\Alien Invasion\Tank.cpp(50,56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\Tank.cpp(80,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  unit.cpp
+E:\Documents\GitHub\project\Alien Invasion\unit.h(50,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'unit.cpp')
+  
+E:\Documents\GitHub\project\Alien Invasion\unit.cpp(42,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
   Generating Code...
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EarthArmy.cpp(13): warning C4715: 'EarthArmy::Add_unit': not all control paths return a value
-  Alien Invasion.vcxproj -> C:\Users\LENONO\OneDrive\Documents\GitHub\project\x64\Debug\Alien Invasion.exe
+E:\Documents\GitHub\project\Alien Invasion\EarthArmy.cpp(13,1): warning C4715: 'EarthArmy::Add_unit': not all control paths return a value
+E:\Documents\GitHub\project\Alien Invasion\AlienArmy.cpp(22,1): warning C4715: 'AlienArmy::ADD_unit': not all control paths return a value
+  Alien Invasion.vcxproj -> E:\Documents\GitHub\project\x64\Debug\Alien Invasion.exe

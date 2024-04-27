@@ -31,6 +31,7 @@ public:
 	bool return_tank(Tank*& t,unit*&pt);
 	void Add_Earth_Gun(EG*& G);              
 	bool Return_Gun(EG*& G,int pri,unit*&pt);
+	int get_num_sol();
 	//edit
 	/*
 	* void attak (Alienarmy* a)

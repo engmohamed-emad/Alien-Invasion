@@ -38,6 +38,7 @@ public:
 	void print_Killed();
 	void print_armys();
 	void addto_UML_ES(Solderunit* s);
+	bool addto_UML_TS(Tank* T);
 	//void Earmy_attak();
 	//void Aarmy_attak();
 	//void Heal_unit();

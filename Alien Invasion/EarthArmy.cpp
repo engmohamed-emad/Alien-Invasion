@@ -61,6 +61,10 @@ bool EarthArmy::Return_Gun(EG*& G,int pri,unit*&pt)
     }
     else return false;
 }
+int EarthArmy::get_num_sol()
+{
+    return num_sol;
+}
 //edit
 bool EarthArmy::Add_tank(Tank*& tank)
 {
