@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 using namespace std;
+#include "Solderunit.h"
 #include"unit.h"
 /*
 This is a program that implements the queue abstract data type using a linked list.
@@ -62,6 +63,10 @@ public:
 	bool peek(T& frntEntry)  const;
 	~LinkedQueue();
 	void print()
+	{
+
+	}
+	void inc_numstep()
 	{
 
 	}
@@ -148,7 +153,7 @@ bool LinkedQueue<T>::dequeue(T& frntEntry)
 
 	return true;
 }
-
+/////////////////////////////////////////////////////////////////////////////////
   template<>
   inline void LinkedQueue<unit*>::print()
   {
@@ -162,6 +167,16 @@ bool LinkedQueue<T>::dequeue(T& frntEntry)
 	  }
   }
 
+  template<>
+  inline void LinkedQueue<Solderunit*>::inc_numstep()
+  {
+	  Node<Solderunit*>* ptr = this->frontPtr;
+	  while (ptr)
+	  {
+		  ptr->getItem()->inc_numstep();
+		  ptr = ptr->getNext();
+	  }
+  }
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /*

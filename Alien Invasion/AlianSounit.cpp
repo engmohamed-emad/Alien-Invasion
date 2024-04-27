@@ -59,7 +59,12 @@ bool AlianSounit::attack()
 			else if (ptr->need_help())
 			{
 				Sptr = dynamic_cast<Solderunit*>(ptr);
-				game->addto_UML_ES(Sptr);
+				if(Sptr!=nullptr)
+				{
+					Sptr->set_numstep(0);
+					game->addto_UML_ES(Sptr);
+
+				}
 				// you need to set time 
 				//you need to handel 10 time step
 			}

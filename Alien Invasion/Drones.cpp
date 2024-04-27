@@ -84,13 +84,12 @@ bool Drones::attack()
 				game->add_killedlist(U);
 			}
 			else
-
 			{
 				T = dynamic_cast<Tank*>(U);
 				if (T != nullptr)
 					game->get_Earmy()->Add_tank(T);
 				else
-					return false;
+					return false;//this may lead to a logical error
 
 			}
 		}

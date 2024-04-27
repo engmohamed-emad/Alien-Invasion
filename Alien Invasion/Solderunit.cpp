@@ -27,6 +27,21 @@ void Solderunit::dec_health(float damage)
 	this->currhealth = this->currhealth - damage;
 }
 
+void Solderunit::set_numstep(int num)
+{
+	numstep = num;
+}
+
+void Solderunit::inc_numstep()
+{
+	this->numstep = this->numstep + 1;
+}
+
+int Solderunit::get_numstep()
+{
+	return numstep;
+}
+
 
 
 void Solderunit::inc_health(float heal)
@@ -45,6 +60,8 @@ bool Solderunit::attack()
 		{
 			templist.enqueue(ptr);
 		}
+		else
+			break;
 	}	
 	if (templist.isEmpty())
 	{
@@ -65,12 +82,17 @@ bool Solderunit::attack()
 
 			if (ptr->is_dead())
 			{
+				ptr->set_Td(game->get_timestep());
 				game->add_killedlist(ptr);
 			}
 			else
 			{
 				Sptr = dynamic_cast<AlianSounit*>(ptr);
-				game->get_Aarmy()->addSo_unit(Sptr);
+				if (Sptr != nullptr)
+				{
+					game->get_Aarmy()->addSo_unit(Sptr);
+				}
+
 			}
 		}
 	}

@@ -11,6 +11,10 @@ public:
 	Solderunit();
 	Solderunit(int id, int jt, float h, float ap, int c, Game* g);
 	virtual void dec_health(float damage);
+
+	void set_numstep(int num);
+	void inc_numstep();
+	int get_numstep();
 	
 	virtual void inc_health(float heal);
 	virtual bool attack();
