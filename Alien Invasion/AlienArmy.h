@@ -20,6 +20,12 @@ protected:
 	int num_sol = 0;
 	int num_monster = 0;
 	int num_drones=0;
+	int num_killed_sol = 0;
+	int num_killed_monster = 0;
+	int num_killed_drones = 0;
+	int Df = 0;
+	int Dd = 0;
+	int Db = 0;
 public:
 	bool ADD_unit(unit*& ptr);
 	bool addSo_unit(AlianSounit*& s);
@@ -33,5 +39,9 @@ public:
 	~AlienArmy();
 	bool Add_monster(Monster*& M);
 	void print();
+	void update_num_killed_sol();
+	void update_num_killed_monster();
+	void update_num_killed_drones();
+	void ubdate_D(unit*&U);
 };
 

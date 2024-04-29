@@ -166,6 +166,30 @@ void AlienArmy::print()
 
 }
 
+void AlienArmy::update_num_killed_sol()
+{
+    num_killed_sol += 1;
+}
+
+void AlienArmy::update_num_killed_monster()
+{
+    num_killed_monster += 1;
+}
+
+void AlienArmy::update_num_killed_drones()
+{
+    num_killed_drones += 1;
+}
+
+void AlienArmy::ubdate_D(unit*& U)
+{
+    
+        Df = Df + U->get_Df();
+        Dd = Dd + U->get_Dd();
+        Db = Db + U->get_Db();
+    
+}
+
 
 
 

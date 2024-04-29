@@ -18,10 +18,15 @@ protected:
 	ArrayStack<Tank*> tanks;
 	
 
-	
+	int num_killed_tank=0;
+	int num_killed_EG=0;
+	int num_killed_sol=0;
 	int num_tank = 0;
 	int num_EG = 0;
 	int num_sol = 0;
+	int Df = 0;
+	int Dd = 0;
+	int Db = 0;
 public:
 
 	bool Add_unit(unit* ptr);
@@ -45,6 +50,10 @@ public:
 		*/
 	bool Add_tank(Tank*& tank);
 	void print();
+	void update_num_killed_sol();
+	void update_num_killed_EG();
+	void update_num_killed_tank();
+	void ubdate_D(unit*& U);
 	~EarthArmy();
 };
 

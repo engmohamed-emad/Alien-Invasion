@@ -92,6 +92,28 @@ void EarthArmy::print()
     cout << "]" << endl;
 }
 
+void EarthArmy::update_num_killed_sol()
+{
+    num_killed_sol += 1;
+}
+
+void EarthArmy::update_num_killed_EG()
+{
+    num_killed_EG += 1;
+}
+
+void EarthArmy::update_num_killed_tank()
+{
+    num_killed_tank += 1;
+}
+
+void EarthArmy::ubdate_D(unit*& U)
+{
+    Df = Df + U->get_Df();
+    Dd = Dd + U->get_Dd();
+    Db = Db + U->get_Db();
+}
+
 EarthArmy::~EarthArmy()
 {
     int pri = 0;

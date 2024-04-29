@@ -9,7 +9,6 @@ Game::Game() {
 	rand = new RandGen(this);
 	num_Killed = 0;
 }
-
 AlienArmy* Game::get_Aarmy()
 {
 	return Aarmy;
@@ -27,7 +26,6 @@ void Game::set_data(int a[])
 	for (int i = 0; i < 21; i++)
 		a[i] = num[i];
 }
-
 void Game::add_killedlist(unit*& U)
 {
 	if (U != nullptr)
@@ -56,7 +54,6 @@ void Game::addto_UML_ES(Solderunit* s)
 {
 	UML_ES.enqueue(s, 1000 - s->getcurrhealth());
 }
-
 bool Game::addto_UML_TS(Tank* T)
 {
 	return UML_ET.enqueue(T);
@@ -69,7 +66,6 @@ int Game::get_timestep()
 {
 	return timestep;
 }
-
 void Game::set_arr(int arr[])
 {
 	for (int i = 0; i < 21; i++)
@@ -96,7 +92,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
+	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
@@ -151,5 +147,4 @@ bool Game::read_data()
 		cout << "Error" << endl;
 		return false;
 	}
-
 }
