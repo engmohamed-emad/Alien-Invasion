@@ -99,7 +99,7 @@ bool EG::attack()
 					U->set_firtAttack();
 				}
 
-				if (U->getcurrhealth() <= 0)
+				if (U->is_dead())
 				{
 					U->set_Td(game->get_timestep());
 					game->add_killedlist(U);
@@ -144,7 +144,7 @@ bool EG::attack()
 						U2->set_firtAttack();
 					}
 
-					if (U->getcurrhealth() <= 0)
+					if (U->is_dead())
 					{
 						U->set_Td(game->get_timestep());
 						game->add_killedlist(U);
@@ -157,7 +157,7 @@ bool EG::attack()
 						else
 							return false;
 					}
-					if (U2->getcurrhealth() <= 0)
+					if (U2->is_dead())
 					{
 						U2->set_Td(game->get_timestep());
 						game->add_killedlist(U2);
@@ -181,7 +181,7 @@ bool EG::attack()
 						U->set_firtAttack();
 					}
 
-					if (U->getcurrhealth() <= 0)
+					if (U->is_dead())
 					{
 						U->set_Td(game->get_timestep());
 						game->add_killedlist(U);

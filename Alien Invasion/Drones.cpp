@@ -78,12 +78,20 @@ bool Drones::attack()
 				U->set_Ta(game->get_timestep());
 				U->set_firtAttack();
 			}
-			if (U->getcurrhealth() <= 0)
+			if (U->is_dead())
 			{
 				U->set_Td(game->get_timestep());
 				game->add_killedlist(U);
 			}
+			else if (U->need_help())
+			{
+				T = dynamic_cast<Tank*>(U);
+				T->set_Heal_Time(game->get_timestep());
+				game->addto_UML_TS(T);
+			}
 			else
+			
+
 			{
 				T = dynamic_cast<Tank*>(U);
 				if (T != nullptr)

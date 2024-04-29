@@ -5,7 +5,7 @@ class Game;
 class Tank :public unit
 {
 private:
-	int numstep = 0;
+	int Heal_Time = 0;
 	Game* game;
 public:
 	Tank();
@@ -13,5 +13,7 @@ public:
 	virtual void attack();
 	virtual void dec_health(float damage);
 	bool help_soldier(int ES_num,int AS_num);//takes numbers of earth and alien soldiers to determine if tank will attack alien soldiers or not 
+	void set_Heal_Time(int t);
+	int get_Heal_Time();//before Heal you have to check weather a current timestep -heal time<or >10 
 };
 

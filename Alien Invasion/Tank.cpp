@@ -31,6 +31,16 @@ bool Tank::help_soldier(int ES,int AS)
 	else return false;
 }
 
+void Tank::set_Heal_Time(int t)
+{
+	this->Heal_Time = t;
+}
+
+int Tank::get_Heal_Time()
+{
+	return Heal_Time;
+}
+
 void Tank::attack()
 {
 	int cap = Acapacity;
