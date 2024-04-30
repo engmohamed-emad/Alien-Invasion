@@ -57,7 +57,10 @@ void Monster::attack()
 		else
 		{
 			if (T->need_help())
+			{
+				T->set_Heal_Time(game->get_timestep());
 				game->addto_UML_TS(T);
+			}
 			else
 				game->get_Earmy()->Add_tank(T);
 		}
@@ -88,7 +91,10 @@ void Monster::attack()
 		else
 		{
 			if (ES->need_help())
+			{
+				ES->set_Heal_Time(game->get_timestep());
 				game->addto_UML_ES(ES);
+			}
 			else
 				game->get_Earmy()->addSo_unit(ES);
 		}
