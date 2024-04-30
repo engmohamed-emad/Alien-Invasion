@@ -18,9 +18,7 @@ void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int
 		HealingUnit* U = new HealingUnit(ID, Jt, H, AP, AC, this->game);
 		//game->get_Earmy()->      you have to use data structure and implement add in earth army
 	}
-    
-
-	if (prob <= array[1]+array[20])
+	else if (prob <= array[1]+array[20])
 	{
 		Solderunit* U = new Solderunit(ID, Jt, H, AP, AC, this->game);
 		game->get_Earmy()->addSo_unit(U);

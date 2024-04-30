@@ -39,6 +39,7 @@ void Monster::attack()
 		}
 		else break;
 	}
+
 	while (T_templist.dequeue(T))
 	{
 		T->dec_health(this->detect_damage(T->getcurrhealth()));

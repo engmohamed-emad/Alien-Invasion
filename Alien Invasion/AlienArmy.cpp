@@ -190,6 +190,24 @@ void AlienArmy::ubdate_D(unit*& U)
     
 }
 
+bool AlienArmy::Attack_Earth()
+{
+    AlianSounit* Sptr;
+    Monster* Mptr;
+    Drones* Dptr;
+    bool flage1 = true;
+    bool flage2 = true;
+    bool flage3 = true;
+
+    solders.peek(Sptr);
+    flage1 = Sptr->attack();
+  //  flage2 = monsters[0]->attack(); edit it
+    Drone.peek(Dptr);
+    flage3 = Dptr->attack();
+    return flage1 || flage2 || flage3;
+
+}
+
 
 
 

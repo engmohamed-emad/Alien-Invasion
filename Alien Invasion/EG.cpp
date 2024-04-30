@@ -102,6 +102,8 @@ bool EG::attack()
 				if (U->is_dead())
 				{
 					U->set_Td(game->get_timestep());
+					game->get_Aarmy()->update_num_killed_monster();
+					game->get_Aarmy()->ubdate_D(U);
 					game->add_killedlist(U);
 
 				}
@@ -147,7 +149,10 @@ bool EG::attack()
 					if (U->is_dead())
 					{
 						U->set_Td(game->get_timestep());
+						game->get_Aarmy()->update_num_killed_drones();
+						game->get_Aarmy()->ubdate_D(U);
 						game->add_killedlist(U);
+
 					}
 					else
 					{

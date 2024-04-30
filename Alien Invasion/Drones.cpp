@@ -80,7 +80,9 @@ bool Drones::attack()
 			}
 			if (U->is_dead())
 			{
+				game->get_Earmy()->update_num_killed_tank();
 				U->set_Td(game->get_timestep());
+				game->get_Earmy()->ubdate_D(U);
 				game->add_killedlist(U);
 			}
 			else if (U->need_help())
@@ -118,9 +120,11 @@ bool Drones::attack()
 				U->set_Ta(game->get_timestep());
 				U->set_firtAttack();
 			}
-			if (U->getcurrhealth() <= 0)
+			if (U->is_dead())
 			{
+				game->get_Earmy()->update_num_killed_EG();
 				U->set_Td(game->get_timestep());
+				game->get_Earmy()->ubdate_D(U);
 				game->add_killedlist(U);
 			}
 			else

@@ -27,20 +27,6 @@ void Solderunit::dec_health(float damage)
 	this->currhealth = this->currhealth - damage;
 }
 
-void Solderunit::set_numstep(int num)
-{
-	numstep = num;
-}
-
-void Solderunit::inc_numstep()
-{
-	this->numstep = this->numstep + 1;
-}
-
-int Solderunit::get_numstep()
-{
-	return numstep;
-}
 
 
 
@@ -82,7 +68,9 @@ bool Solderunit::attack()
 
 			if (ptr->is_dead())
 			{
+				game->get_Aarmy()->update_num_killed_sol();
 				ptr->set_Td(game->get_timestep());
+				game->get_Aarmy()->ubdate_D(ptr);
 				game->add_killedlist(ptr);
 			}
 			else
@@ -97,4 +85,14 @@ bool Solderunit::attack()
 		}
 	}
 	return true;
+}
+
+void Solderunit::set_Heal_Time(int t)
+{
+	Heal_Time = t;
+}
+
+int Solderunit::get_Heal_Time()
+{
+	return Heal_Time;
 }

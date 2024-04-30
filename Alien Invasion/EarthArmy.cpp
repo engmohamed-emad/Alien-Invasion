@@ -114,6 +114,24 @@ void EarthArmy::ubdate_D(unit*& U)
     Db = Db + U->get_Db();
 }
 
+bool EarthArmy::Attack_Alien()
+{
+    Solderunit* Sptr;
+    Tank* Tptr;
+    EG* Gptr;
+    bool flage1 = true;
+    bool flage2 = true;
+    bool flage3 = true;
+    int pri = 0;
+
+    solders.peek(Sptr);
+    flage1 = Sptr->attack();
+    //  flage2 = tank->attack(); //edit it to return bool to chick;
+    Earth_Gun.peek(Gptr, pri);
+    flage3 = Gptr->attack();
+    return flage1 || flage2 || flage3;
+}
+
 EarthArmy::~EarthArmy()
 {
     int pri = 0;

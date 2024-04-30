@@ -54,9 +54,61 @@ void Game::addto_UML_ES(Solderunit* s)
 {
 	UML_ES.enqueue(s, 1000 - s->getcurrhealth());
 }
+bool Game::get_UML_ES(Solderunit* s)
+{
+	int pri = 0;
+	return UML_ES.dequeue(s, pri);
+}
 bool Game::addto_UML_TS(Tank* T)
 {
 	return UML_ET.enqueue(T);
+}
+bool Game::get_UML_ET(Tank* s)
+{
+	return UML_ET.dequeue(s);
+}
+void Game::ADD_HealUint(HealingUnit* H)
+{
+	HU.enqueue(H);
+}
+bool Game::Get_HU(HealingUnit* H)
+{
+	return HU.dequeue(H);
+}
+int Game::fight()
+{
+	bool flageE = true;
+	bool flageA = true;
+	HealingUnit* hu;
+	unit* hptr;
+	if (!UML_ES.isEmpty() || !UML_ET.isEmpty())
+	{
+		if (HU.dequeue(hu))
+		{
+			hu->attack();
+			hptr = dynamic_cast<unit*>(hu);
+			add_killedlist(hptr);
+
+		}
+	}
+
+
+	flageE = this->Earmy->Attack_Alien();
+	flageA = this->Aarmy->Attack_Earth();
+
+	if (flageE && flageA)
+	{
+		return 0;
+	}
+	if (!flageE && flageA)
+	{
+		return 1;
+	}
+	if (flageE && !flageA)
+	{
+		return -1;
+	}
+
 }
 void Game::set_timestep(int t)
 {

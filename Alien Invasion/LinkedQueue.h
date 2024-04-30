@@ -167,16 +167,7 @@ bool LinkedQueue<T>::dequeue(T& frntEntry)
 	  }
   }
 
-  template<>
-  inline void LinkedQueue<Solderunit*>::inc_numstep()
-  {
-	  Node<Solderunit*>* ptr = this->frontPtr;
-	  while (ptr)
-	  {
-		  ptr->getItem()->inc_numstep();
-		  ptr = ptr->getNext();
-	  }
-  }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /*
