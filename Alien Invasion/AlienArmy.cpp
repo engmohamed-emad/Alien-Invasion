@@ -45,7 +45,6 @@ bool AlienArmy::get_monster(Monster*& M, unit*& pt)
     
     if (num_monster)
     {
-       
         random_device rd;
         mt19937 gen(rd());
         uniform_int_distribution<int> dis(0, num_monster-1);
@@ -199,13 +198,37 @@ bool AlienArmy::Attack_Earth()
     bool flage2 = true;
     bool flage3 = true;
 
-    solders.peek(Sptr);
+    if(solders.peek(Sptr))
     flage1 = Sptr->attack();
-  //  flage2 = monsters[0]->attack(); edit it
-    Drone.peek(Dptr);
+    if (num_monster > 0)
+    {
+        random_device rd;
+        mt19937 gen(rd());
+        uniform_int_distribution<int> dis(0, num_monster - 1);
+        int index = dis(gen);
+        flage2 = monsters[index]->attack();
+    }
+    if(Drone.peek(Dptr))
     flage3 = Dptr->attack();
     return flage1 || flage2 || flage3;
 
+}
+
+void AlienArmy::print_statistics()
+{
+    cout << "===============Alien Army statistics===================== \n";
+    cout << "AS totsl number : " << num_sol + num_killed_sol <<" \n";
+    cout << "AM totsl number : " << num_monster + num_killed_monster << "\n";
+    cout << "AD totsl number : " << num_drones + num_killed_drones << "\n";
+    cout << "AS Destructed/AS total = " << num_killed_sol * 100 / (1+(num_sol + num_killed_sol))<<"%" << "\n";
+    cout << "AM Destructed/AM total = " << num_killed_monster * 100 /(1+(num_monster + num_killed_monster))<<"%" << "\n";
+    cout << "AD Destructed/AD total = " << num_killed_drones * 100 /(1+ (num_drones + num_killed_drones))<<"%" << "\n";
+    cout << "Total Destructed/Tatal Units = " << (num_killed_sol + num_killed_monster + num_killed_drones) * 100 / (1+(num_sol + num_monster + num_drones + num_killed_sol + num_killed_monster + num_killed_drones))<<"%" << "\n";
+    cout << "Average Df = " <<Df/(1+(num_killed_sol + num_killed_monster + num_killed_drones)) << "\n";
+    cout << "Average Dd = " << Dd /(1+ (num_killed_sol + num_killed_monster + num_killed_drones) )<< "\n";
+    cout << "Average Db = " << Db / (1+(num_killed_sol + num_killed_monster + num_killed_drones)) << "\n";
+    cout << "Df/Db % = " << Df * 100 /(1+ Db) << "%" << "\n";
+    cout << "Dd/Db % = " << Dd * 100 / (1+Db) << "%" << "\n\n";
 }
 
 

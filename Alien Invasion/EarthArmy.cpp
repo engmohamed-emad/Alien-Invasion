@@ -124,12 +124,31 @@ bool EarthArmy::Attack_Alien()
     bool flage3 = true;
     int pri = 0;
 
-    solders.peek(Sptr);
+   if( solders.peek(Sptr))
     flage1 = Sptr->attack();
-    //  flage2 = tank->attack(); //edit it to return bool to chick;
-    Earth_Gun.peek(Gptr, pri);
+    if(tanks.peek(Tptr))
+    flage2 = Tptr->attack(); //edit it to return bool to chick;
+    if(Earth_Gun.peek(Gptr, pri))
     flage3 = Gptr->attack();
     return flage1 || flage2 || flage3;
+}
+
+void EarthArmy::print_statistics()
+{
+        cout << "===============Earth Army statistics===================== \n";
+        cout << "ES totsl number : " << num_sol + num_killed_sol << " \n";
+        cout << "ET totsl number : " << num_tank + num_killed_tank << "\n";
+        cout << "EG totsl number : " << num_EG + num_killed_EG << "\n";
+        cout << "ES Destructed/ES total = " << num_killed_sol * 100 / (1+(num_sol + num_killed_sol)) << "%" << "\n";
+        cout << "ET Destructed/ET total = " << num_killed_tank * 100 /(1+ (num_tank + num_killed_tank)) << "%" << "\n";
+        cout << "EG Destructed/EG total = " << num_killed_sol * 100 /(1+ (num_EG + num_killed_EG)) << "%" << "\n";
+        cout << "Total Destructed/Tatal Units = " << (num_killed_sol + num_killed_tank + num_killed_EG) * 100 / (1+(num_sol + num_tank + num_EG + num_killed_sol + num_killed_tank + num_killed_EG)) << "%" << "\n";
+        cout << "Average Df = " << Df / (1+(num_killed_sol + num_killed_tank + num_killed_EG)) << "\n";
+        cout << "Average Dd = " << Dd /(1+ (num_killed_sol + num_killed_tank + num_killed_EG)) << "\n";
+        cout << "Average Db = " << Db / (1+(num_killed_sol + num_killed_tank + num_killed_EG) )<< "\n";
+        cout << "Df/Db % = " << Df * 100 / (1+Db) << "%" << "\n";
+        cout << "Dd/Db % = " << Dd * 100 / (1+Db) << "%" << "\n\n";
+    
 }
 
 EarthArmy::~EarthArmy()

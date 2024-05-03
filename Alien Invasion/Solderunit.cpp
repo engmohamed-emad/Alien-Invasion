@@ -3,7 +3,9 @@
 #include "LinkedQueue.h"
 #include "AlianSounit.h"
 #include "Game.h"
-
+#include <string>
+#include <chrono>
+#include <thread>
 
 Solderunit::Solderunit()
 {
@@ -40,17 +42,21 @@ bool Solderunit::attack()
 	AlianSounit* Sptr = nullptr;//it is damy pointer to use the function that take two prametars
 	unit* ptr = nullptr;
 	LinkedQueue<unit*> templist;
+	cout << "ES " << this->getID() << " shots [";
 	for (int i = 0; i < Acapacity; i++)
 	{
 		if (game->get_Aarmy()->ReturnSo_uint(Sptr, ptr))
 		{
 			templist.enqueue(ptr);
+			cout << ptr->getID() << ", ";
 		}
 		else
 			break;
 	}	
 	if (templist.isEmpty())
 	{
+		//cout << "\b \b" << "\b \b";
+		cout << "]\n";
 		return false;
 	}
 	//game->get_Aarmy()->ReturnSo_uint(Sptr, ptr)
@@ -84,6 +90,8 @@ bool Solderunit::attack()
 			}
 		}
 	}
+	cout << "\b \b" << "\b \b";
+	cout << "]\n";
 	return true;
 }
 

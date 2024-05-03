@@ -1,6 +1,8 @@
 #include<iostream>
 #include<string>
 #include<fstream>
+#include"solderunit.h"
+#include"Tank.h"
 #include "Game.h"
 using namespace std;
 Game::Game() {
@@ -59,7 +61,7 @@ bool Game::get_UML_ES(Solderunit* s)
 	int pri = 0;
 	return UML_ES.dequeue(s, pri);
 }
-bool Game::addto_UML_TS(Tank* T)
+bool Game::addto_UML_ET(Tank* T)
 {
 	return UML_ET.enqueue(T);
 }
@@ -69,11 +71,29 @@ bool Game::get_UML_ET(Tank* s)
 }
 void Game::ADD_HealUint(HealingUnit* H)
 {
-	HU.enqueue(H);
+	HU.push(H);
 }
 bool Game::Get_HU(HealingUnit* H)
 {
-	return HU.dequeue(H);
+	return HU.pop(H);
+}
+void Game::Healing()   //check
+{
+	Solderunit* ES;
+	Tank* ET;
+	int x = 10;
+	while (!UML_ES.isEmpty()&& !UML_ET.isEmpty())
+	{
+		HealingUnit* hu;
+		unit* khu;
+		if (HU.pop(hu))
+		{
+			hu->attack();
+			khu = dynamic_cast<unit*>(hu);
+			add_killedlist(khu);
+		}
+		else break;
+	}
 }
 int Game::fight()
 {
@@ -83,7 +103,7 @@ int Game::fight()
 	unit* hptr;
 	if (!UML_ES.isEmpty() || !UML_ET.isEmpty())
 	{
-		if (HU.dequeue(hu))
+		if (HU.pop(hu))
 		{
 			hu->attack();
 			hptr = dynamic_cast<unit*>(hu);
@@ -108,7 +128,7 @@ int Game::fight()
 	{
 		return -1;
 	}
-
+	else return 2;
 }
 void Game::set_timestep(int t)
 {

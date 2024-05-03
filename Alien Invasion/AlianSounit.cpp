@@ -1,7 +1,9 @@
 #include "AlianSounit.h"
 #include "Game.h"
 #include "Solderunit.h"
-
+#include <string>
+#include <chrono>
+#include <thread>
 AlianSounit::AlianSounit()
 {
 	set_type("AS");
@@ -30,15 +32,19 @@ bool AlianSounit::attack()
 	Solderunit* Sptr = nullptr;//it is damy pointer to use the function that take two prametars
 	unit* ptr = nullptr;
 	LinkedQueue<unit*> templist;
+	cout << "AS " << this->getID() << " shots [";
 	for (int i = 0; i < Acapacity; i++)
 	{     
 		if (game->get_Earmy()->ReturnSo_uint(Sptr, ptr))
 		{
 			templist.enqueue(ptr);
+			cout << ptr->getID() << ", ";
 		}
 	}
 	if (templist.isEmpty())
 	{
+		//cout << "\b \b" << "\b \b";
+		cout << "]\n";
 		return false;
 	}
 
@@ -78,6 +84,8 @@ bool AlianSounit::attack()
 			}
 		}
 	}
+	cout << "\b \b" << "\b \b";
+	cout << "]\n";
 	return true;
 }
 

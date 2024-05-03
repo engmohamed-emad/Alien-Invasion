@@ -55,6 +55,7 @@ public:
 	void update_num_killed_tank();
 	void ubdate_D(unit*& U);
 	bool Attack_Alien();
+	void print_statistics();
 	~EarthArmy();
 };
 

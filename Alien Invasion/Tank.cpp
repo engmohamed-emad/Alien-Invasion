@@ -5,6 +5,9 @@
 #include"Game.h"
 #include"AlianSounit.h"
 #include"Monster.h"
+#include <string>
+#include <chrono>
+#include <thread>
 Tank::Tank()
 {
 	set_type("Tank");
@@ -41,18 +44,27 @@ int Tank::get_Heal_Time()
 	return Heal_Time;
 }
 
-void Tank::attack()
+bool Tank::attack()
 {
+	bool flag1 = false;
+	bool flag2 = false;
 	int cap = Acapacity;
+	cout << "ET " << this->getID() << " shots [";
 	if (this->help_soldier(game->get_Earmy()->get_num_sol(), game->get_Aarmy()->get_num_sol()))
 	{
+		
 		AlianSounit* AS = nullptr;
 		unit* AS_ptr = nullptr;
 		LinkedQueue<AlianSounit*>AS_templist;
+		
 		for (int i = 0; i < Acapacity / 2; i++)
 		{
 			if (game->get_Aarmy()->ReturnSo_uint(AS, AS_ptr))
+			{
 				AS_templist.enqueue(AS);
+				cout << AS->getID() << ", ";
+				flag1 = true;
+			}
 			else break;
 		}
 		while (AS_templist.dequeue(AS))
@@ -84,7 +96,11 @@ void Tank::attack()
 	for (int i = 0; i < cap; i++)
 	{
 		if (game->get_Aarmy()->get_monster(m, m_ptr))
+		{
 			m_templist.enqueue(m);
+			cout << m->getID() << ", ";
+			flag2 = true;
+		}
 		else break;
 	}
 	while (m_templist.dequeue(m))
@@ -106,6 +122,9 @@ void Tank::attack()
 		else
 			game->get_Aarmy()->Add_monster(m);
 	}
-
+	if(flag1||flag2)
+	cout << "\b \b" << "\b \b";
+	cout << "]\n";
+	return (flag1||flag2);
 }
 

@@ -4,9 +4,12 @@
 #include"AlienArmy.h"
 #include"EarthArmy.h"
 #include"LinkedQueue.h"
+#include"ArrayStack.h"
 #include"unit.h"
 #include"RandGen.h"
 #include"HealingUnit.h"
+#include"solderunit.h"
+#include"Tank.h"
 class RandGen;
 class HealingUnit;
 class EarthArmy;
@@ -19,7 +22,7 @@ class Game
 	EarthArmy* Earmy;
 	RandGen* rand;
 	LinkedQueue<unit*>killedlist;
-	LinkedQueue<HealingUnit*> HU;
+	ArrayStack<HealingUnit*> HU;
 	priQueue<Solderunit*> UML_ES;        
 	LinkedQueue<Tank*>UML_ET;
 	int num[21];
@@ -39,11 +42,11 @@ public:
 	void print_armys();
 	void addto_UML_ES(Solderunit* s);
 	bool get_UML_ES(Solderunit* s);
-	bool addto_UML_TS(Tank* T);
+	bool addto_UML_ET(Tank* T);
 	bool get_UML_ET(Tank* s);
 	void ADD_HealUint(HealingUnit*H);
 	bool Get_HU(HealingUnit* H);
-	
+	void Healing();
 	int fight();
 	// {
 	//		

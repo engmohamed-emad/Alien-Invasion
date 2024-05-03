@@ -44,5 +44,6 @@ public:
 	void update_num_killed_drones();
 	void ubdate_D(unit*&U);
 	bool Attack_Earth();
+	void print_statistics();
 };
 

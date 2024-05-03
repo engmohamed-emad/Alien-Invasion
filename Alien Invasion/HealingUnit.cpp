@@ -49,8 +49,9 @@ void HealingUnit::attack()
 					game->add_killedlist(ptr);
 				}
 				i--;
-			}	
+			}
 		}
+		else break;
 
 	}
 	for (int i = 0; i < Acapacity - c; i++)
@@ -72,7 +73,7 @@ void HealingUnit::attack()
 				i--;
 			}
 		}
-
+		else break;
 	}
 	while (temp_Sol.dequeue(Sptr)&&c>0)
 	{
@@ -107,7 +108,7 @@ void HealingUnit::attack()
 	}
 	while (temp_tank.dequeue(Tptr))
 	{
-		game->addto_UML_TS(Tptr);
+		game->addto_UML_ET(Tptr);
 	}
 	
 }

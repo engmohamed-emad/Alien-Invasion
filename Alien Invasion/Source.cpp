@@ -35,113 +35,48 @@ int main()
 	mygame->read_data();
 	RandGen* rand = mygame->get_RandGen();
 	rand->trans_data();
+	int flag = 0;
 	for (int i = 1; i <= 50; i++)
 	{
 		mygame->set_timestep(i);
 		rand->Create_Random();
-		x = generate_ran(1, 100);
 		cout << "Current time step " << i << endl;
-		cout << "X= " << x << endl<<"Afer generating and before changing\n";
-		//we did this to check after generating before changing 
 		mygame->get_Aarmy()->print();
 		cout << endl;
 		mygame->get_Earmy()->print();
 		cout << endl;
-		mygame->print_Killed();
-		cout << endl;
-		cout << "=================================================\nAfter changing" << endl;
-		if (x < 10)
-		{
-			Solderunit* ES = nullptr;
-			if(mygame->get_Earmy()->ReturnSo_uint(ES, pt))
-			mygame->get_Earmy()->addSo_unit(ES);
-		}
-		else if (x>10 && x < 20)
-		{
-			Tank* t = nullptr;
-			if(mygame->get_Earmy()->return_tank(t, pt))
-			mygame->add_killedlist(pt);
-		}
-		else if (x>20 && x < 30)
-		{
-			int pri = 0;
-			EG* G = nullptr;
-			if (mygame->get_Earmy()->Return_Gun(G, pri, pt))
-			{
-				G->dec_health((G->getcurrhealth() / 2));
-				mygame->get_Earmy()->Add_Earth_Gun(G);
-			}
-		}
-		else if (x>30 && x < 40)
-		{
-			AlianSounit* AS = nullptr;
-			LinkedQueue<AlianSounit*>Q;
-
-			for (int i = 0; i < 5; i++)
-			{
-				if (mygame->get_Aarmy()->ReturnSo_uint(AS, pt))
-				{
-					AS->dec_health(10);
-					Q.enqueue(AS);
-				}
-				else
-					break;
-			}
-
-			while (Q.dequeue(AS))
-			{
-				mygame->get_Aarmy()->addSo_unit(AS);
-			}
-		}
-		else if (x>40 && x< 50)
-		{
-			LinkedQueue<Monster*>Q;
-			Monster* M = nullptr;
-
-			for (int i = 0; i < 5; i++)
-			{
-				if (mygame->get_Aarmy()->get_monster(M, pt))
-				{
-					Q.enqueue(M);
-				}
-				else
-					break;
-			}
-
-			while (Q.dequeue(M))
-			{
-				mygame->get_Aarmy()->Add_monster(M);
-			}
-
-		}
-		else if (x>50 && x < 60)
-		{
-			Drones* D;
-			LinkedQueue<unit*>Q;
-			for (int i = 0; i < 6; i++)
-			{
-				if (mygame->get_Aarmy()->Get_Drones(D, pt))
-				{
-					Q.enqueue(pt);
-				}
-				else
-					break;
-			}
-			while (Q.dequeue(pt))
-			{
-				mygame->add_killedlist(pt);
-			}
-		}
-		mygame->get_Aarmy()->print();
-		cout << endl;
-		mygame->get_Earmy()->print();
-		cout << endl;
+		cout << "===================Units fighting at current timestep========================\n";
+	    flag = mygame->fight();
+		mygame->Healing();
 		mygame->print_Killed();
 		cout << endl;
 		//print enter to continue
+		cout << "========================================================================================================================================\n";
 		getline(cin,s);
-}
-
+    }
+	if (flag == 1)
+	{
+		cout << "Winner Earth Army\n";
+		mygame->get_Earmy()->print_statistics();
+		cout << "Loser Alien Army\n";
+		mygame->get_Aarmy()->print_statistics();
+	}
+	if (flag == -1)
+	{
+		cout << "Loser Earth Army\n";
+		mygame->get_Earmy()->print_statistics();
+		cout << "Winner Alien Army\n";
+		mygame->get_Aarmy()->print_statistics();
+	}
+	else
+	{
+		cout << "Draw\n";
+		mygame->get_Earmy()->print_statistics();
+		cout << "Draw\n";
+		mygame->get_Aarmy()->print_statistics();
+		
+		
+	}
 	delete mygame;
 	mygame = nullptr;
 	return 0;

@@ -1,6 +1,9 @@
 #include "EG.h"
 #include<cmath>
 #include"Game.h"
+#include <string>
+#include <chrono>
+#include <thread>
 void EG::setAttack_Cap_Drone()
 {
 	if ((Acapacity / 2) % 2 == 0)
@@ -61,11 +64,14 @@ bool EG::attack()
 	unit* U2 = nullptr;
 	LinkedQueue<unit*>templist1;//for monsters
 	LinkedQueue<unit*>templist2;//for Drones
-
+	cout << "EG " << this->getID() << " shots [";
 	for (int i = 0; i < Attack_Cap_Monster; i++)
 	{
 		if (game->get_Aarmy()->get_monster(pt, U))
+		{
 			templist1.enqueue(U);
+			cout << U->getID() << ", ";
+		}
 		else
 			break;
 	}
@@ -73,15 +79,21 @@ bool EG::attack()
 	for (int i = 0; i < Attack_Cap_Drone; i++)
 	{
 		if (game->get_Aarmy()->Get_Drones(D, U))
+		{
 			templist2.enqueue(U);
+			cout << U->getID() << ", ";
+		}
 		else
 			break;
 	}
 
 
 	if (templist1.isEmpty() && templist2.isEmpty())
+	{
+		//cout << "\b \b" << "\b \b";
+		cout << "]\n";
 		return false;
-
+	}
 	 if (templist1.isEmpty())
 	{
 		flage1 = false;
@@ -113,7 +125,11 @@ bool EG::attack()
 					if (pt != nullptr)
 						game->get_Aarmy()->Add_monster(pt);
 					else
+					{
+						cout << "\b \b" << "\b \b";
+						cout << "]\n";
 						return false;
+					}
 				}
 		}
 		flage1 = true;
@@ -160,7 +176,11 @@ bool EG::attack()
 						if (D != nullptr)
 							game->get_Aarmy()->Add_Drones(D);
 						else
+						{
+							cout << "\b \b" << "\b \b";
+							cout << "]\n";
 							return false;
+						}
 					}
 					if (U2->is_dead())
 					{
@@ -173,7 +193,11 @@ bool EG::attack()
 						if (D != nullptr)
 							game->get_Aarmy()->Add_Drones(D);
 						else
+						{
+							cout << "\b \b" << "\b \b";
+							cout << "]\n";
 							return false;
+						}
 					}
 				}
 				else
@@ -197,7 +221,11 @@ bool EG::attack()
 						if (D != nullptr)
 							game->get_Aarmy()->Add_Drones(D);
 						else
+						{
+							cout << "\b \b" << "\b \b";
+							cout << "]\n";
 							return false;
+						}
 					}
 				}
 				
@@ -205,7 +233,8 @@ bool EG::attack()
 		}
 		flage2 = true;
 	}
-	
+	cout << "\b \b" << "\b \b";
+	cout << "]\n";
 	return (flage1 || flage2);
 }
 

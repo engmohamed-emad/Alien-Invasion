@@ -1,7 +1,9 @@
 #include "Drones.h"
 #include"Game.h"
 #include"LinkedQueue.h"
-
+#include <string>
+#include <chrono>
+#include <thread>
 void Drones::Set_Cap_Tank()
 {
 	Attack_Cap_Tank = Acapacity / 2;
@@ -43,10 +45,14 @@ bool Drones::attack()
 	unit* U = nullptr;
 	LinkedQueue<unit*>templist1;
 	LinkedQueue<unit*>templist2;
+	cout << "AD " << this->getID() << " shots [";
 	for (int i = 0; i < Attack_Cap_Tank; i++)
 	{
 		if (game->get_Earmy()->return_tank(T, U))
+		{
 			templist1.enqueue(T);
+			cout << T->getID() << ", ";
+		}
 		else
 			break;
 	}
@@ -54,14 +60,20 @@ bool Drones::attack()
 	for (int i = 0; i < Attack_Cap_Gun; i++)
 	{
 		if (game->get_Earmy()->Return_Gun(Gun, pri, U))
+		{
 			templist2.enqueue(Gun);
+			cout << Gun->getID() << ", ";
+		}
 		else
 			break;
 	}
 
 	if (templist1.isEmpty() && templist2.isEmpty())
+	{
+		//cout << "\b \b" << "\b \b";
+		cout << "]\n";
 		return false;
-
+	}
 	if (templist1.isEmpty())
 	{
 		flage1 = false;
@@ -89,7 +101,7 @@ bool Drones::attack()
 			{
 				T = dynamic_cast<Tank*>(U);
 				T->set_Heal_Time(game->get_timestep());
-				game->addto_UML_TS(T);
+				game->addto_UML_ET(T);
 			}
 			else
 			
@@ -99,8 +111,11 @@ bool Drones::attack()
 				if (T != nullptr)
 					game->get_Earmy()->Add_tank(T);
 				else
-					return false;//this may lead to a logical error
-
+				{
+					cout << "\b \b" << "\b \b";
+					cout << "]\n";
+					return false;//this may lead to a logical error       ?? ?? ????? ???? 
+				}
 			}
 		}
 		flage1 = true;
@@ -137,12 +152,17 @@ bool Drones::attack()
 					game->get_Earmy()->Add_Earth_Gun(Gun);
 				}
 				else
+				{
+					cout << "\b \b" << "\b \b";
+					cout << "]\n";
 					return false;
+				}
 			}
 		}
 		flage2 = true;
 	}
-
+	cout << "\b \b" << "\b \b";
+	cout << "]\n";
 	return (flage1 || flage2);
 }
 

@@ -4,6 +4,9 @@
 #include"Game.h"
 #include"Solderunit.h"
 #include"Tank.h"
+#include <string>
+#include <chrono>
+#include <thread>
 Monster::Monster()
 {
 	set_type("Monster");
@@ -23,19 +26,24 @@ void Monster::dec_health(float damage)
 {
 	this->currhealth = this->currhealth - damage;
 }
-void Monster::attack()
+bool Monster::attack()
 {
+	bool flag1 = false;
+	bool flag2 = false;
 	Solderunit* ES = nullptr;
 	Tank* T = nullptr;
 	unit* ES_ptr = nullptr;
 	unit* T_ptr = nullptr;
 	LinkedQueue<Solderunit*>ES_templist;
 	LinkedQueue<Tank*>T_templist;
+	cout << "AM " << this->getID() << " shots [";
 	for (int i = 0; i < Acapacity / 2; i++)
 	{
 		if (game->get_Earmy()->return_tank(T, T_ptr))
 		{
 			T_templist.enqueue(T);
+			cout << T->getID() << ", ";
+			flag1 = true;
 		}
 		else break;
 	}
@@ -59,7 +67,7 @@ void Monster::attack()
 			if (T->need_help())
 			{
 				T->set_Heal_Time(game->get_timestep());
-				game->addto_UML_TS(T);
+				game->addto_UML_ET(T);
 			}
 			else
 				game->get_Earmy()->Add_tank(T);
@@ -71,6 +79,8 @@ void Monster::attack()
 		if (game->get_Earmy()->ReturnSo_uint(ES, ES_ptr))
 		{
 			ES_templist.enqueue(ES);
+			cout << ES->getID() << ", ";
+			flag2 = true;
 		}
 		else break;
 	}
@@ -99,6 +109,9 @@ void Monster::attack()
 				game->get_Earmy()->addSo_unit(ES);
 		}
 	}
-
+	if(flag1||flag2)
+	cout << "\b \b" << "\b \b";
+	cout << "]\n";
+	return (flag1 || flag2);
 }
 
