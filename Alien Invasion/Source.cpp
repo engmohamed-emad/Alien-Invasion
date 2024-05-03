@@ -36,7 +36,7 @@ int main()
 	RandGen* rand = mygame->get_RandGen();
 	rand->trans_data();
 	int flag = 0;
-	for (int i = 1; i <= 50; i++)
+	for (int i = 1; i <= 50||(!flag); i++)
 	{
 		mygame->set_timestep(i);
 		rand->Create_Random();
@@ -52,7 +52,7 @@ int main()
 		cout << endl;
 		//print enter to continue
 		cout << "========================================================================================================================================\n";
-		getline(cin,s);
+		//getline(cin,s);
     }
 	if (flag == 1)
 	{
@@ -61,7 +61,7 @@ int main()
 		cout << "Loser Alien Army\n";
 		mygame->get_Aarmy()->print_statistics();
 	}
-	if (flag == -1)
+	else if (flag == -1)
 	{
 		cout << "Loser Earth Army\n";
 		mygame->get_Earmy()->print_statistics();
@@ -73,9 +73,7 @@ int main()
 		cout << "Draw\n";
 		mygame->get_Earmy()->print_statistics();
 		cout << "Draw\n";
-		mygame->get_Aarmy()->print_statistics();
-		
-		
+		mygame->get_Aarmy()->print_statistics();	
 	}
 	delete mygame;
 	mygame = nullptr;

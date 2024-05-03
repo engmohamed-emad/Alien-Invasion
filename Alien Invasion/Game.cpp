@@ -52,20 +52,20 @@ void Game::print_armys()
 	this->get_Aarmy()->print();
 	cout << endl;
 }
-void Game::addto_UML_ES(Solderunit* s)
+void Game::addto_UML_ES(Solderunit*& s)
 {
 	UML_ES.enqueue(s, 1000 - s->getcurrhealth());
 }
-bool Game::get_UML_ES(Solderunit* s)
+bool Game::get_UML_ES(Solderunit* &s) //
 {
 	int pri = 0;
 	return UML_ES.dequeue(s, pri);
 }
-bool Game::addto_UML_ET(Tank* T)
+bool Game::addto_UML_ET(Tank* &T)  ///
 {
 	return UML_ET.enqueue(T);
 }
-bool Game::get_UML_ET(Tank* s)
+bool Game::get_UML_ET(Tank* &s)
 {
 	return UML_ET.dequeue(s);
 }

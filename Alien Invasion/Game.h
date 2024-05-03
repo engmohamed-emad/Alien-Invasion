@@ -40,10 +40,10 @@ public:
 	void add_killedlist(unit*&U);
 	void print_Killed();
 	void print_armys();
-	void addto_UML_ES(Solderunit* s);
-	bool get_UML_ES(Solderunit* s);
-	bool addto_UML_ET(Tank* T);
-	bool get_UML_ET(Tank* s);
+	void addto_UML_ES(Solderunit* &s);
+	bool get_UML_ES(Solderunit*& s);
+	bool addto_UML_ET(Tank*& T);
+	bool get_UML_ET(Tank*& s);
 	void ADD_HealUint(HealingUnit*H);
 	bool Get_HU(HealingUnit* H);
 	void Healing();
