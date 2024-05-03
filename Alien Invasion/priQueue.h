@@ -4,6 +4,7 @@
 #include "unit.h"
 #include "EG.h"
 #include <iostream>
+#include"Solderunit.h"
 using namespace std;
 
 
@@ -64,6 +65,10 @@ public:
 
     bool isEmpty() const {
         return head == nullptr;
+    }
+    void print()
+    {
+
     }
 };
 ///////////////////////////////////////////////////////////////
@@ -130,10 +135,24 @@ public:
         while (ptr)
         {
             pri = head->getPri();
-            cout << ptr->getItem(pri)->getID();
+            cout << ptr->getItem(pri)->getID() << "(" << ptr->getItem(pri)->getcurrhealth() << ")";
             ptr = ptr->getNext();
             if (ptr)
                 cout << ", ";
         }
     }
 };
+template<>
+inline void priQueue<Solderunit*>::print()
+{
+    int pri;
+    priNode<Solderunit*>* ptr = this->head;
+    while (ptr)
+    {
+        pri = head->getPri();
+        cout << ptr->getItem(pri)->getID() << "(" << ptr->getItem(pri)->getcurrhealth() << ")";
+        ptr = ptr->getNext();
+        if (ptr)
+            cout << ", ";
+    }
+}

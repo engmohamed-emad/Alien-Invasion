@@ -3,6 +3,7 @@
 using namespace std;
 #include "Solderunit.h"
 #include"unit.h"
+#include"Tank.h"
 /*
 This is a program that implements the queue abstract data type using a linked list.
 The queue is implemented as a chain of linked nodes that has two pointers,
@@ -56,6 +57,7 @@ protected:
 	Node<T>* backPtr;
 	Node<T>* frontPtr;
 public:
+
 	LinkedQueue();
 	bool isEmpty() const;
 	bool enqueue(const T& newEntry);
@@ -189,7 +191,19 @@ bool LinkedQueue<T>::peek(T& frntEntry) const
 
 }
 ///////////////////////////////////////////////////////////////////////////////////
+template<>
+inline void LinkedQueue<Tank*>::print()
+{
 
+	Node<Tank*>* ptr = this->frontPtr;
+	while (ptr)
+	{
+		cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")";
+		ptr = ptr->getNext();
+		if (ptr)
+			cout << ", ";
+	}
+}
 
 
 

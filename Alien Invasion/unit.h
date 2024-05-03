@@ -47,7 +47,7 @@ public:
 	virtual bool need_help();
 	virtual float detect_damage(int enhealth)
 	{
-		return (Apower * currhealth / 100) / sqrt(enhealth);
+		return float((Apower * currhealth / 100) / sqrt(enhealth));
 	}
 
 	//virtual bool attack()=0;

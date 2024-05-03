@@ -11,7 +11,7 @@ private:
 
 public:
 	bool enqueue_front(const T& D);
-	bool can_attacks();
+	
 	bool dequeue_rear(T& D);
 	~DronesQueue();
 };
@@ -35,14 +35,7 @@ public:
 			return true;
 		}
 	}
-   template<class T>
-   inline bool DronesQueue<T>::can_attacks()
-	{
-		if (this->backPtr == this->frontPtr)
-			return false;
-		else
-			return true;
-	}
+  
 	template<class T>
 	inline bool DronesQueue<T>::dequeue_rear(T& D)
 	{
@@ -110,7 +103,7 @@ public:
 			return true;
 		}
 	}
-	bool can_attacks();
+	
 	bool dequeue_rear(Drones*& D)
 	{
 		if (this->isEmpty())
@@ -148,7 +141,7 @@ public:
 		Node<Drones*>* ptr = this->frontPtr;
 		while (ptr)
 		{
-			cout << ptr->getItem()->getID() ;
+			cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")";
 			ptr = ptr->getNext();
 			if (ptr)
 				cout << ", ";
@@ -161,6 +154,13 @@ public:
 			while (this->dequeue(temp));
 		}
 
+		 bool can_attacks()
+		{
+			if (this->backPtr == this->frontPtr)
+				return false;
+			else
+				return true;
+		}
 	
 };
 

@@ -10,7 +10,6 @@ int generate_ran(int num1, int num2)
     return  random_num;
 
 }
-
 bool AlienArmy::ADD_unit(unit*& ptr)
 {
     if (ptr->get_type() == "Drone")
@@ -71,7 +70,6 @@ bool AlienArmy::Add_Drones(Drones*& D)
         num_drones++;
         return Drone.enqueue(D);
     }
-
 }
 
 bool AlienArmy::Get_Drones(Drones*& D, unit*& pt)
@@ -150,7 +148,7 @@ void AlienArmy::print()
     cout << num_monster << " AM [";
     for (int i = 0; i < num_monster; i++)
     {
-        cout << monsters[i]->getID();
+        cout << monsters[i]->getID()<< "(" << monsters[i]->getcurrhealth() << ")";
         if (i < num_monster - 1)
         {
             cout << ", ";
@@ -208,10 +206,13 @@ bool AlienArmy::Attack_Earth()
         int index = dis(gen);
         flage2 = monsters[index]->attack();
     }
-    if(Drone.peek(Dptr))
-    flage3 = Dptr->attack();
+    if (Drone.can_attacks())
+    {
+        // handling one from first and one from last
+        if (Drone.peek(Dptr))
+            flage3 = Dptr->attack();
+    }
     return flage1 || flage2 || flage3;
-
 }
 
 void AlienArmy::print_statistics()

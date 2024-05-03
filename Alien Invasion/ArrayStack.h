@@ -11,6 +11,7 @@
 
 #include "StackADT.h"
 #include"Tank.h"
+#include"HealingUnit.h"
  //Unless spesificed by the stack user, the default size is 100
 template<typename T>
 class ArrayStack : public StackADT<T>
@@ -66,7 +67,17 @@ inline void ArrayStack<Tank*>::print()
 {
 	for (int i = 0; i <= top; i++)
 	{
-		cout << items[i]->getID();
+		cout << items[i]->getID() << "(" << items[i]->getcurrhealth() << ")";
+		if (i < top)
+			cout << ", ";
+	}
+}
+template<>
+inline void ArrayStack<HealingUnit*>::print()
+{
+	for (int i = 0; i <= top; i++)
+	{
+		cout << items[i]->getID() << "(" << items[i]->getcurrhealth() << ")";
 		if (i < top)
 			cout << ", ";
 	}

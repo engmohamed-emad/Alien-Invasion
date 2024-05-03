@@ -36,13 +36,13 @@ bool Monster::attack()
 	unit* T_ptr = nullptr;
 	LinkedQueue<Solderunit*>ES_templist;
 	LinkedQueue<Tank*>T_templist;
-	cout << "AM " << this->getID() << " shots [";
+	cout << "AM " << this->getID() << " (" << this->getApower() << ") " << " shots [";
 	for (int i = 0; i < Acapacity / 2; i++)
 	{
 		if (game->get_Earmy()->return_tank(T, T_ptr))
 		{
 			T_templist.enqueue(T);
-			cout << T->getID() << ", ";
+			//cout << T->getID() << ", ";
 			flag1 = true;
 		}
 		else break;
@@ -51,6 +51,7 @@ bool Monster::attack()
 	while (T_templist.dequeue(T))
 	{
 		T->dec_health(this->detect_damage(T->getcurrhealth()));
+		cout << T->getID()<< " ("<<T->getcurrhealth()<<") " << ", ";
 		if (!(T->get_firstAttack()))
 		{
 			T->set_Ta(game->get_timestep());
@@ -79,7 +80,7 @@ bool Monster::attack()
 		if (game->get_Earmy()->ReturnSo_uint(ES, ES_ptr))
 		{
 			ES_templist.enqueue(ES);
-			cout << ES->getID() << ", ";
+			//cout << ES->getID() << ", ";
 			flag2 = true;
 		}
 		else break;
@@ -87,6 +88,7 @@ bool Monster::attack()
 	while (ES_templist.dequeue(ES))
 	{
 		ES->dec_health(this->detect_damage(ES->getcurrhealth()));
+		cout << ES->getID() << " (" << ES->getcurrhealth() << ") " << ", ";
 		if (!(ES->get_firstAttack()))
 		{
 			ES->set_Ta(game->get_timestep());

@@ -1,6 +1,9 @@
 #include "HealingUnit.h"
 #include "LinkedQueue.h"
 #include"Game.h"
+#include <string>
+#include <chrono>
+#include <thread>
 HealingUnit::HealingUnit()
 {
 	this->set_type("HU");
@@ -25,6 +28,9 @@ void HealingUnit::dec_health(float damage)
 
 void HealingUnit::attack()
 {
+	cout << "========================== Healing operation ==========================\n";
+	bool flag = false;
+	cout << "HU " << this->getID() << " healing [";
 	int c = 0;
 	int T = 0;
 	LinkedQueue<Solderunit*>temp_Sol;
@@ -40,6 +46,7 @@ void HealingUnit::attack()
 			{
 				c++;
 				temp_Sol.enqueue(Sptr);
+				flag = true;
 			}
 			else
 			{
@@ -52,7 +59,6 @@ void HealingUnit::attack()
 			}
 		}
 		else break;
-
 	}
 	for (int i = 0; i < Acapacity - c; i++)
 	{
@@ -61,6 +67,7 @@ void HealingUnit::attack()
 			if (game->get_timestep() - Tptr->get_Heal_Time() < 10)
 			{
 				temp_tank.enqueue(Tptr);
+				flag = true;
 				T++;
 			}
 			else
@@ -78,6 +85,7 @@ void HealingUnit::attack()
 	while (temp_Sol.dequeue(Sptr)&&c>0)
 	{
 		Sptr->inc_health(detect_damage(Sptr->getcurrhealth()));
+		cout << Sptr->getID()<<" (" <<Sptr->getcurrhealth()<<") " << ", ";
 		if (Sptr->need_help())
 		{
 			temp_Sol.enqueue(Sptr);
@@ -85,6 +93,7 @@ void HealingUnit::attack()
 		else
 		{
 			game->get_Earmy()->addSo_unit(Sptr);
+			num_healed++;
 		}
 		c--;
 	}
@@ -95,13 +104,15 @@ void HealingUnit::attack()
 	while (temp_tank.dequeue(Tptr)&&T>0)
 	{
 		Tptr->inc_health(detect_damage(Tptr->getcurrhealth()));
+		cout << Sptr->getID() << " (" << Sptr->getcurrhealth() << ") " << ", ";
 		if (Tptr->need_help())
 		{
 			temp_tank.enqueue(Tptr);
 		}
 		else
 		{
-			game->get_Earmy()->Add_tank(Tptr);
+			game->get_Earmy()->Add_tank(Tptr); 
+			num_healed++;
 		}
 		T--;
 
@@ -110,5 +121,12 @@ void HealingUnit::attack()
 	{
 		game->addto_UML_ET(Tptr);
 	}
-	
+	if(flag)
+	cout << "\b \b" << "\b \b";
+	cout << "]\n\n";
+}
+
+int HealingUnit::get_num_healed()
+{
+	return num_healed;
 }

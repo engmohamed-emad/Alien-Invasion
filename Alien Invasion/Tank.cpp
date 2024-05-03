@@ -49,7 +49,7 @@ bool Tank::attack()
 	bool flag1 = false;
 	bool flag2 = false;
 	int cap = Acapacity;
-	cout << "ET " << this->getID() << " shots [";
+	cout << "ET "  << this->getID() << " (" << this->getApower()<< ") " << " shots [";
 	if (this->help_soldier(game->get_Earmy()->get_num_sol(), game->get_Aarmy()->get_num_sol()))
 	{
 		
@@ -62,7 +62,7 @@ bool Tank::attack()
 			if (game->get_Aarmy()->ReturnSo_uint(AS, AS_ptr))
 			{
 				AS_templist.enqueue(AS);
-				cout << AS->getID() << ", ";
+				
 				flag1 = true;
 			}
 			else break;
@@ -70,6 +70,7 @@ bool Tank::attack()
 		while (AS_templist.dequeue(AS))
 		{
 			AS->dec_health(this->detect_damage(AS->getcurrhealth()));
+			cout << AS->getID() << " (" << AS->getcurrhealth() << ") " << ", ";
 			if (!(AS->get_firstAttack()))
 			{
 				AS->set_Ta(game->get_timestep());
@@ -98,7 +99,7 @@ bool Tank::attack()
 		if (game->get_Aarmy()->get_monster(m, m_ptr))
 		{
 			m_templist.enqueue(m);
-			cout << m->getID() << ", ";
+			//cout << m->getID() << ", ";
 			flag2 = true;
 		}
 		else break;
@@ -106,6 +107,7 @@ bool Tank::attack()
 	while (m_templist.dequeue(m))
 	{
 		m->dec_health(this->detect_damage(m->getcurrhealth()));
+		cout << m->getID() <<" ("<<m->getcurrhealth()<<") " << ", ";
 		if (!(m->get_firstAttack()))
 		{
 			m->set_Ta(game->get_timestep());

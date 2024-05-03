@@ -27,6 +27,7 @@ protected:
 	int Df = 0;
 	int Dd = 0;
 	int Db = 0;
+	int total_units = 0;
 public:
 
 	bool Add_unit(unit* ptr);
@@ -56,6 +57,7 @@ public:
 	void ubdate_D(unit*& U);
 	bool Attack_Alien();
 	void print_statistics();
+	int get_total_units();
 	~EarthArmy();
 };
 

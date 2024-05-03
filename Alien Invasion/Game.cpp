@@ -54,68 +54,82 @@ void Game::print_armys()
 }
 void Game::addto_UML_ES(Solderunit*& s)
 {
+	num_healed_sol++;
 	UML_ES.enqueue(s, 1000 - s->getcurrhealth());
 }
 bool Game::get_UML_ES(Solderunit* &s) //
 {
 	int pri = 0;
-	return UML_ES.dequeue(s, pri);
+	if (UML_ES.dequeue(s, pri))
+	{
+		num_healed_sol--;
+		return true;
+	}
+	else return false;
 }
 bool Game::addto_UML_ET(Tank* &T)  ///
 {
+	num_healed_tank++;
 	return UML_ET.enqueue(T);
 }
 bool Game::get_UML_ET(Tank* &s)
 {
-	return UML_ET.dequeue(s);
+	if (UML_ET.dequeue(s))
+	{
+		num_healed_tank--;
+		return true;
+	}
+	else return false;
 }
 void Game::ADD_HealUint(HealingUnit* H)
 {
-	HU.push(H);
+	if(HU.push(H))
+	num_HU++;
 }
 bool Game::Get_HU(HealingUnit* H)
 {
-	return HU.pop(H);
-}
-void Game::Healing()   //check
-{
-	Solderunit* ES;
-	Tank* ET;
-	int x = 10;
-	while (!UML_ES.isEmpty()&& !UML_ET.isEmpty())
+	if (HU.pop(H))
 	{
-		HealingUnit* hu;
-		unit* khu;
-		if (HU.pop(hu))
-		{
-			hu->attack();
-			khu = dynamic_cast<unit*>(hu);
-			add_killedlist(khu);
-		}
-		else break;
+		num_HU--;
+		return true;
 	}
+	else return false;
 }
+//void Game::Healing()   //check
+//{
+//	while (!UML_ES.isEmpty()&& !UML_ET.isEmpty())
+//	{
+//		HealingUnit* hu;
+//		unit* khu;
+//		if (HU.pop(hu))
+//		{
+//			hu->attack();
+//			khu = dynamic_cast<unit*>(hu);
+//			add_killedlist(khu);
+//		}
+//		else break;
+//	}
+//}
 int Game::fight()
 {
+
 	bool flageE = true;
 	bool flageA = true;
 	HealingUnit* hu;
 	unit* hptr;
+	flageE = this->Earmy->Attack_Alien();
+	flageA = this->Aarmy->Attack_Earth();
 	if (!UML_ES.isEmpty() || !UML_ET.isEmpty())
 	{
 		if (HU.pop(hu))
 		{
 			hu->attack();
+			total_num_healed += hu->get_num_healed();
 			hptr = dynamic_cast<unit*>(hu);
 			add_killedlist(hptr);
-
+			num_HU--;
 		}
 	}
-
-
-	flageE = this->Earmy->Attack_Alien();
-	flageA = this->Aarmy->Attack_Earth();
-
 	if (flageE && flageA)
 	{
 		return 0;
@@ -142,6 +156,23 @@ void Game::set_arr(int arr[])
 {
 	for (int i = 0; i < 21; i++)
 		num[i] = arr[i];
+}
+void Game::print_healing_lists()
+{
+	cout << "======================== Healing lists ============================\n";
+	cout << "HU " << num_HU << " ["  ;
+	HU.print();
+	cout << "]\n";
+	cout << "UML_Tnaks " << num_healed_tank << " [";
+	UML_ET.print();
+	cout << "]\n";
+	cout << "UML_soldiers " << num_healed_sol << " [";
+	UML_ES.print();
+	cout << "]\n\n";
+}
+int Game::get_total_num_healed()
+{
+	return total_num_healed;
 }
 //LinkedQueue<unit*>* Game::gt_temp()
 //{

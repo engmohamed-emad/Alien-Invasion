@@ -42,13 +42,13 @@ bool Solderunit::attack()
 	AlianSounit* Sptr = nullptr;//it is damy pointer to use the function that take two prametars
 	unit* ptr = nullptr;
 	LinkedQueue<unit*> templist;
-	cout << "ES " << this->getID() << " shots [";
+	cout << "ES " <<this->getID() << " (" << this->getApower() << ") " << " shots [";
 	for (int i = 0; i < Acapacity; i++)
 	{
 		if (game->get_Aarmy()->ReturnSo_uint(Sptr, ptr))
 		{
 			templist.enqueue(ptr);
-			cout << ptr->getID() << ", ";
+		//	cout << ptr->getID() << ", ";
 		}
 		else
 			break;
@@ -65,7 +65,7 @@ bool Solderunit::attack()
 		if (templist.dequeue(ptr))
 		{
 			ptr->dec_health(this->detect_damage(ptr->getcurrhealth()));
-
+			cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
 			if (!(ptr->get_firstAttack()))
 			{
 				ptr->set_Ta(game->get_timestep());

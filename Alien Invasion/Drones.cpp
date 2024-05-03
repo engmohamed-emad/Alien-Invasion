@@ -45,13 +45,13 @@ bool Drones::attack()
 	unit* U = nullptr;
 	LinkedQueue<unit*>templist1;
 	LinkedQueue<unit*>templist2;
-	cout << "AD " << this->getID() << " shots [";
+	cout << "AD " << this->getID()<<" ("<<this->getApower()<<") " << " shots [";
 	for (int i = 0; i < Attack_Cap_Tank; i++)
 	{
 		if (game->get_Earmy()->return_tank(T, U))
 		{
 			templist1.enqueue(T);
-			cout << T->getID() << ", ";
+			//cout << T->getID() << ", ";
 		}
 		else
 			break;
@@ -84,7 +84,9 @@ bool Drones::attack()
 		while (templist1.dequeue(U))
 		{
 
+			
 			U->dec_health(this->detect_damage(U->getcurrhealth()));
+			cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
 			if (!(U->get_firstAttack()))
 			{
 				U->set_Ta(game->get_timestep());
@@ -130,6 +132,7 @@ bool Drones::attack()
 		while (templist2.dequeue(U))
 		{
 			U->dec_health(this->detect_damage(U->getcurrhealth()));
+			cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
 			if (!(U->get_firstAttack()))
 			{
 				U->set_Ta(game->get_timestep());

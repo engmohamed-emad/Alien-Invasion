@@ -28,6 +28,10 @@ class Game
 	int num[21];
 	int timestep = 0;
 	int num_Killed;
+	int num_healed_tank = 0;
+	int num_healed_sol = 0;
+	int num_HU=0;
+	int total_num_healed=0;
 public:
 	Game();
 	AlienArmy* get_Aarmy();
@@ -46,7 +50,7 @@ public:
 	bool get_UML_ET(Tank*& s);
 	void ADD_HealUint(HealingUnit*H);
 	bool Get_HU(HealingUnit* H);
-	void Healing();
+//	void Healing();
 	int fight();
 	// {
 	//		
@@ -60,6 +64,8 @@ public:
 	// }
 	// to be able to run project with array (easier to test while working)
 	void set_arr(int arr[]);
+	void print_healing_lists();
+	int get_total_num_healed();
 	//LinkedQueue<unit*>* gt_temp();
 	~Game();
 };
