@@ -104,7 +104,7 @@ void HealingUnit::attack()
 	while (temp_tank.dequeue(Tptr)&&T>0)
 	{
 		Tptr->inc_health(detect_damage(Tptr->getcurrhealth()));
-		cout << Sptr->getID() << " (" << Sptr->getcurrhealth() << ") " << ", ";
+		cout << Tptr->getID() << " (" << Tptr->getcurrhealth() << ") " << ", ";
 		if (Tptr->need_help())
 		{
 			temp_tank.enqueue(Tptr);

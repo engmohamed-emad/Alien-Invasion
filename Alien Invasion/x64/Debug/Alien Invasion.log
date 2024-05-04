@@ -1,3 +1,5 @@
-﻿  Source.cpp
-E:\Documents\GitHub\project\Alien Invasion\Source.cpp(29,6): warning C4101: 'x': unreferenced local variable
+﻿  HealingUnit.cpp
+E:\Documents\GitHub\project\Alien Invasion\HealingUnit.cpp(87,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Documents\GitHub\project\Alien Invasion\HealingUnit.cpp(106,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  LINK : E:\Documents\GitHub\project\x64\Debug\Alien Invasion.exe not found or not built by the last incremental link; performing full link
   Alien Invasion.vcxproj -> E:\Documents\GitHub\project\x64\Debug\Alien Invasion.exe
