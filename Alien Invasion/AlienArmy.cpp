@@ -192,6 +192,7 @@ bool AlienArmy::Attack_Earth()
     AlianSounit* Sptr;
     Monster* Mptr;
     Drones* Dptr;
+    Drones* D;
     bool flage1 = true;
     bool flage2 = true;
     bool flage3 = true;
@@ -210,7 +211,8 @@ bool AlienArmy::Attack_Earth()
     {
         // handling one from first and one from last
         if (Drone.peek(Dptr))
-            flage3 = Dptr->attack();
+            if (Drone.peek_rear(D))
+                flage3 = Dptr->attack() && D->attack();
     }
     return flage1 || flage2 || flage3;
 }

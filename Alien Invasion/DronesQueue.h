@@ -155,12 +155,26 @@ public:
 		}
 
 		 bool can_attacks()
-		{
+		 {
 			if (this->backPtr == this->frontPtr)
 				return false;
 			else
 				return true;
-		}
+	     }
+
+
+		 bool peek_rear(Drones*& D)
+		 {
+			 {
+				 if (isEmpty())
+					 return false;
+
+				 D = this->backPtr->getItem();
+				 return true;
+
+			 }
+		 }
+
 	
 };
 
