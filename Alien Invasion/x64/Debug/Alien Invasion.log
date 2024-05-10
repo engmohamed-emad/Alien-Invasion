@@ -1,14 +1,4 @@
 ﻿  Drones.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Drones.cpp(88,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Drones.cpp(134,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  EG.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(31,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(38,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(106,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(150,56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(152,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\EG.cpp(208,56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  unit.cpp
-C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\unit.cpp(42,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Drones.cpp(92,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\Drones.cpp(138,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Alien Invasion.vcxproj -> C:\Users\LENONO\OneDrive\Documents\GitHub\project\x64\Debug\Alien Invasion.exe

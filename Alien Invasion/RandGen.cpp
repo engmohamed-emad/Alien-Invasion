@@ -90,7 +90,7 @@ void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int
 	}
 	else if (prob <= array[4] + array[6] + array[5])
 	{
-		Drones* U = new Drones(ID, Jt, H, AP, AC);
+		Drones* U = new Drones(ID, Jt, H, AP, AC,this->game);
 		game->get_Aarmy()->Add_Drones(U);
 	}
 }

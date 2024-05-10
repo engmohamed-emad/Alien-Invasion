@@ -17,8 +17,9 @@ void Drones::Set_Cap_Gun()
 Drones::Drones()
 {
 	set_type("Drone");
+	game = nullptr;
 }
-Drones::Drones(int id, int jt, float h, float ap, int c)
+Drones::Drones(int id, int jt, float h, float ap, int c,Game*g)
 {
 	this->set_type("Drone");
 	this->setID(id);
@@ -26,6 +27,9 @@ Drones::Drones(int id, int jt, float h, float ap, int c)
 	this->sethealth(h);
 	this->setApower(ap);
 	this->setAcapacity(c);
+	this->game = g;
+		 Set_Cap_Tank();
+		 Set_Cap_Gun();	
 }
 
 
@@ -62,7 +66,7 @@ bool Drones::attack()
 		if (game->get_Earmy()->Return_Gun(Gun, pri, U))
 		{
 			templist2.enqueue(Gun);
-			cout << Gun->getID() << ", ";
+			//cout << Gun->getID() << ", ";
 		}
 		else
 			break;
@@ -121,7 +125,7 @@ bool Drones::attack()
 			}
 		}
 		flage1 = true;
-	}
+	 }
 
 	 if (templist2.isEmpty())
 	{
