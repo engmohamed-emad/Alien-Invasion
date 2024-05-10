@@ -39,6 +39,11 @@ void Tank::set_Heal_Time(int t)
 	this->Heal_Time = t;
 }
 
+void Tank::inc_health(float heal)
+{
+	this->currhealth = this->currhealth + heal;
+}
+
 int Tank::get_Heal_Time()
 {
 	return Heal_Time;

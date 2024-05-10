@@ -1,4 +1,4 @@
 ﻿  HealingUnit.cpp
-E:\Documents\GitHub\project\Alien Invasion\HealingUnit.cpp(87,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-E:\Documents\GitHub\project\Alien Invasion\HealingUnit.cpp(106,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Alien Invasion.vcxproj -> E:\Documents\GitHub\project\x64\Debug\Alien Invasion.exe
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\HealingUnit.cpp(87,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LENONO\OneDrive\Documents\GitHub\project\Alien Invasion\HealingUnit.cpp(106,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Alien Invasion.vcxproj -> C:\Users\LENONO\OneDrive\Documents\GitHub\project\x64\Debug\Alien Invasion.exe

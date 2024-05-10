@@ -14,6 +14,7 @@ public:
 	virtual void dec_health(float damage);
 	bool help_soldier(int ES_num,int AS_num);//takes numbers of earth and alien soldiers to determine if tank will attack alien soldiers or not 
 	void set_Heal_Time(int t);
+	virtual void inc_health(float heal);
 	int get_Heal_Time();//before Heal you have to check weather a current timestep -heal time<or >10 
 };
 

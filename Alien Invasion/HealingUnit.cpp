@@ -82,7 +82,7 @@ void HealingUnit::attack()
 		}
 		else break;
 	}
-	while (temp_Sol.dequeue(Sptr)&&c>0)
+	while (c > 0&&temp_Sol.dequeue(Sptr))
 	{
 		Sptr->inc_health(detect_damage(Sptr->getcurrhealth()));
 		cout << Sptr->getID()<<" (" <<Sptr->getcurrhealth()<<") " << ", ";
@@ -101,7 +101,7 @@ void HealingUnit::attack()
 	{
 		game->addto_UML_ES(Sptr);
 	}
-	while (temp_tank.dequeue(Tptr)&&T>0)
+	while (T > 0 && temp_tank.dequeue(Tptr))
 	{
 		Tptr->inc_health(detect_damage(Tptr->getcurrhealth()));
 		cout << Tptr->getID() << " (" << Tptr->getcurrhealth() << ") " << ", ";
