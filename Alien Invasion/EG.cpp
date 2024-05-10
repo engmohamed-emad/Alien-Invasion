@@ -121,15 +121,17 @@ bool EG::attack()
 				}
 				else
 				{
-					pt = dynamic_cast<Monster*>(U);
-					if (pt != nullptr)
-						game->get_Aarmy()->Add_monster(pt);
-					else
-					{
-						cout << "\b \b" << "\b \b";
-						cout << "]\n";
-						return false;
-					}
+					 
+						pt = dynamic_cast<Monster*>(U);
+						if (pt != nullptr)
+							game->get_Aarmy()->Add_monster(pt);
+						else
+						{
+							cout << "\b \b" << "\b \b";
+							cout << "]\n";
+							return false;
+						}
+					
 				}
 		}
 		flage1 = true;

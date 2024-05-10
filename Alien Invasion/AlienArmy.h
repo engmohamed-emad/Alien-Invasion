@@ -45,5 +45,6 @@ public:
 	void ubdate_D(unit*&U);
 	bool Attack_Earth();
 	void print_statistics();
+	int get_num_Army();
 };
 

@@ -58,6 +58,7 @@ public:
 	bool Attack_Alien();
 	void print_statistics();
 	int get_total_units();
+	int get_num_Army();
 	~EarthArmy();
 };
 

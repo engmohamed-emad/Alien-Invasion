@@ -115,7 +115,6 @@ void HealingUnit::attack()
 			num_healed++;
 		}
 		T--;
-
 	}
 	while (temp_tank.dequeue(Tptr))
 	{

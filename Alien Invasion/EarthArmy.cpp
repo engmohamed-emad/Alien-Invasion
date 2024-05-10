@@ -185,6 +185,10 @@ EarthArmy::~EarthArmy()
 
 
 }
+int EarthArmy::get_num_Army()
+{
+    return num_tank + num_sol + num_EG;
+}
 
 
 

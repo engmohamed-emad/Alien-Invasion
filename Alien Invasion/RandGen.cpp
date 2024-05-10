@@ -48,6 +48,7 @@ void RandGen::Create_Random()
 	cout << "prop = " << prob << endl;
 	if (prob <= array[7])
 	{
+		num_prop++;
 		for (int i = 0; i < array[0]; i++)
 		{
 			Jt = game->get_timestep();
@@ -100,6 +101,11 @@ void RandGen::trans_data()
 	game->set_data(array);
 }
 
+
+int RandGen::get_num_prop()
+{
+	return num_prop;
+}
 //void RandGen::set_game(Game* g)
 //{
 //	game = g;

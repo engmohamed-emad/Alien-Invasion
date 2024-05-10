@@ -237,7 +237,10 @@ void AlienArmy::print_statistics()
 
 
 
-
+int AlienArmy::get_num_Army()
+{
+    return num_sol + num_monster + num_drones;
+}
 
 
 

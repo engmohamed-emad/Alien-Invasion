@@ -110,8 +110,6 @@ bool Drones::attack()
 				game->addto_UML_ET(T);
 			}
 			else
-			
-
 			{
 				T = dynamic_cast<Tank*>(U);
 				if (T != nullptr)

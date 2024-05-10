@@ -51,10 +51,29 @@ int main()
 		cout << endl;
 
 	//	mygame->Healing();
+		
+		cout << endl;
+		cout << "===================After  fighting at current timestep=====================================\n";
+		mygame->get_Earmy()->print();
+		cout << endl;
+		mygame->get_Aarmy()->print();
+		cout << endl;
+		mygame->print_healing_lists();
+		//print enter to continue
 		cout << endl;
 		mygame->print_Killed();
-		cout << endl;
-		//print enter to continue
+		int num_real = mygame->get_num_check() + mygame->get_Aarmy()->get_num_Army() + mygame->get_Earmy()->get_num_Army() + mygame->get_num_killed();
+		int num_expected = rand->get_num_prop() * 6;
+		cout << "=====================================================================================================\n";
+		cout << "prop : " << rand->get_num_prop() << "\nnum real : " << num_real << "\nnum expected : " << num_expected << "\n";
+		cout << "=====================================================================================================\n";
+		if (num_real != num_expected)
+		{
+			cout << "ERROR\n";
+			getline(cin, s);
+		}
+		
+		cout << "\n";
 		cout << "========================================================================================================================================\n";
 		//getline(cin,s);
     }

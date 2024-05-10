@@ -66,6 +66,9 @@ public:
 	void set_arr(int arr[]);
 	void print_healing_lists();
 	int get_total_num_healed();
+	int get_num_check();
+	int get_num_killed();
+
 	//LinkedQueue<unit*>* gt_temp();
 	~Game();
 };
