@@ -188,7 +188,7 @@ bool LinkedQueue<T>::peek(T& frntEntry) const
 
 	frntEntry = frontPtr->getItem();
 	return true;
-
+	
 }
 ///////////////////////////////////////////////////////////////////////////////////
 template<>

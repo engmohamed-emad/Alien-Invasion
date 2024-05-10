@@ -79,8 +79,8 @@ bool Drones::attack()
 		flage1 = false;
 	}
 
-	else if (!templist1.isEmpty())
-	{
+	 if (!templist1.isEmpty())
+	 {
 		while (templist1.dequeue(U))
 		{
 
@@ -123,11 +123,11 @@ bool Drones::attack()
 		flage1 = true;
 	}
 
-	else if (templist2.isEmpty())
+	 if (templist2.isEmpty())
 	{
 		flage2 = false;
 	}
-	else if (!templist2.isEmpty())
+	 if (!templist2.isEmpty())
 	{
 		while (templist2.dequeue(U))
 		{

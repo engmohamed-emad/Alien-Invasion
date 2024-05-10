@@ -98,7 +98,7 @@ bool EG::attack()
 	{
 		flage1 = false;
 	}
-	else if (!templist1.isEmpty())
+	 if (!templist1.isEmpty())
 	{
 		while (templist1.dequeue(U))
 		{
@@ -136,12 +136,12 @@ bool EG::attack()
 	}
 	
 
-	else if (templist2.isEmpty())
+	 if (templist2.isEmpty())
 	{
 		flage2 = false;
 	}
 
-	else if (!templist2.isEmpty())
+	 if (!templist2.isEmpty())
 	{
 		while(templist2.dequeue(U))
 		{
@@ -186,6 +186,8 @@ bool EG::attack()
 					if (U2->is_dead())
 					{
 						U2->set_Td(game->get_timestep());
+						game->get_Aarmy()->update_num_killed_drones();
+						game->get_Aarmy()->ubdate_D(U2);
 						game->add_killedlist(U2);
 					}
 					else
@@ -214,6 +216,8 @@ bool EG::attack()
 					if (U->is_dead())
 					{
 						U->set_Td(game->get_timestep());
+						game->get_Aarmy()->update_num_killed_drones();
+						game->get_Aarmy()->ubdate_D(U);
 						game->add_killedlist(U);
 					}
 					else
