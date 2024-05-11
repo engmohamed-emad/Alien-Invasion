@@ -78,6 +78,12 @@
     <ClInclude Include="HealingUnit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ally_army.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -117,6 +123,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="HealingUnit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ally_army.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
