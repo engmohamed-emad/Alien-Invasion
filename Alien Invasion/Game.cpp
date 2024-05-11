@@ -85,6 +85,7 @@ void Game::ADD_HealUint(HealingUnit* H)
 {
 	if(HU.push(H))
 	num_HU++;
+	this->Earmy->set_num_HU(num_HU);
 }
 bool Game::Get_HU(HealingUnit* H)
 {
@@ -113,8 +114,8 @@ bool Game::Get_HU(HealingUnit* H)
 int Game::fight()
 {
 
-	bool flageE = true;
-	bool flageA = true;
+	 flageE = true;
+     flageA = true;
 	HealingUnit* hu;
 	unit* hptr;
 	flageE = this->Earmy->Attack_Alien();
@@ -125,12 +126,12 @@ int Game::fight()
 		{
 			hu->attack();
 			total_num_healed += hu->get_num_healed();
-			hu->set_Td(this->get_timestep());
-			hu->set_Ta(this->get_timestep());
+			//hu->set_Td(this->get_timestep());
+			//hu->set_Ta(this->get_timestep());
 			hptr = dynamic_cast<unit*>(hu);
-			
 			add_killedlist(hptr);
 			num_HU--;
+			this->Earmy->set_num_HU(num_HU);
 		}
 	}
 	if (flageE && flageA)
@@ -198,7 +199,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
+	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
@@ -280,6 +281,7 @@ void Game::set_left_items()
 		else
 		{
 			this->get_Earmy()->update_num_killed_tank();
+			T->set_Td(this->get_timestep());
 			U = dynamic_cast<unit*>(T);
 			this->add_killedlist(U);
 		}
@@ -297,6 +299,7 @@ void Game::set_left_items()
 		}
 		else
 		{
+			S->set_Td(this->get_timestep());
 			this->get_Earmy()->update_num_killed_sol();
 			U = dynamic_cast<unit*>(S);
 			this->add_killedlist(U);
@@ -322,6 +325,105 @@ void Game::output_file()
 		while (killedlist.dequeue(ptr))
 		{
 			out_file << "\t\t" << ptr->get_Td() << "\t" << ptr->getID() << "\t" << ptr->get_Tj() << "\t" << ptr->get_Df() << "\t" << ptr->get_Dd() << "\t" << ptr->get_Db() << endl;
+		}
+		if (!flageE && flageA)
+		{
+			out_file << "Winner Earth Army \n";
+			out_file << "===============Earth Army statistics===================== \n";
+			out_file << "ES total number : " <<this->Earmy->get_total_ES_units() << " \n";
+			out_file << "ET total number : " << this->Earmy->get_total_ET_units() << "\n";
+			out_file << "EG total number : " << this->Earmy->get_total_EG_units() << "\n";
+			out_file << "ES Destructed/ES total = " << this->Earmy->get_per_ES() << "%" << "\n";
+			out_file << "ET Destructed/ET total = " << this->Earmy->get_per_ET() << "%" << "\n";
+			out_file << "EG Destructed/EG total = " << this->Earmy->get_per_EG() << "%" << "\n";
+			out_file << "Total Destructed/Total Units = " << this->Earmy->get_per_total() << "%" << "\n";
+			out_file << "Average Df = " << this->Earmy->get_per_Df() << "\n";
+			out_file << "Average Dd = " << this->Earmy->get_per_Dd() << "\n";
+			out_file << "Average Db = " << this->Earmy->get_per_Db() << "\n";
+			out_file << "Df/Db % = " << this->Earmy->get_per_Df_Db() << "%" << "\n";
+			out_file << "Dd/Db % = " << this->Earmy->get_per_Dd_Db() << "%" << "\n";
+
+			out_file << "Loser Alien Army \n";
+			out_file << "===============Alien Army statistics===================== \n";
+			out_file << "AS total number : " << this->Aarmy->get_total_num_AS() << " \n";
+			out_file << "AM total number : " << this->Aarmy->get_total_num_AM() << "\n";
+			out_file << "AD total number : " << this->Aarmy->get_total_num_AD() << "\n";
+			out_file << "AS Destructed/ES total = " << this->Aarmy->get_per_AS() << "%" << "\n";
+			out_file << "AM Destructed/ET total = " << this->Aarmy->get_per_AM() << "%" << "\n";
+			out_file << "AD Destructed/EG total = " << this->Aarmy->get_per_AD() << "%" << "\n";
+			out_file << "Total Destructed/Total Units = " << this->Aarmy->get_per_total() << "%" << "\n";
+			out_file << "Average Df = " << this->Aarmy->get_per_Df() << "\n";
+			out_file << "Average Dd = " << this->Aarmy->get_per_Dd() << "\n";
+			out_file << "Average Db = " << this->Aarmy->get_per_Db() << "\n";
+			out_file << "Df/Db % = " << this->Aarmy->get_per_Df_Db() << "%" << "\n";
+			out_file << "Dd/Db % = " << this->Aarmy->get_per_Dd_Db() << "%" << "\n";
+
+		}
+		else if (flageE && !flageA)
+		{
+			out_file << "Loser Earth Army \n";
+			out_file << "===============Earth Army statistics===================== \n";
+			out_file << "ES total number : " << this->Earmy->get_total_ES_units() << " \n";
+			out_file << "ET total number : " << this->Earmy->get_total_ET_units() << "\n";
+			out_file << "EG total number : " << this->Earmy->get_total_EG_units() << "\n";
+			out_file << "ES Destructed/ES total = " << this->Earmy->get_per_ES() << "%" << "\n";
+			out_file << "ET Destructed/ET total = " << this->Earmy->get_per_ET() << "%" << "\n";
+			out_file << "EG Destructed/EG total = " << this->Earmy->get_per_EG() << "%" << "\n";
+			out_file << "Total Destructed/Total Units = " << this->Earmy->get_per_total() << "%" << "\n";
+			out_file << "Average Df = " << this->Earmy->get_per_Df() << "\n";
+			out_file << "Average Dd = " << this->Earmy->get_per_Dd() << "\n";
+			out_file << "Average Db = " << this->Earmy->get_per_Db() << "\n";
+			out_file << "Df/Db % = " << this->Earmy->get_per_Df_Db() << "%" << "\n";
+			out_file << "Dd/Db % = " << this->Earmy->get_per_Dd_Db() << "%" << "\n";
+
+			out_file << "Winner Alien Army \n";
+			out_file << "===============Alien Army statistics===================== \n";
+			out_file << "AS total number : " << this->Aarmy->get_total_num_AS() << " \n";
+			out_file << "AM total number : " << this->Aarmy->get_total_num_AM() << "\n";
+			out_file << "AD total number : " << this->Aarmy->get_total_num_AD() << "\n";
+			out_file << "AS Destructed/ES total = " << this->Aarmy->get_per_AS() << "%" << "\n";
+			out_file << "AM Destructed/ET total = " << this->Aarmy->get_per_AM() << "%" << "\n";
+			out_file << "AD Destructed/EG total = " << this->Aarmy->get_per_AD() << "%" << "\n";
+			out_file << "Total Destructed/Total Units = " << this->Aarmy->get_per_total() << "%" << "\n";
+			out_file << "Average Df = " << this->Aarmy->get_per_Df() << "\n";
+			out_file << "Average Dd = " << this->Aarmy->get_per_Dd() << "\n";
+			out_file << "Average Db = " << this->Aarmy->get_per_Db() << "\n";
+			out_file << "Df/Db % = " << this->Aarmy->get_per_Df_Db() << "%" << "\n";
+			out_file << "Dd/Db % = " << this->Aarmy->get_per_Dd_Db() << "%" << "\n";
+
+		}
+		else
+		{
+			out_file << "Drawn \n";
+			out_file << "===============Earth Army statistics===================== \n";
+			out_file << "ES total number : " << this->Earmy->get_total_ES_units() << " \n";
+			out_file << "ET total number : " << this->Earmy->get_total_ET_units() << "\n";
+			out_file << "EG total number : " << this->Earmy->get_total_EG_units() << "\n";
+			out_file << "ES Destructed/ES total = " << this->Earmy->get_per_ES() << "%" << "\n";
+			out_file << "ET Destructed/ET total = " << this->Earmy->get_per_ET() << "%" << "\n";
+			out_file << "EG Destructed/EG total = " << this->Earmy->get_per_EG() << "%" << "\n";
+			out_file << "Total Destructed/Total Units = " << this->Earmy->get_per_total() << "%" << "\n";
+			out_file << "Average Df = " << this->Earmy->get_per_Df() << "\n";
+			out_file << "Average Dd = " << this->Earmy->get_per_Dd() << "\n";
+			out_file << "Average Db = " << this->Earmy->get_per_Db() << "\n";
+			out_file << "Df/Db % = " << this->Earmy->get_per_Df_Db() << "%" << "\n";
+			out_file << "Dd/Db % = " << this->Earmy->get_per_Dd_Db() << "%" << "\n";
+
+			out_file << "Drawn \n";
+			out_file << "===============Alien Army statistics===================== \n";
+			out_file << "AS total number : " << this->Aarmy->get_total_num_AS() << " \n";
+			out_file << "AM total number : " << this->Aarmy->get_total_num_AM() << "\n";
+			out_file << "AD total number : " << this->Aarmy->get_total_num_AD() << "\n";
+			out_file << "AS Destructed/ES total = " << this->Aarmy->get_per_AS() << "%" << "\n";
+			out_file << "AM Destructed/ET total = " << this->Aarmy->get_per_AM() << "%" << "\n";
+			out_file << "AD Destructed/EG total = " << this->Aarmy->get_per_AD() << "%" << "\n";
+			out_file << "Total Destructed/Total Units = " << this->Aarmy->get_per_total() << "%" << "\n";
+			out_file << "Average Df = " << this->Aarmy->get_per_Df() << "\n";
+			out_file << "Average Dd = " << this->Aarmy->get_per_Dd() << "\n";
+			out_file << "Average Db = " << this->Aarmy->get_per_Db() << "\n";
+			out_file << "Df/Db % = " << this->Aarmy->get_per_Df_Db() << "%" << "\n";
+			out_file << "Dd/Db % = " << this->Aarmy->get_per_Dd_Db() << "%" << "\n";
+
 		}
 	}
 	else

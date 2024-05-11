@@ -32,6 +32,8 @@ class Game
 	int num_healed_sol = 0;
 	int num_HU=0;
 	int total_num_healed=0;
+	bool flageE = true;
+	bool flageA = true;
 public:
 	Game();
 	AlienArmy* get_Aarmy();

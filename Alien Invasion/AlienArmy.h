@@ -45,6 +45,19 @@ public:
 	void ubdate_D(unit*&U);
 	bool Attack_Earth();
 	void print_statistics();
+	//////////////////////////
+	int get_total_num_AS();
+	int get_total_num_AD();
+	int get_total_num_AM();
+	float get_per_AS();
+	float get_per_AM();
+	float get_per_AD();
+	float get_per_total();
+	float get_per_Df();
+	float get_per_Dd();
+	float get_per_Db();
+	float get_per_Dd_Db();
+	float get_per_Df_Db();
 	int get_num_Army();
 };
 

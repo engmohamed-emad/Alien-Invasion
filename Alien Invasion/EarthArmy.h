@@ -18,7 +18,9 @@ protected:
 	ArrayStack<Tank*> tanks;
 	int num_Hsol=0;
 	int num_Htank=0;
-	int num_killed_tank=0;
+	int num_HU = 0;
+	int num_killed_HU = 0;
+	int num_killed_tank = 0;
 	int num_killed_EG=0;
 	int num_killed_sol=0;
 	int num_tank = 0;
@@ -49,6 +51,8 @@ public:
 	* 
 	* 
 		*/
+	void set_num_HU(int num);
+	void set_num_killed_HU(int num);
 	bool Add_tank(Tank*& tank);
 	void print();
 	void update_num_killed_sol();
@@ -57,7 +61,19 @@ public:
 	void ubdate_D(unit*& U);
 	bool Attack_Alien();
 	void print_statistics();
-	int get_total_units();
+	int get_total_ES_units();
+	int get_total_EG_units();
+	int get_total_ET_units();
+	int get_total_HU_units();
+	float get_per_ES();
+	float get_per_EG();
+	float get_per_ET();
+	float get_per_total();
+	float get_per_Df();
+	float get_per_Dd();
+	float get_per_Db();
+	float get_per_Df_Db();
+	float get_per_Dd_Db();
 	int get_num_Army();
 	void set_num_Hsol(int num);
 	void set_num_Htank(int num);

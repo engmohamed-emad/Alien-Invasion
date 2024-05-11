@@ -67,6 +67,14 @@ int EarthArmy::get_num_sol()
 {
     return num_sol;
 }
+void EarthArmy::set_num_HU(int num)
+{
+    num_HU = num;
+}
+void EarthArmy::set_num_killed_HU(int num)
+{
+    num_killed_HU = num;
+}
 //edit
 bool EarthArmy::Add_tank(Tank*& tank)
 {
@@ -154,9 +162,14 @@ void EarthArmy::print_statistics()
      
 }
 
-int EarthArmy::get_total_units()
+int EarthArmy::get_total_ES_units()
 {
-    return total_units;
+    return num_sol + num_killed_sol + num_Hsol;
+}
+
+int EarthArmy::get_total_EG_units()
+{
+    return num_EG + num_killed_EG;
 }
 
 void EarthArmy::set_num_Htank(int num)
@@ -189,6 +202,93 @@ EarthArmy::~EarthArmy()
    }
 
 
+}
+int EarthArmy::get_total_ET_units()
+{
+    return num_tank + num_killed_tank + num_Htank;
+}
+int EarthArmy::get_total_HU_units()
+{
+    return  num_HU+num_killed_HU;
+}
+float EarthArmy::get_per_EG()
+{
+    if ((num_EG + num_killed_EG))
+    {
+        return num_killed_EG * 100 / ((num_EG + num_killed_EG));
+    }
+    else
+        return num_killed_EG * 100 / (1 + (num_EG + num_killed_EG));
+}
+float EarthArmy::get_per_ET()
+{
+    if ((num_tank + num_killed_tank+num_Htank))
+    {
+        return num_killed_tank * 100 / ((num_tank + num_killed_tank+num_Htank));
+    }
+    else
+        return num_killed_tank * 100 / (1 + (num_tank + num_killed_tank+num_Htank));
+}
+float EarthArmy::get_per_total()
+{
+    if ((num_HU+num_killed_HU+num_Hsol + num_Htank + num_sol + num_tank + num_EG + num_killed_sol + num_killed_tank + num_killed_EG))
+    {
+        return  (num_killed_sol + num_killed_tank + num_killed_EG+num_HU) * 100 / ((num_HU + num_killed_HU + num_Hsol + num_Htank + num_sol + num_tank + num_EG + num_killed_sol + num_killed_tank + num_killed_EG));
+    }
+    else 
+        return  (num_killed_sol + num_killed_tank + num_killed_EG+num_HU) * 100 / (1+(num_HU + num_killed_HU + num_Hsol + num_Htank + num_sol + num_tank + num_EG + num_killed_sol + num_killed_tank + num_killed_EG));
+}
+float EarthArmy::get_per_Df()
+{
+    if ((num_killed_sol + num_killed_tank + num_killed_EG))
+    {
+        return   Df / ((num_killed_sol + num_killed_tank + num_killed_EG));
+    }
+    else
+        return Df / (1 + (num_killed_sol + num_killed_tank + num_killed_EG));
+}
+float EarthArmy::get_per_Dd()
+{
+    if ((num_killed_sol + num_killed_tank + num_killed_EG))
+    {
+        return   Dd / ((num_killed_sol + num_killed_tank + num_killed_EG));
+    }
+    else
+        return Dd / (1 + (num_killed_sol + num_killed_tank + num_killed_EG));
+}
+float EarthArmy::get_per_Db()
+{
+    if ((num_killed_sol + num_killed_tank + num_killed_EG))
+    {
+        return   Db / ((num_killed_sol + num_killed_tank + num_killed_EG));
+    }
+    else
+        return Db / (1 + (num_killed_sol + num_killed_tank + num_killed_EG));
+}
+float EarthArmy::get_per_ES()
+{
+    if ((num_sol + num_killed_sol + num_Hsol))
+    {
+        return num_killed_sol * 100 / ((num_sol + num_killed_sol + num_Hsol));
+    }
+    else
+        return num_killed_sol * 100 / (1 + (num_sol + num_killed_sol + num_Hsol));
+}
+float EarthArmy::get_per_Dd_Db()
+{
+    if(Db)
+    {
+        return Dd * 100 / (Db);
+    }
+    return Dd * 100 / (1 + Db);
+}
+float EarthArmy::get_per_Df_Db()
+{
+    if (Db)
+    {
+        return Df * 100 / (Db);
+    }
+    return Df * 100 / (1 + Db);
 }
 int EarthArmy::get_num_Army()
 {
