@@ -50,6 +50,9 @@ public:
 		return float((Apower * currhealth / 100) / sqrt(enhealth));
 	}
 
+
+	int get_Td();
+	int get_Ta();
 	//virtual bool attack()=0;
 	
 };

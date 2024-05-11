@@ -69,7 +69,7 @@ public:
 	int get_num_check();  //for check
 	int get_num_killed();  //for check
 	void set_left_items();  // to add 
-	
+	void output_file();
 	//LinkedQueue<unit*>* gt_temp();
 	~Game();
 };

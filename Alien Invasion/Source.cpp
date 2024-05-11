@@ -36,7 +36,7 @@ int main()
 	RandGen* rand = mygame->get_RandGen();
 	rand->trans_data();
 	int flag = 0;
-	for (int i = 1; i <= 1000; i++)
+	for (int i = 1; i <= 100; i++)
 	{
 		mygame->set_timestep(i);
 		rand->Create_Random();
@@ -105,6 +105,7 @@ int main()
 		mygame->get_Aarmy()->print_statistics();	
 	}
 	cout << "\n\nnum HU Generated : " << rand->get_num_HU()<<endl;
+	mygame->output_file();
 	delete mygame;
 	mygame = nullptr;
 	return 0;

@@ -125,7 +125,10 @@ int Game::fight()
 		{
 			hu->attack();
 			total_num_healed += hu->get_num_healed();
+			hu->set_Td(this->get_timestep());
+			hu->set_Ta(this->get_timestep());
 			hptr = dynamic_cast<unit*>(hu);
+			
 			add_killedlist(hptr);
 			num_HU--;
 		}
@@ -195,7 +198,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
@@ -306,4 +309,22 @@ void Game::set_left_items()
 
 	this->Earmy->set_num_Hsol(num_healed_sol);
 	this->Earmy->set_num_Htank(num_healed_tank);
+}
+
+void Game::output_file()
+{
+	fstream out_file;
+	out_file.open("output.txt", ios::out);
+	unit* ptr = nullptr;
+	if (out_file.is_open())
+	{
+		out_file << "		Td	ID	Tj	Df	Dd	Db	\n";
+		while (killedlist.dequeue(ptr))
+		{
+			out_file << "\t\t" << ptr->get_Td() << "\t" << ptr->getID() << "\t" << ptr->get_Tj() << "\t" << ptr->get_Df() << "\t" << ptr->get_Dd() << "\t" << ptr->get_Db() << endl;
+		}
+	}
+	else
+		cout << "Error file output is not open";
+
 }

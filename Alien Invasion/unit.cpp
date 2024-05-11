@@ -75,6 +75,14 @@ bool unit::need_help()
 		return true;
 	return false;
 }
+int unit::get_Td()
+{
+	return Td;
+}
+int unit::get_Ta()
+{
+	return Ta;
+}
 void unit::set_Ta(int t)
 {
 	Ta = t;
