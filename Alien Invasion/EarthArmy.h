@@ -16,8 +16,8 @@ protected:
 	SoModQueue<Solderunit*> solders;
 	priQueue<EG*> Earth_Gun;
 	ArrayStack<Tank*> tanks;
-	
-
+	int num_Hsol=0;
+	int num_Htank=0;
 	int num_killed_tank=0;
 	int num_killed_EG=0;
 	int num_killed_sol=0;
@@ -59,6 +59,8 @@ public:
 	void print_statistics();
 	int get_total_units();
 	int get_num_Army();
+	void set_num_Hsol(int num);
+	void set_num_Htank(int num);
 	~EarthArmy();
 };
 

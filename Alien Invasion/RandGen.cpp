@@ -15,6 +15,7 @@ void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int
 {
 	if (prob <= array[20])
 	{
+		num_GEN_HU++;
 		HealingUnit* U = new HealingUnit(ID, Jt, H, AP, AC, this->game);
 		game->ADD_HealUint(U);
 	}
@@ -105,6 +106,10 @@ void RandGen::trans_data()
 int RandGen::get_num_prop()
 {
 	return num_prop;
+}
+int RandGen::get_num_HU()
+{
+	return num_GEN_HU;
 }
 //void RandGen::set_game(Game* g)
 //{

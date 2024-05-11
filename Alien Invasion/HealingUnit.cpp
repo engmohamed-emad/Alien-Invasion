@@ -53,6 +53,7 @@ void HealingUnit::attack()
 				ptr = dynamic_cast<unit*>(Sptr);
 				if (ptr != nullptr)
 				{
+					game->get_Earmy()->update_num_killed_sol();
 					game->add_killedlist(ptr);
 				}
 				i--;
@@ -75,6 +76,7 @@ void HealingUnit::attack()
 				ptr = dynamic_cast<unit*>(Tptr);
 				if (ptr != nullptr)
 				{
+					game->get_Earmy()->update_num_killed_tank();
 					game->add_killedlist(ptr);
 				}
 				i--;

@@ -195,7 +195,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
+	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
@@ -259,4 +259,10 @@ int Game::get_num_check()
 int Game::get_num_killed()
 {
 	return  num_Killed;
+}
+
+void Game::add_left_items()
+{
+	this->Earmy->set_num_Hsol(num_healed_sol);
+	this->Earmy->set_num_Htank(num_healed_tank);
 }

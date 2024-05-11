@@ -40,6 +40,7 @@ private:
 	int Rand_Num;
 	Game* game;
 	int num_prop = 0;
+	int num_GEN_HU=0;
 public:
 	RandGen(Game* g);
 	float gen_rand(int min, int max);
@@ -47,7 +48,8 @@ public:
 	void Create_Random();
 	void Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC);
 	void trans_data();
-	int get_num_prop();
+	int get_num_prop();  //for check
+	int get_num_HU(); //for check 
 	/*void set_game(Game* g);*/
 };
 #endif

@@ -36,7 +36,7 @@ int main()
 	RandGen* rand = mygame->get_RandGen();
 	rand->trans_data();
 	int flag = 0;
-	for (int i = 1; i <= 200||(!flag); i++)
+	for (int i = 1; i <= 1000; i++)
 	{
 		mygame->set_timestep(i);
 		rand->Create_Random();
@@ -80,6 +80,7 @@ int main()
 	if (flag == 1)
 	{
 		cout << "Winner Earth Army\n";
+		mygame->add_left_items();
 		mygame->get_Earmy()->print_statistics();
 		cout << "healed units/total units = " << (float((mygame->get_total_num_healed() * 100) / mygame->get_Earmy()->get_total_units()))<<"%\n\n";
 		cout << "Loser Alien Army\n";
@@ -88,6 +89,7 @@ int main()
 	else if (flag == -1)
 	{
 		cout << "Loser Earth Army\n";
+		mygame->add_left_items();
 		mygame->get_Earmy()->print_statistics();
 		cout << "healed units/total units = " << (float((mygame->get_total_num_healed() * 100) / mygame->get_Earmy()->get_total_units())) << "%\n\n";
 		cout << "Winner Alien Army\n";
@@ -96,11 +98,13 @@ int main()
 	else
 	{
 		cout << "Draw\n";
+		mygame->add_left_items();
 		mygame->get_Earmy()->print_statistics();
 		cout << "healed units/total units = " << (float((mygame->get_total_num_healed() * 100) / mygame->get_Earmy()->get_total_units())) << "%\n\n";
 		cout << "Draw\n";
 		mygame->get_Aarmy()->print_statistics();	
 	}
+	cout << "\n\n" << rand->get_num_HU();
 	delete mygame;
 	mygame = nullptr;
 	return 0;

@@ -139,8 +139,8 @@ bool EarthArmy::Attack_Alien()
 void EarthArmy::print_statistics()
 {
         cout << "===============Earth Army statistics===================== \n";
-        cout << "ES total number : " << num_sol + num_killed_sol << " \n";
-        cout << "ET total number : " << num_tank + num_killed_tank << "\n";
+        cout << "ES total number : " << num_sol + num_killed_sol+num_Hsol<< " \n";
+        cout << "ET total number : " << num_tank + num_killed_tank+num_Htank << "\n";
         cout << "EG total number : " << num_EG + num_killed_EG << "\n";
         cout << "ES Destructed/ES total = " << num_killed_sol * 100 / (1+(num_sol + num_killed_sol)) << "%" << "\n";
         cout << "ET Destructed/ET total = " << num_killed_tank * 100 /(1+ (num_tank + num_killed_tank)) << "%" << "\n";
@@ -157,6 +157,11 @@ void EarthArmy::print_statistics()
 int EarthArmy::get_total_units()
 {
     return total_units;
+}
+
+void EarthArmy::set_num_Htank(int num)
+{
+    num_Htank = num;
 }
 
 EarthArmy::~EarthArmy()
@@ -188,6 +193,11 @@ EarthArmy::~EarthArmy()
 int EarthArmy::get_num_Army()
 {
     return num_tank + num_sol + num_EG;
+}
+
+void EarthArmy::set_num_Hsol(int num)
+{
+    num_Hsol = num;
 }
 
 
