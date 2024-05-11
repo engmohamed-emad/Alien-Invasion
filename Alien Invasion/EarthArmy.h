@@ -30,6 +30,7 @@ protected:
 	int Dd = 0;
 	int Db = 0;
 	int total_units = 0;
+	int Num_infect_solid = 0;//***********************************
 public:
 
 	bool Add_unit(unit* ptr);
@@ -40,6 +41,9 @@ public:
 	void Add_Earth_Gun(EG*& G);              
 	bool Return_Gun(EG*& G,int pri,unit*&pt);
 	int get_num_sol();
+	void increment_infected();//**********************************
+	void decrement_infected();//*************************************
+	void spread_infection();//***************************************
 	//edit
 	/*
 	* void attak (Alienarmy* a)
@@ -59,7 +63,7 @@ public:
 	void update_num_killed_EG();
 	void update_num_killed_tank();
 	void ubdate_D(unit*& U);
-	bool Attack_Alien();
+	bool Attack_Alien();/***************************************/
 	void print_statistics();
 	int get_total_ES_units();
 	int get_total_EG_units();

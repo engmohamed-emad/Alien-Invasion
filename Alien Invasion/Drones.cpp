@@ -115,12 +115,6 @@ bool Drones::attack()
 				T = dynamic_cast<Tank*>(U);
 				if (T != nullptr)
 					game->get_Earmy()->Add_tank(T);
-				else
-				{
-					cout << "\b \b" << "\b \b";
-					cout << "]\n";
-					return false;//this may lead to a logical error       ?? ?? ????? ???? 
-				}
 			}
 		}
 		flage1 = true;
@@ -156,12 +150,6 @@ bool Drones::attack()
 				{
 					Gun->Modfi_pri();
 					game->get_Earmy()->Add_Earth_Gun(Gun);
-				}
-				else
-				{
-					cout << "\b \b" << "\b \b";
-					cout << "]\n";
-					return false;
 				}
 			}
 		}

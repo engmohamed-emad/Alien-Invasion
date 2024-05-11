@@ -90,6 +90,7 @@ bool Monster::attack()
 	{
 		ES->dec_health(this->detect_damage(ES->getcurrhealth()));
 		cout << ES->getID() << " (" << ES->getcurrhealth() << ") " << ", ";
+		/// you have to add something loaded from file to know if solider will get infected or not if he will infected you have to make its state_solider(variable in ES unit) equal 0  and you have to call function increment infected in earth army and return it to list if he didnt die after attack  if state_solider equal 1 then it is immuned cant infected
 		if (!(ES->get_firstAttack()))
 		{
 			ES->set_Ta(game->get_timestep());

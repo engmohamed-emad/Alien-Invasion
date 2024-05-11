@@ -1,5 +1,6 @@
 #include "EarthArmy.h"
 #include <iostream>
+#include<random>
 using namespace std;
 
 bool EarthArmy::Add_unit(unit* ptr)
@@ -66,6 +67,43 @@ bool EarthArmy::Return_Gun(EG*& G,int pri,unit*&pt)
 int EarthArmy::get_num_sol()
 {
     return num_sol;
+}
+void EarthArmy::increment_infected()
+{
+    Num_infect_solid++;
+}
+void EarthArmy::decrement_infected()
+{
+    Num_infect_solid--;
+}
+void EarthArmy::spread_infection()
+{
+    Solderunit* s = nullptr;
+    int prob=0;
+    {   random_device rd;
+        mt19937 gen(rd());
+        uniform_int_distribution<int> dis(0, 100);
+        prob = dis(gen);
+    }
+        if (prob <= 2)
+        {
+            while (solders.dequeue(s))
+            {
+                if (s->get_state() == -1)
+                {
+                    s->set_state(0);
+                    increment_infected();
+                    solders.enqueue(s);
+                }
+                
+            }
+
+
+        }
+        else
+            return;
+   
+
 }
 void EarthArmy::set_num_HU(int num)
 {
@@ -135,12 +173,26 @@ bool EarthArmy::Attack_Alien()
     bool flage3 = true;
     int pri = 0;
 
+
+    spread_infection();//********************************
+
    if( solders.peek(Sptr))
-    flage1 = Sptr->attack();
+       if (Sptr->get_state() == 0)
+       {
+           bool x;
+           x=Sptr->attack_infected();
+       }
+       else
+       {
+           flage1 = Sptr->attack();
+       }
     if(tanks.peek(Tptr))
     flage2 = Tptr->attack(); //edit it to return bool to chick;
     if(Earth_Gun.peek(Gptr, pri))
     flage3 = Gptr->attack();
+
+    
+
     return flage1 || flage2 || flage3;
 }
 

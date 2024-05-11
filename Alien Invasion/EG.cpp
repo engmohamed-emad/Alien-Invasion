@@ -125,17 +125,12 @@ bool EG::attack()
 						pt = dynamic_cast<Monster*>(U);
 						if (pt != nullptr)
 							game->get_Aarmy()->Add_monster(pt);
-						else
-						{
-							cout << "\b \b" << "\b \b";
-							cout << "]\n";
-							return false;
-						}
+						
 					
 				}
 		}
 		flage1 = true;
-	}
+	 }
 	
 
 	 if (templist2.isEmpty())
@@ -178,12 +173,6 @@ bool EG::attack()
 						D = dynamic_cast<Drones*>(U);
 						if (D != nullptr)
 							game->get_Aarmy()->Add_Drones(D);
-						else
-						{
-							cout << "\b \b" << "\b \b";
-							cout << "]\n";
-							return false;
-						}
 					}
 					if (U2->is_dead())
 					{
@@ -197,12 +186,6 @@ bool EG::attack()
 						D = dynamic_cast<Drones*>(U2);
 						if (D != nullptr)
 							game->get_Aarmy()->Add_Drones(D);
-						else
-						{
-							cout << "\b \b" << "\b \b";
-							cout << "]\n";
-							return false;
-						}
 					}
 				}
 				else
@@ -227,12 +210,6 @@ bool EG::attack()
 						D = dynamic_cast<Drones*>(U);
 						if (D != nullptr)
 							game->get_Aarmy()->Add_Drones(D);
-						else
-						{
-							cout << "\b \b" << "\b \b";
-							cout << "]\n";
-							return false;
-						}
 					}
 				}
 				

@@ -28,6 +28,7 @@ void HealingUnit::dec_health(float damage)
 
 void HealingUnit::attack()
 {
+	
 	cout << "========================== Healing operation ==========================\n";
 	bool flag = false;
 	cout << "HU " << this->getID() << " healing [";
@@ -88,16 +89,47 @@ void HealingUnit::attack()
 	}
 	while (c > 0&&temp_Sol.dequeue(Sptr))
 	{
+		if (Sptr->get_state() == 0)
+		{                 
+			Sptr->inc_health((detect_damage(Sptr->getcurrhealth()))/2.0);
+		}
+
 		Sptr->inc_health(detect_damage(Sptr->getcurrhealth()));
 		cout << Sptr->getID()<<" (" <<Sptr->getcurrhealth()<<") " << ", ";
 		if (Sptr->need_help())
 		{
-			temp_Sol.enqueue(Sptr);
+			if (Sptr->get_state() == 0)
+			{
+				Sptr->set_second_heal();
+				temp_Sol.enqueue(Sptr);
+			}
+			else
+				temp_Sol.enqueue(Sptr);
 		}
 		else
 		{
-			game->get_Earmy()->addSo_unit(Sptr);
-			num_healed++;
+			if (Sptr->get_state() == 0)
+			{
+				if (!(Sptr->get_second_heal()))
+				{
+					Sptr->set_second_heal();
+						temp_Sol.enqueue(Sptr);
+				}
+				else
+				{
+					Sptr->set_state(1);
+					game->get_Earmy()->addSo_unit(Sptr);
+					num_healed++;
+						game->get_Earmy()->decrement_infected();
+					
+				}
+			}
+			    
+			else
+			{
+				game->get_Earmy()->addSo_unit(Sptr);
+				num_healed++;
+			}
 		}
 		c--;
 	}
@@ -106,7 +138,7 @@ void HealingUnit::attack()
 		game->addto_UML_ES(Sptr);
 	}
 	while (T > 0 && temp_tank.dequeue(Tptr))
-	{
+	{   
 		Tptr->inc_health(detect_damage(Tptr->getcurrhealth()));
 		cout << Tptr->getID() << " (" << Tptr->getcurrhealth() << ") " << ", ";
 		if (Tptr->need_help())

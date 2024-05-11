@@ -96,6 +96,8 @@ bool Game::Get_HU(HealingUnit* H)
 	}
 	else return false;
 }
+
+
 //void Game::Healing()   //check
 //{
 //	while (!UML_ES.isEmpty()&& !UML_ET.isEmpty())
@@ -113,6 +115,10 @@ bool Game::Get_HU(HealingUnit* H)
 //}
 int Game::fight()
 {
+	  
+	   
+
+
 
 	 flageE = true;
      flageA = true;
@@ -120,6 +126,7 @@ int Game::fight()
 	unit* hptr;
 	flageE = this->Earmy->Attack_Alien();
 	flageA = this->Aarmy->Attack_Earth();
+
 	if (!UML_ES.isEmpty() || !UML_ET.isEmpty())
 	{
 		if (HU.pop(hu))
@@ -199,7 +206,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
