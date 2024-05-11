@@ -197,8 +197,8 @@ bool AlienArmy::Attack_Earth()
     bool flage2 = true;
     bool flage3 = true;
 
-    if(solders.peek(Sptr))
-    flage1 = Sptr->attack();
+    if (solders.peek(Sptr))
+        flage1 = Sptr->attack();
     if (num_monster > 0)
     {
         random_device rd;

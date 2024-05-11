@@ -186,10 +186,10 @@ bool EarthArmy::Attack_Alien()
        {
            flage1 = Sptr->attack();
        }
-    if(tanks.peek(Tptr))
-    flage2 = Tptr->attack(); //edit it to return bool to chick;
-    if(Earth_Gun.peek(Gptr, pri))
-    flage3 = Gptr->attack();
+   if (tanks.peek(Tptr))
+       flage2 = Tptr->attack(); //edit it to return bool to chick;
+   if (Earth_Gun.peek(Gptr, pri))
+       flage3 = Gptr->attack();
 
     
 

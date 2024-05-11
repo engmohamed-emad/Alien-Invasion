@@ -11,6 +11,14 @@ Game::Game() {
 	rand = new RandGen(this);
 	num_Killed = 0;
 }
+void Game::set_mode(bool f)
+{
+	is_active = f;
+}
+bool Game::is_interactive()
+{
+	return is_active;
+}
 AlienArmy* Game::get_Aarmy()
 {
 	return Aarmy;
@@ -206,7 +214,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;

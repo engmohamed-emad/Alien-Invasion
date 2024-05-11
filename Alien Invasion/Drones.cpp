@@ -4,6 +4,8 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <iostream>
+using namespace std;
 void Drones::Set_Cap_Tank()
 {
 	Attack_Cap_Tank = Acapacity / 2;
@@ -49,7 +51,8 @@ bool Drones::attack()
 	unit* U = nullptr;
 	LinkedQueue<unit*>templist1;
 	LinkedQueue<unit*>templist2;
-	cout << "AD " << this->getID()<<" ("<<this->getApower()<<") " << " shots [";
+	if (game->is_interactive())
+		cout << "AD " << this->getID() << " (" << this->getApower() << ") " << " shots [";
 	for (int i = 0; i < Attack_Cap_Tank; i++)
 	{
 		if (game->get_Earmy()->return_tank(T, U))
@@ -75,7 +78,8 @@ bool Drones::attack()
 	if (templist1.isEmpty() && templist2.isEmpty())
 	{
 		//cout << "\b \b" << "\b \b";
-		cout << "]\n";
+		if (game->is_interactive())
+			cout << "]\n";
 		return false;
 	}
 	if (templist1.isEmpty())
@@ -90,7 +94,8 @@ bool Drones::attack()
 
 			
 			U->dec_health(this->detect_damage(U->getcurrhealth()));
-			cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
+			if (game->is_interactive())
+				cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
 			if (!(U->get_firstAttack()))
 			{
 				U->set_Ta(game->get_timestep());
@@ -121,15 +126,16 @@ bool Drones::attack()
 	 }
 
 	 if (templist2.isEmpty())
-	{
+	 {
 		flage2 = false;
-	}
+	 }
 	 if (!templist2.isEmpty())
-	{
+	 {
 		while (templist2.dequeue(U))
 		{
 			U->dec_health(this->detect_damage(U->getcurrhealth()));
-			cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
+			if (game->is_interactive())
+				cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
 			if (!(U->get_firstAttack()))
 			{
 				U->set_Ta(game->get_timestep());
@@ -154,9 +160,12 @@ bool Drones::attack()
 			}
 		}
 		flage2 = true;
-	}
-	cout << "\b \b" << "\b \b";
-	cout << "]\n";
+	 }
+	 if (game->is_interactive())
+	 {
+		 cout << "\b \b" << "\b \b";
+		 cout << "]\n";
+	 }
 	return (flage1 || flage2);
 }
 

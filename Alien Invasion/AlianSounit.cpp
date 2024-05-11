@@ -4,6 +4,8 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <iostream>
+using namespace std;
 AlianSounit::AlianSounit()
 {
 	set_type("AS");
@@ -32,7 +34,8 @@ bool AlianSounit::attack()
 	Solderunit* Sptr = nullptr;//it is damy pointer to use the function that take two prametars
 	unit* ptr = nullptr;
 	LinkedQueue<unit*> templist;
-	cout << "AS " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+	if (game->is_interactive())
+		cout << "AS " << this->getID() << " (" << this->getApower() << ") " << " shots [";
 	for (int i = 0; i < Acapacity; i++)
 	{     
 		if (game->get_Earmy()->ReturnSo_uint(Sptr, ptr))
@@ -44,7 +47,8 @@ bool AlianSounit::attack()
 	if (templist.isEmpty())
 	{
 		//cout << "\b \b" << "\b \b";
-		cout << "]\n";
+		if (game->is_interactive())
+			cout << "]\n";
 		return false;
 	}
 
@@ -53,7 +57,8 @@ bool AlianSounit::attack()
 		if (templist.dequeue(ptr))
 		{
 			ptr->dec_health(this->detect_damage(ptr->getcurrhealth()));
-			cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
+			if (game->is_interactive())
+				cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
 			if (!(ptr->get_firstAttack()))
 			{
 				ptr->set_Ta(game->get_timestep());
@@ -85,8 +90,11 @@ bool AlianSounit::attack()
 			}
 		}
 	}
-	cout << "\b \b" << "\b \b";
-	cout << "]\n";
+	if (game->is_interactive())
+	{
+		cout << "\b \b" << "\b \b";
+		cout << "]\n";
+	}
 	return true;
 }
 

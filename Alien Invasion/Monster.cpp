@@ -7,6 +7,7 @@
 #include <string>
 #include <chrono>
 #include <thread>
+using namespace std;
 Monster::Monster()
 {
 	set_type("Monster");
@@ -36,7 +37,8 @@ bool Monster::attack()
 	unit* T_ptr = nullptr;
 	LinkedQueue<Solderunit*>ES_templist;
 	LinkedQueue<Tank*>T_templist;
-	cout << "AM " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+	if (game->is_interactive())
+		cout << "AM " << this->getID() << " (" << this->getApower() << ") " << " shots [";
 	for (int i = 0; i < Acapacity / 2; i++)
 	{
 		if (game->get_Earmy()->return_tank(T, T_ptr))
@@ -51,7 +53,8 @@ bool Monster::attack()
 	while (T_templist.dequeue(T))
 	{
 		T->dec_health(this->detect_damage(T->getcurrhealth()));
-		cout << T->getID()<< " ("<<T->getcurrhealth()<<") " << ", ";
+		if (game->is_interactive())
+			cout << T->getID() << " (" << T->getcurrhealth() << ") " << ", ";
 		if (!(T->get_firstAttack()))
 		{
 			T->set_Ta(game->get_timestep());
@@ -89,7 +92,8 @@ bool Monster::attack()
 	while (ES_templist.dequeue(ES))
 	{
 		ES->dec_health(this->detect_damage(ES->getcurrhealth()));
-		cout << ES->getID() << " (" << ES->getcurrhealth() << ") " << ", ";
+		if (game->is_interactive())
+			cout << ES->getID() << " (" << ES->getcurrhealth() << ") " << ", ";
 		/// you have to add something loaded from file to know if solider will get infected or not if he will infected you have to make its state_solider(variable in ES unit) equal 0  and you have to call function increment infected in earth army and return it to list if he didnt die after attack  if state_solider equal 1 then it is immuned cant infected
 		if (!(ES->get_firstAttack()))
 		{
@@ -114,9 +118,12 @@ bool Monster::attack()
 				game->get_Earmy()->addSo_unit(ES);
 		}
 	}
-	if(flag1||flag2)
-	cout << "\b \b" << "\b \b";
-	cout << "]\n";
+	if (game->is_interactive())
+	{
+		if (flag1 || flag2)
+			cout << "\b \b" << "\b \b";
+		cout << "]\n";
+	}
 	return (flag1 || flag2);
 }
 

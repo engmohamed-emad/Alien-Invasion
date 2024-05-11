@@ -46,7 +46,8 @@ void RandGen::Create_Random()
 	float AP;
 	int AC;
 	prob = gen_rand(1, 100);
-	cout << "prop = " << prob << endl;
+	if (game->is_interactive())
+		cout << "prop = " << prob << endl;
 	if (prob <= array[7])
 	{
 		num_prop++;

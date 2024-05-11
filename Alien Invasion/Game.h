@@ -18,6 +18,9 @@ class unit;
 class EG;
 class Game
 {    //mohamed Ayman
+	bool is_active = true;
+
+	/// ////////////
 	AlienArmy* Aarmy;
 	EarthArmy* Earmy;
 	RandGen* rand;
@@ -36,6 +39,9 @@ class Game
 	bool flageA = true;
 public:
 	Game();
+	void set_mode(bool f);
+	bool is_interactive();
+	/// ///////
 	AlienArmy* get_Aarmy();
 	EarthArmy* get_Earmy();
 	RandGen* get_RandGen();

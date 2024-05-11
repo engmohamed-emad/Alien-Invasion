@@ -28,10 +28,11 @@ void HealingUnit::dec_health(float damage)
 
 void HealingUnit::attack()
 {
-	
-	cout << "========================== Healing operation ==========================\n";
+	if (game->is_interactive())
+		cout << "========================== Healing operation ==========================\n";
 	bool flag = false;
-	cout << "HU " << this->getID() << " healing [";
+	if (game->is_interactive())
+		cout << "HU " << this->getID() << " healing [";
 	int c = 0;
 	int T = 0;
 	LinkedQueue<Solderunit*>temp_Sol;
@@ -41,7 +42,7 @@ void HealingUnit::attack()
 	Tank* Tptr = nullptr;
 	for (int i = 0; i < Acapacity; i++)
 	{
-		if (game->get_UML_ES(Sptr))
+		if (game->get_UML_ES(Sptr))//it may result in exiption handling
 		{
 			if (game->get_timestep() - Sptr->get_Heal_Time() < 10)
 			{
@@ -95,7 +96,8 @@ void HealingUnit::attack()
 		}
 
 		Sptr->inc_health(detect_damage(Sptr->getcurrhealth()));
-		cout << Sptr->getID()<<" (" <<Sptr->getcurrhealth()<<") " << ", ";
+		if (game->is_interactive())
+			cout << Sptr->getID() << " (" << Sptr->getcurrhealth() << ") " << ", ";
 		if (Sptr->need_help())
 		{
 			if (Sptr->get_state() == 0)
@@ -113,14 +115,14 @@ void HealingUnit::attack()
 				if (!(Sptr->get_second_heal()))
 				{
 					Sptr->set_second_heal();
-						temp_Sol.enqueue(Sptr);
+					temp_Sol.enqueue(Sptr);
 				}
 				else
 				{
 					Sptr->set_state(1);
 					game->get_Earmy()->addSo_unit(Sptr);
 					num_healed++;
-						game->get_Earmy()->decrement_infected();
+					game->get_Earmy()->decrement_infected();
 					
 				}
 			}
@@ -140,7 +142,8 @@ void HealingUnit::attack()
 	while (T > 0 && temp_tank.dequeue(Tptr))
 	{   
 		Tptr->inc_health(detect_damage(Tptr->getcurrhealth()));
-		cout << Tptr->getID() << " (" << Tptr->getcurrhealth() << ") " << ", ";
+		if (game->is_interactive())
+			cout << Tptr->getID() << " (" << Tptr->getcurrhealth() << ") " << ", ";
 		if (Tptr->need_help())
 		{
 			temp_tank.enqueue(Tptr);
@@ -156,9 +159,12 @@ void HealingUnit::attack()
 	{
 		game->addto_UML_ET(Tptr);
 	}
-	if(flag)
-	cout << "\b \b" << "\b \b";
-	cout << "]\n\n";
+	if (game->is_interactive())
+	{
+		if (flag)
+			cout << "\b \b" << "\b \b";
+		cout << "]\n\n";
+	}
 	this->set_Ta(game->get_timestep());
 	this->set_Td(game->get_timestep());
 }
