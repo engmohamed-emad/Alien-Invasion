@@ -80,7 +80,7 @@ int main()
 	if (flag == 1)
 	{
 		cout << "Winner Earth Army\n";
-		mygame->add_left_items();
+		mygame->set_left_items();
 		mygame->get_Earmy()->print_statistics();
 		cout << "healed units/total units = " << (float((mygame->get_total_num_healed() * 100) / mygame->get_Earmy()->get_total_units()))<<"%\n\n";
 		cout << "Loser Alien Army\n";
@@ -89,7 +89,7 @@ int main()
 	else if (flag == -1)
 	{
 		cout << "Loser Earth Army\n";
-		mygame->add_left_items();
+		mygame->set_left_items();
 		mygame->get_Earmy()->print_statistics();
 		cout << "healed units/total units = " << (float((mygame->get_total_num_healed() * 100) / mygame->get_Earmy()->get_total_units())) << "%\n\n";
 		cout << "Winner Alien Army\n";
@@ -98,13 +98,13 @@ int main()
 	else
 	{
 		cout << "Draw\n";
-		mygame->add_left_items();
+		mygame->set_left_items();
 		mygame->get_Earmy()->print_statistics();
 		cout << "healed units/total units = " << (float((mygame->get_total_num_healed() * 100) / mygame->get_Earmy()->get_total_units())) << "%\n\n";
 		cout << "Draw\n";
 		mygame->get_Aarmy()->print_statistics();	
 	}
-	cout << "\n\n" << rand->get_num_HU();
+	cout << "\n\nnum HU Generated : " << rand->get_num_HU()<<endl;
 	delete mygame;
 	mygame = nullptr;
 	return 0;

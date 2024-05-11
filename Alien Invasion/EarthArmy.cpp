@@ -144,7 +144,7 @@ void EarthArmy::print_statistics()
         cout << "EG total number : " << num_EG + num_killed_EG << "\n";
         cout << "ES Destructed/ES total = " << num_killed_sol * 100 / (1+(num_sol + num_killed_sol)) << "%" << "\n";
         cout << "ET Destructed/ET total = " << num_killed_tank * 100 /(1+ (num_tank + num_killed_tank)) << "%" << "\n";
-        cout << "EG Destructed/EG total = " << num_killed_sol * 100 /(1+ (num_EG + num_killed_EG)) << "%" << "\n";
+        cout << "EG Destructed/EG total = " << num_killed_EG * 100 /(1+ (num_EG + num_killed_EG)) << "%" << "\n";
         cout << "Total Destructed/Total Units = " << (num_killed_sol + num_killed_tank + num_killed_EG) * 100 / (1+(num_sol + num_tank + num_EG + num_killed_sol + num_killed_tank + num_killed_EG)) << "%" << "\n";
         cout << "Average Df = " << Df / (1+(num_killed_sol + num_killed_tank + num_killed_EG)) << "\n";
         cout << "Average Dd = " << Dd /(1+ (num_killed_sol + num_killed_tank + num_killed_EG)) << "\n";

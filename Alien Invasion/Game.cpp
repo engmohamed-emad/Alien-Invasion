@@ -261,8 +261,49 @@ int Game::get_num_killed()
 	return  num_Killed;
 }
 
-void Game::add_left_items()
+void Game::set_left_items()
 {
+	unit* U;
+	Tank* T;
+	Solderunit* S;
+	LinkedQueue<Tank*>tempT;
+	LinkedQueue<Solderunit*>tempS;
+	while (this->get_UML_ET(T))
+	{
+		if (this->get_timestep() - T->get_Heal_Time() < 10)
+		{
+			tempT.enqueue(T);
+		}
+		else
+		{
+			this->get_Earmy()->update_num_killed_tank();
+			U = dynamic_cast<unit*>(T);
+			this->add_killedlist(U);
+		}
+	}
+	while (tempT.dequeue(T))
+	{
+		this->addto_UML_ET(T);
+	}
+	            //Ask Hossam
+	while (this->get_UML_ES(S))
+	{
+		if (this->get_timestep() - S->get_Heal_Time() < 10)
+		{
+			tempS.enqueue(S);
+		}
+		else
+		{
+			this->get_Earmy()->update_num_killed_sol();
+			U = dynamic_cast<unit*>(S);
+			this->add_killedlist(U);
+		}
+	}
+	while (tempS.dequeue(S))
+	{
+		this->addto_UML_ES(S);
+	}
+
 	this->Earmy->set_num_Hsol(num_healed_sol);
 	this->Earmy->set_num_Htank(num_healed_tank);
 }

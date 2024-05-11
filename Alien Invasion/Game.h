@@ -68,7 +68,7 @@ public:
 	int get_total_num_healed();
 	int get_num_check();  //for check
 	int get_num_killed();  //for check
-	void add_left_items();  // to add 
+	void set_left_items();  // to add 
 	
 	//LinkedQueue<unit*>* gt_temp();
 	~Game();
