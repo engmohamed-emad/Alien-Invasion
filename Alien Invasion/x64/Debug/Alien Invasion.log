@@ -1,5 +1,2 @@
 ﻿  ally_army.cpp
-  SU.cpp
-C:\Users\pc\Documents\GitHub\project\Alien Invasion\SU.cpp(56,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
   Alien Invasion.vcxproj -> C:\Users\pc\Documents\GitHub\project\x64\Debug\Alien Invasion.exe

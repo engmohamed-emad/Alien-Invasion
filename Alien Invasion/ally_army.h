@@ -17,19 +17,17 @@ private:
 	int Dd = 0;
 	int Db = 0;
 public:
-	bool Add_unit(unit* ptr);
 
-	bool addSU_unit(Solderunit*& s);
-	bool ReturnSU_uint(Solderunit*& SoUnit, unit*& pt);
+	bool addSU_unit(SU*& s);
+	bool ReturnSU_uint(SU*& SuUnit, unit*& pt);
 
-	int get_num_sol();
+	int get_num_su();
 
 	void print();
 	void update_num_killed_su();
 	void ubdate_D(unit*& U);
 	bool Attack_Alien();
 	void print_statistics();
-	int get_total_units();
 	~ally_army();
 };
 
