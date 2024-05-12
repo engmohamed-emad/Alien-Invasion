@@ -42,18 +42,14 @@ int main()
 	RandGen* rand = mygame->get_RandGen();
 	rand->trans_data();
 	int flag = 0;
-	for (int i = 1; i <= 300; i++)
+	for (int i = 1; i <= 200; i++)
 	{
 		mygame->set_timestep(i);
 		rand->Create_Random();
 		if (mygame->is_interactive())
 		{
 			cout << "Current time step " << i << endl;
-			mygame->get_Earmy()->print();
-			cout << endl;
-			mygame->get_Aarmy()->print();
-			cout << endl;
-			mygame->print_healing_lists();
+			mygame->print_armys();
 			cout << "===================Units fighting at current timestep========================\n";
 		}
 	    flag = mygame->fight();
@@ -65,11 +61,7 @@ int main()
 		{
 			cout << endl;
 			cout << "===================After  fighting at current timestep=====================================\n";
-			mygame->get_Earmy()->print();
-			cout << endl;
-			mygame->get_Aarmy()->print();
-			cout << endl;
-			mygame->print_healing_lists();
+			mygame->print_armys();
 			//print enter to continue
 			cout << endl;
 			mygame->print_Killed();
@@ -100,12 +92,12 @@ int main()
 			cout << "Winner Earth Army\n";
 		mygame->set_left_items();
 		if (mygame->is_interactive())
-			mygame->get_Earmy()->print_statistics();
-		//cout << "healed units/total units = " << (float((mygame->get_total_num_healed() * 100) / mygame->get_Earmy()->get_total_units()))<<"%\n\n";
+			
+		
 		if (mygame->is_interactive())
 		{
 			cout << "Loser Alien Army\n";
-			mygame->get_Aarmy()->print_statistics();
+			
 		}
 	}
 	else if (flag == -1)
@@ -115,10 +107,7 @@ int main()
 		mygame->set_left_items();
 		if (mygame->is_interactive())
 		{
-			mygame->get_Earmy()->print_statistics();
-			//	cout << "healed units/total units = " << (float((mygame->get_total_num_healed() * 100) / mygame->get_Earmy()->get_total_units())) << "%\n\n";
 			cout << "Winner Alien Army\n";
-			mygame->get_Aarmy()->print_statistics();
 		}
 	}
 	else
@@ -128,10 +117,10 @@ int main()
 		mygame->set_left_items();
 		if (mygame->is_interactive())
 		{
-			mygame->get_Earmy()->print_statistics();
-			//		cout << "healed units/total units = " << (float((mygame->get_total_num_healed() * 100) / mygame->get_Earmy()->get_total_units())) << "%\n\n";
+			
+			
 			cout << "Draw\n";
-			mygame->get_Aarmy()->print_statistics();
+			
 		}
 	}
 	if (mygame->is_interactive())

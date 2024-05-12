@@ -56,7 +56,7 @@ void HealingUnit::attack()
 				if (ptr != nullptr)
 				{
 					ptr->set_Td(game->get_timestep());
-					game->get_Earmy()->update_num_killed_sol();
+					
 					game->add_killedlist(ptr);
 				}
 				i--;
@@ -79,8 +79,9 @@ void HealingUnit::attack()
 				ptr = dynamic_cast<unit*>(Tptr);
 				if (ptr != nullptr)
 				{
-					game->get_Earmy()->update_num_killed_tank();
+					
 					ptr->set_Td(game->get_timestep());
+					
 					game->add_killedlist(ptr);
 				}
 				i--;
@@ -165,8 +166,7 @@ void HealingUnit::attack()
 			cout << "\b \b" << "\b \b";
 		cout << "]\n\n";
 	}
-	this->set_Ta(game->get_timestep());
-	this->set_Td(game->get_timestep());
+	
 }
 
 int HealingUnit::get_num_healed()

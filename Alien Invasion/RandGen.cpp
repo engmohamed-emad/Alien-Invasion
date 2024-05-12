@@ -21,17 +21,20 @@ void RandGen::Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int
 	}
 	else if (prob <= array[1]+array[20])
 	{
+		num_GEN_ES++;
 		Solderunit* U = new Solderunit(ID, Jt, H, AP, AC, this->game);
 		game->get_Earmy()->addSo_unit(U);
 	}
 	else if (prob <= array[1] + array[2]+array[20])
 	{
+		num_GEN_ET++;
 		//proplity for tank
 		Tank* U = new Tank(ID, Jt, H, AP, AC,this->game);
 		game->get_Earmy()->Add_tank(U);
 	}
 	else if (prob <= array[1] + array[2] + array[3]+array[20])
 	{
+		num_GEN_EG++;
 		EG* U = new EG(ID, Jt, H, AP, AC,this->game);
 		game->get_Earmy()->Add_Earth_Gun(U);
 	}
@@ -81,18 +84,21 @@ void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int
 {
 	if (prob <= array[4])
 	{
+		num_GEN_AS++;
 		AlianSounit* U = new AlianSounit(ID, Jt, H, AP, AC, this->game);
 		game->get_Aarmy()->addSo_unit(U);
 
 	}
 	else if (prob <= array[4] + array[5])
 	{
+		num_GEN_AM++;
 		Monster* U = new Monster(ID, Jt, H, AP, AC,this->game);
 		game->get_Aarmy()->Add_monster(U);
 		//proplity if monstar
 	}
 	else if (prob <= array[4] + array[6] + array[5])
 	{
+		num_GEN_AD++;
 		Drones* U = new Drones(ID, Jt, H, AP, AC,this->game);
 		game->get_Aarmy()->Add_Drones(U);
 	}
@@ -116,3 +122,31 @@ int RandGen::get_num_HU()
 //{
 //	game = g;
 //}
+
+int RandGen::get_num_GEN_AD()
+{
+	return num_GEN_AD;
+}
+int RandGen::get_num_GEN_AS()
+{
+	return num_GEN_AS;
+}
+int RandGen::get_num_GEN_AM()
+{
+	return num_GEN_AM;
+}
+int RandGen::get_num_GEN_ES()
+{
+	return num_GEN_ES;
+}
+int RandGen::get_num_GEN_ET()
+{
+	return num_GEN_ET;
+}int RandGen::get_num_GEN_EG()
+{
+	return num_GEN_EG;
+}
+int RandGen::get_num_GEN_HU()
+{
+	return num_GEN_HU;
+}

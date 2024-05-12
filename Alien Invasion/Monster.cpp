@@ -62,9 +62,10 @@ bool Monster::attack()
 		}
 		if (T->is_dead())
 		{
-			game->get_Earmy()->update_num_killed_tank();
+			
 			T->set_Td(game->get_timestep());
 			T_ptr = dynamic_cast<unit*>(T);
+			
 			game->add_killedlist(T_ptr);
 		}
 		else
@@ -102,9 +103,10 @@ bool Monster::attack()
 		}
 		if (ES->is_dead())
 		{
-			game->get_Earmy()->update_num_killed_sol();
+			
 			ES->set_Td(game->get_timestep());
 			ES_ptr = dynamic_cast<unit*>(ES);
+			
 			game->add_killedlist(ES_ptr);
 		}
 		else

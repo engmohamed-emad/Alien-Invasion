@@ -66,9 +66,9 @@ bool AlianSounit::attack()
 			}
 			if (ptr->is_dead())
 			{
-				game->get_Earmy()->update_num_killed_sol();
+				
 				ptr->set_Td(game->get_timestep());
-				game->get_Earmy()->ubdate_D(ptr);
+				
 				game->add_killedlist(ptr);
 			}
 			else if (ptr->need_help())

@@ -40,7 +40,13 @@ private:
 	int Rand_Num;
 	Game* game;
 	int num_prop = 0;
-	int num_GEN_HU=0;
+	int num_GEN_HU = 0;
+	int num_GEN_ES = 0;
+	int num_GEN_ET = 0;
+	int num_GEN_EG = 0;
+	int num_GEN_AS = 0;
+	int num_GEN_AM = 0;
+	int num_GEN_AD = 0;
 public:
 	RandGen(Game* g);
 	float gen_rand(int min, int max);
@@ -50,6 +56,13 @@ public:
 	void trans_data();
 	int get_num_prop();  //for check
 	int get_num_HU(); //for check 
+	int get_num_GEN_HU ();
+	int get_num_GEN_ES ();
+	int get_num_GEN_ET ();
+	int get_num_GEN_EG ();
+	int get_num_GEN_AS ();
+	int get_num_GEN_AM ();
+	int get_num_GEN_AD ();
 	/*void set_game(Game* g);*/
 };
 #endif

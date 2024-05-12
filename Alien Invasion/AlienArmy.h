@@ -20,12 +20,7 @@ protected:
 	int num_sol = 0;
 	int num_monster = 0;
 	int num_drones=0;
-	int num_killed_sol = 0;
-	int num_killed_monster = 0;
-	int num_killed_drones = 0;
-	int Df = 0;
-	int Dd = 0;
-	int Db = 0;
+	
 public:
 	bool ADD_unit(unit*& ptr);
 	bool addSo_unit(AlianSounit*& s);
@@ -39,25 +34,9 @@ public:
 	~AlienArmy();
 	bool Add_monster(Monster*& M);
 	void print();
-	void update_num_killed_sol();
-	void update_num_killed_monster();
-	void update_num_killed_drones();
-	void ubdate_D(unit*&U);
+	
 	bool Attack_Earth();
-	void print_statistics();
 	//////////////////////////
-	int get_total_num_AS();
-	int get_total_num_AD();
-	int get_total_num_AM();
-	float get_per_AS();
-	float get_per_AM();
-	float get_per_AD();
-	float get_per_total();
-	float get_per_Df();
-	float get_per_Dd();
-	float get_per_Db();
-	float get_per_Dd_Db();
-	float get_per_Df_Db();
 	int get_num_Army();
 };
 

@@ -31,10 +31,10 @@ class Game
 	int num[21];
 	int timestep = 0;
 	int num_Killed;
-	int num_healed_tank = 0;
-	int num_healed_sol = 0;
+	int num_healed_tank = 0;  //in UML
+	int num_healed_sol = 0;  // in UML
 	int num_HU=0;
-	int total_num_healed=0;
+	int total_num_healed=0;   // healed and returned to its original list
 	bool flageE = true;
 	bool flageA = true;
 public:
@@ -76,7 +76,7 @@ public:
 	int get_total_num_healed();
 	int get_num_check();  //for check
 	int get_num_killed();  //for check
-	void set_left_items();  // to add 
+	void set_left_items();  // to handle UML_lists after last time step
 	void output_file();
 	//LinkedQueue<unit*>* gt_temp();
 	~Game();

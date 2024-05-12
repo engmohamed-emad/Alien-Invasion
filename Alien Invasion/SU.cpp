@@ -63,9 +63,9 @@ bool SU::attack()
 
 			if (ptr->is_dead())
 			{
-				game->get_Aarmy()->update_num_killed_sol();
+				
 				ptr->set_Td(game->get_timestep());
-				game->get_Aarmy()->ubdate_D(ptr);
+				
 				game->add_killedlist(ptr);
 			}
 			else

@@ -87,9 +87,9 @@ bool Tank::attack()
 			if (AS->is_dead())
 			{
 				AS->set_Td(game->get_timestep());
-				game->get_Aarmy()->update_num_killed_sol();
+				
 				AS_ptr = dynamic_cast<unit*>(AS);
-				game->get_Aarmy()->ubdate_D(AS_ptr);
+				
 				game->add_killedlist(AS_ptr);
 			}
 			else
@@ -125,9 +125,9 @@ bool Tank::attack()
 		if (m->is_dead())
 		{
 			m->set_Td(game->get_timestep());
-			game->get_Aarmy()->update_num_killed_monster(); ////
+			 ////
 			m_ptr = dynamic_cast<unit*>(m);
-			game->get_Aarmy()->ubdate_D(m_ptr); ////
+			 ////
 			game->add_killedlist(m_ptr);
 		}
 		else

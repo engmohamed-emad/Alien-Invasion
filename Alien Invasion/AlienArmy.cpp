@@ -163,29 +163,7 @@ void AlienArmy::print()
 
 }
 
-void AlienArmy::update_num_killed_sol()
-{
-    num_killed_sol += 1;
-}
 
-void AlienArmy::update_num_killed_monster()
-{
-    num_killed_monster += 1;
-}
-
-void AlienArmy::update_num_killed_drones()
-{
-    num_killed_drones += 1;
-}
-
-void AlienArmy::ubdate_D(unit*& U)
-{
-    
-        Df = Df + U->get_Df();
-        Dd = Dd + U->get_Dd();
-        Db = Db + U->get_Db();
-    
-}
 
 bool AlienArmy::Attack_Earth()
 {
@@ -217,121 +195,11 @@ bool AlienArmy::Attack_Earth()
     return flage1 || flage2 || flage3;
 }
 
-void AlienArmy::print_statistics()
-{
-    cout << "===============Alien Army statistics===================== \n";
-    cout << "AS totsl number : " << num_sol + num_killed_sol <<" \n";
-    cout << "AM totsl number : " << num_monster + num_killed_monster << "\n";
-    cout << "AD totsl number : " << num_drones + num_killed_drones << "\n";
-    cout << "AS Destructed/AS total = " << num_killed_sol * 100 / (1+(num_sol + num_killed_sol))<<"%" << "\n";
-    cout << "AM Destructed/AM total = " << num_killed_monster * 100 /(1+(num_monster + num_killed_monster))<<"%" << "\n";
-    cout << "AD Destructed/AD total = " << num_killed_drones * 100 /(1+ (num_drones + num_killed_drones))<<"%" << "\n";
-    cout << "Total Destructed/Tatal Units = " << (num_killed_sol + num_killed_monster + num_killed_drones) * 100 / (1+(num_sol + num_monster + num_drones + num_killed_sol + num_killed_monster + num_killed_drones))<<"%" << "\n";
-    cout << "Average Df = " <<Df/(1+(num_killed_sol + num_killed_monster + num_killed_drones)) << "\n";
-    cout << "Average Dd = " << Dd /(1+ (num_killed_sol + num_killed_monster + num_killed_drones) )<< "\n";
-    cout << "Average Db = " << Db / (1+(num_killed_sol + num_killed_monster + num_killed_drones)) << "\n";
-    cout << "Df/Db % = " << Df * 100 /(1+ Db) << "%" << "\n";
-    cout << "Dd/Db % = " << Dd * 100 / (1+Db) << "%" << "\n\n";
-}
 
 
 
 
-int AlienArmy::get_total_num_AM()
-{
-    return num_monster + num_killed_monster;
-}
-float AlienArmy::get_per_AS()
-{
-    if ((num_sol + num_killed_sol))
-    {
-        return num_killed_sol * 100 / ((num_sol + num_killed_sol));
-    }
-    else
-        return num_killed_sol * 100 / (1 + (num_sol + num_killed_sol));
-}
-int AlienArmy::get_total_num_AD()
-{
-    return num_drones + num_killed_drones;
-}
-int AlienArmy::get_total_num_AS()
-{
-    return num_sol + num_killed_sol;
-}
 
-float AlienArmy::get_per_AM()
-{
-    if ((num_monster + num_killed_monster))
-    {
-        return num_killed_monster * 100 / ((num_monster + num_killed_monster));
-    }
-    else
-        return num_killed_monster * 100 / (1 + (num_monster + num_killed_monster));
-}
-
-float AlienArmy::get_per_AD()
-{
-    if ((num_drones + num_killed_drones))
-    {
-        return num_killed_drones * 100 / ((num_drones + num_killed_drones));
-    }
-    else
-        return num_killed_drones * 100 / (1 + (num_drones + num_killed_drones));
-}
-
-float AlienArmy::get_per_total()
-{
-    if ((num_sol + num_monster + num_drones + num_killed_sol + num_killed_monster + num_killed_drones))
-    {
-        (num_killed_sol + num_killed_monster + num_killed_drones) * 100 / ( (num_sol + num_monster + num_drones + num_killed_sol + num_killed_monster + num_killed_drones));
-    }
-    else
-        return (num_killed_sol + num_killed_monster + num_killed_drones) * 100 / (1 + (num_sol + num_monster + num_drones + num_killed_sol + num_killed_monster + num_killed_drones));
-}
-
-float AlienArmy::get_per_Df()
-{
-    if ((num_killed_sol + num_killed_monster + num_killed_drones))
-    {
-        return Df / ((num_killed_sol + num_killed_monster + num_killed_drones));
-    }
-    else
-        return Df / (1 + (num_killed_sol + num_killed_monster + num_killed_drones));
-}
-float AlienArmy::get_per_Dd()
-{
-    if ((num_killed_sol + num_killed_monster + num_killed_drones))
-    {
-        return Dd / ((num_killed_sol + num_killed_monster + num_killed_drones));
-    }
-    else
-        return Dd / (1 + (num_killed_sol + num_killed_monster + num_killed_drones));
-}
-float AlienArmy::get_per_Db()
-{
-    if ((num_killed_sol + num_killed_monster + num_killed_drones))
-    {
-        return Db / ((num_killed_sol + num_killed_monster + num_killed_drones));
-    }
-    else
-        return Db / (1 + (num_killed_sol + num_killed_monster + num_killed_drones));
-}
-float AlienArmy::get_per_Dd_Db()
-{
-    if (Db)
-    {
-        return Dd * 100 / (Db);
-    }
-    return Dd * 100 / (1 + Db);
-}
-float AlienArmy::get_per_Df_Db()
-{
-    if (Db)
-    {
-        return Df * 100 / (Db);
-    }
-    return Df * 100 / (1 + Db);
-}
 
 
 int AlienArmy::get_num_Army()
