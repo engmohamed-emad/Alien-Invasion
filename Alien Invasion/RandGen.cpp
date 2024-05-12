@@ -80,12 +80,12 @@ void RandGen::Create_Random()
 		for (int i = 0; i < array[0]&&!game->get_Earmy()->retret_ally(); i++)
 		{
 			Jt = game->get_timestep();
-			ID = Alien_count_id++;
+			ID = Allay_count_id++;
 			prob = gen_rand(1, 100);
 			H = gen_rand(array[23], array[24]);
 			AC = gen_rand(array[25], array[26]);
 			AP = gen_rand(array[21], array[22]);
-			//Create_Unit_Ally(prob, ID, Jt, H, AP, AC); *********************HERE****************************
+			Create_Unit_Ally(prob, ID, Jt, H, AP, AC); 
 		}
 	}
 	
@@ -115,13 +115,13 @@ void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int
 	}
 }
 
-//void RandGen::Create_Unit_Ally(int prob, int ID, int Jt, float H, float AP, int AC)
-//{
-//	num_GEN_SU++;
-//	SU* U = new SU(ID, Jt, H, AP, AC, this->game);                                   *********************************  HERE &&&&&&&&&&&&&&&&&&&&&&
-//	game->get_ally()->addSU_unit(U);
-//
-//}
+void RandGen::Create_Unit_Ally(int prob, int ID, int Jt, float H, float AP, int AC)
+{
+	num_GEN_SU++;
+	SU* U = new SU(ID, Jt, H, AP, AC, this->game);         
+	game->get_ally()->addSU_unit(U);
+
+}
 
 void RandGen::trans_data()
 {

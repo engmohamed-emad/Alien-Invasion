@@ -8,6 +8,7 @@ using namespace std;
 Game::Game() {
 	Aarmy = new AlienArmy;
 	Earmy = new EarthArmy;
+	ally = new ally_army;
 	rand = new RandGen(this);
 	num_Killed = 0;
 }
@@ -213,7 +214,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;

@@ -44,6 +44,7 @@ private:
 	//array[27]->persenteg to recust ally 
 	int Earth_count_id = 1;
 	int Alien_count_id = 2000;
+	int Allay_count_id = 3000;
 	int Rand_Num;
 	Game* game;
 	int num_prop = 0;
@@ -61,7 +62,7 @@ public:
 	void Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC);
 	void Create_Random();
 	void Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC);
-	    //void Create_Unit_Ally(int prob, int ID, int Jt, float H, float AP, int AC);
+	void Create_Unit_Ally(int prob, int ID, int Jt, float H, float AP, int AC);
 	void trans_data();
 	int get_num_prop();  //for check
 	int get_num_HU(); //for check 
