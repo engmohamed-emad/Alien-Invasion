@@ -36,13 +36,16 @@ bool AlianSounit::attack()
 	LinkedQueue<unit*> templist;
 	if (game->is_interactive())
 		cout << "AS " << this->getID() << " (" << this->getApower() << ") " << " shots [";
-	for (int i = 0; i < Acapacity; i++)
+	for (int i = 0; i < Acapacity  ; i++)
 	{     
 		if (game->get_Earmy()->ReturnSo_uint(Sptr, ptr))
 		{
+
 			templist.enqueue(ptr);
 			//cout << ptr->getID() << ", ";
 		}
+		else
+			break;
 	}
 	if (templist.isEmpty())
 	{
@@ -85,6 +88,7 @@ bool AlianSounit::attack()
 			else
 			{
 				Sptr = dynamic_cast<Solderunit*>(ptr);
+				if(Sptr!=nullptr)
 				game->get_Earmy()->addSo_unit(Sptr);
 			}
 		}

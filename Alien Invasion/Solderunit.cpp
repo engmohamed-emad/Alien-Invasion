@@ -118,16 +118,27 @@ bool Solderunit::attack_infected()
 	Solderunit* Sptr = nullptr;//it is damy pointer to use the function that take two prametars
 	unit* ptr = nullptr;
 	LinkedQueue<unit*> templist;
+	int c = game->get_Earmy()->get_num_sol();
 	if (game->is_interactive())
 	{
 		cout << "infected solider" << " ";
 		cout << "ES " << this->getID() << " (" << this->getApower() << ") " << " shots [";
 	}
-	for (int i = 0; i < Acapacity; i++)
+	for (int i = 0; (i < Acapacity && c>0); i++)
 	{
 		if (game->get_Earmy()->ReturnSo_uint(Sptr, ptr))
 		{
-			templist.enqueue(ptr);
+			if (Sptr->get_state() != 0)
+			{
+				templist.enqueue(ptr);
+				c--;
+			}
+			else
+			{
+				game->get_Earmy()->addSo_unit(Sptr);
+				i--;
+				c--;
+			}
 			//	cout << ptr->getID() << ", ";
 		}
 		else

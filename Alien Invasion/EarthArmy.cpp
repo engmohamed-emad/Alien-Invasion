@@ -84,20 +84,24 @@ void EarthArmy::spread_infection()
         uniform_int_distribution<int> dis(0, 100);
         prob = dis(gen);
     }
-        if (prob <= 2)
+    int c = num_sol;
+        if (prob <= 2 && Num_infect_solid!=0)
         {
-            while (solders.dequeue(s))
+            while (c>0 && solders.dequeue(s))
             {
                 if (s->get_state() == -1)
                 {
                     s->set_state(0);
                     increment_infected();
                     solders.enqueue(s);
+                    break;
                 }
-                
+                else
+                {
+                    solders.enqueue(s);
+                    c--;
+                }
             }
-
-
         }
         else
             return;
@@ -216,6 +220,8 @@ int EarthArmy::get_num_Army()
 {
     return num_tank + num_sol + num_EG;
 }
+
+
 
 
 

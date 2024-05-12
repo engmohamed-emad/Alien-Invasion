@@ -42,7 +42,6 @@ public:
 
 	bool Attack_Alien();/***************************************/
 	int get_num_Army();
-	
 	~EarthArmy();
 };
 

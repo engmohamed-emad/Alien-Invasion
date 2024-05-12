@@ -61,7 +61,7 @@ public:
 	void Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC);
 	void Create_Random();
 	void Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC);
-	void Create_Unit_Ally(int prob, int ID, int Jt, float H, float AP, int AC);
+	    //void Create_Unit_Ally(int prob, int ID, int Jt, float H, float AP, int AC);
 	void trans_data();
 	int get_num_prop();  //for check
 	int get_num_HU(); //for check 

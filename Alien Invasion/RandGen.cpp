@@ -85,7 +85,7 @@ void RandGen::Create_Random()
 			H = gen_rand(array[23], array[24]);
 			AC = gen_rand(array[25], array[26]);
 			AP = gen_rand(array[21], array[22]);
-			Create_Unit_Ally(prob, ID, Jt, H, AP, AC);
+			//Create_Unit_Ally(prob, ID, Jt, H, AP, AC); *********************HERE****************************
 		}
 	}
 	
@@ -115,13 +115,13 @@ void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int
 	}
 }
 
-void RandGen::Create_Unit_Ally(int prob, int ID, int Jt, float H, float AP, int AC)
-{
-	num_GEN_SU++;
-	SU* U = new SU(ID, Jt, H, AP, AC, this->game);
-	game->get_ally()->addSU_unit(U);
-
-}
+//void RandGen::Create_Unit_Ally(int prob, int ID, int Jt, float H, float AP, int AC)
+//{
+//	num_GEN_SU++;
+//	SU* U = new SU(ID, Jt, H, AP, AC, this->game);                                   *********************************  HERE &&&&&&&&&&&&&&&&&&&&&&
+//	game->get_ally()->addSU_unit(U);
+//
+//}
 
 void RandGen::trans_data()
 {
