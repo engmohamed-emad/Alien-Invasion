@@ -7,6 +7,8 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
 using namespace std;
 Monster::Monster()
 {
@@ -29,6 +31,8 @@ void Monster::dec_health(float damage)
 }
 bool Monster::attack()
 {
+	mode_inf =game->get_RandGen()->get_flag_inf();
+	
 	bool flag1 = false;
 	bool flag2 = false;
 	Solderunit* ES = nullptr;
@@ -38,13 +42,19 @@ bool Monster::attack()
 	LinkedQueue<Solderunit*>ES_templist;
 	LinkedQueue<Tank*>T_templist;
 	if (game->is_interactive())
-		cout << "AM " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+	{
+		if (mode_inf)
+		{
+			cout << "AM " << this->getID() << " (" << this->getApower() << ") " << " infects & shots [";
+		}
+		else
+			cout << "AM " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+	}
 	for (int i = 0; i < Acapacity / 2; i++)
 	{
 		if (game->get_Earmy()->return_tank(T, T_ptr))
 		{
 			T_templist.enqueue(T);
-			//cout << T->getID() << ", ";
 			flag1 = true;
 		}
 		else break;
@@ -84,18 +94,38 @@ bool Monster::attack()
 	{
 		if (game->get_Earmy()->ReturnSo_uint(ES, ES_ptr))
 		{
-			ES_templist.enqueue(ES);
-			//cout << ES->getID() << ", ";
-			flag2 = true;
+			
+				ES_templist.enqueue(ES);
+				flag2 = true;
 		}
 		else break;
 	}
 	while (ES_templist.dequeue(ES))
 	{
-		ES->dec_health(this->detect_damage(ES->getcurrhealth()));
-		if (game->is_interactive())
-			cout << ES->getID() << " (" << ES->getcurrhealth() << ") " << ", ";
-		/// you have to add something loaded from file to know if solider will get infected or not if he will infected you have to make its state_solider(variable in ES unit) equal 0  and you have to call function increment infected in earth army and return it to list if he didnt die after attack  if state_solider equal 1 then it is immuned cant infected
+		
+		if (mode_inf)
+		{
+			if (ES->get_state() == -1)
+			{
+				ES->set_state(0);
+				game->get_Earmy()->increment_infected();
+				if (game->is_interactive())
+				{
+						cout << RED << "inf " << ES->getID() << " (" << ES->getcurrhealth() << ") " << RESET << ", ";
+				}
+			}
+		}
+		else
+		{
+			ES->dec_health(this->detect_damage(ES->getcurrhealth()));
+			if (game->is_interactive())
+			{
+				if (ES->get_state() == 0)
+					cout << RED << "inf " << ES->getID() << " (" << ES->getcurrhealth() << ") " << RESET << ", ";
+				else cout << ES->getID() << " (" << ES->getcurrhealth() << ") " << ", ";
+			}
+		}
+			/// you have to add something loaded from file to know if solider will get infected or not if he will infected you have to make its state_solider(variable in ES unit) equal 0  and you have to call function increment infected in earth army and return it to list if he didnt die after attack  if state_solider equal 1 then it is immuned cant infected
 		if (!(ES->get_firstAttack()))
 		{
 			ES->set_Ta(game->get_timestep());
@@ -127,5 +157,15 @@ bool Monster::attack()
 		cout << "]\n";
 	}
 	return (flag1 || flag2);
+}
+
+void Monster::set_mode_inf(bool f)
+{
+	mode_inf = f;
+}
+
+bool Monster::get_mode_inf()
+{
+	return mode_inf;
 }
 

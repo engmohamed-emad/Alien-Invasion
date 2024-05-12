@@ -42,6 +42,7 @@ private:
 	//array[25]-> min of attack capcity for ally
 	//array[26]-> max of attack capcity for ally
 	//array[27]->persenteg to recust ally 
+	//array[28]->persenteg to recust ally 
 	int Earth_count_id = 1;
 	int Alien_count_id = 2000;
 	int Allay_count_id = 3000;
@@ -56,6 +57,7 @@ private:
 	int num_GEN_AM = 0;
 	int num_GEN_AD = 0;
 	int num_GEN_SU = 0;
+	bool flag_inf = false;
 public:
 	RandGen(Game* g);
 	float gen_rand(int min, int max);
@@ -74,6 +76,7 @@ public:
 	int get_num_GEN_AM ();
 	int get_num_GEN_AD ();
 	int get_num_GEN_SU();
+	bool get_flag_inf();
 	/*void set_game(Game* g);*/
 };
 #endif

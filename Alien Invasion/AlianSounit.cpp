@@ -5,6 +5,8 @@
 #include <chrono>
 #include <thread>
 #include <iostream>
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
 using namespace std;
 AlianSounit::AlianSounit()
 {
@@ -61,7 +63,14 @@ bool AlianSounit::attack()
 		{
 			ptr->dec_health(this->detect_damage(ptr->getcurrhealth()));
 			if (game->is_interactive())
-				cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
+			{
+				Sptr = dynamic_cast<Solderunit*>(ptr);
+				if (Sptr->get_state() == 0)
+					cout << RED << "inf " << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << RESET << ", ";
+				else
+					cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
+		        
+			}
 			if (!(ptr->get_firstAttack()))
 			{
 				ptr->set_Ta(game->get_timestep());

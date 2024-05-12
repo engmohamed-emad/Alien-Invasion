@@ -7,6 +7,8 @@
 #include <chrono>
 #include <thread>
 #include <iostream>
+#define RESET   "\033[0m"
+#define RED     "\033[31m"  
 using namespace std;
 
 Solderunit::Solderunit()
@@ -120,9 +122,8 @@ bool Solderunit::attack_infected()
 	LinkedQueue<unit*> templist;
 	int c = game->get_Earmy()->get_num_sol();
 	if (game->is_interactive())
-	{
-		cout << "infected solider" << " ";
-		cout << "ES " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+	{		
+		cout <<RED<< "ES inf " << this->getID() << " (" << this->getApower() << ") " << " shots"<<RESET<<"[";
 	}
 	for (int i = 0; (i < Acapacity && c>0); i++)
 	{

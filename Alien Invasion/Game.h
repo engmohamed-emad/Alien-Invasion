@@ -31,7 +31,7 @@ class Game
 	ArrayStack<HealingUnit*> HU;
 	priQueue<Solderunit*> UML_ES;        
 	LinkedQueue<Tank*>UML_ET;
-	int num[28];
+	int num[29];
 	int timestep = 0;
 	int num_Killed;
 	int num_healed_tank = 0;  //in UML
@@ -40,6 +40,7 @@ class Game
 	int total_num_healed=0;   // healed and returned to its original list
 	bool flageE = true;
 	bool flageA = true;
+	
 public:
 	Game();
 	void set_mode(bool f);

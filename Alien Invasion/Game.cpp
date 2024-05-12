@@ -38,7 +38,7 @@ RandGen* Game::get_RandGen()
 }
 void Game::set_data(int a[])
 {
-	for (int i = 0; i < 28; i++)
+	for (int i = 0; i < 29; i++)
 		a[i] = num[i];
 }
 void Game::add_killedlist(unit*& U)
@@ -214,7 +214,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
+	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
@@ -275,10 +275,12 @@ bool Game::read_data()
 		num[25] = stoi(line.c_str());
 		getline(infile, line);
 		num[26] = stoi(line.c_str());
-
 		getline(infile, line);
 		num[27] = stoi(line.c_str());
+		getline(infile, line);
+		num[28] = stoi(line.c_str());
 		Earmy->set_need_ally(num[27]);
+	
 		return true;
 	}
 	else

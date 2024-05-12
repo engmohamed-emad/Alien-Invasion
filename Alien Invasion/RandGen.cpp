@@ -49,6 +49,14 @@ void RandGen::Create_Random()
 	float AP;
 	int AC;
 	prob = gen_rand(1, 100);
+	if (prob <= array[28])
+	{
+		flag_inf = true;
+	}
+	else
+	{
+		flag_inf = false;
+	}
 	if (game->is_interactive())
 		cout << "prop = " << prob << endl;
 	if (prob <= array[7])
@@ -149,6 +157,10 @@ int RandGen::get_num_GEN_AD()
 int RandGen::get_num_GEN_SU()
 {
 	return num_GEN_SU;
+}
+bool RandGen::get_flag_inf()
+{
+	return flag_inf;
 }
 int RandGen::get_num_GEN_AS()
 {
