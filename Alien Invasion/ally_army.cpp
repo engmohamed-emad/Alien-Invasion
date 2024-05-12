@@ -39,6 +39,14 @@ int ally_army::get_num_su()
 	return num_su;
 }
 
+void ally_army::print()
+{
+	cout << "==============  Ally Army Alive Units ==============" << endl;
+	cout << num_su << " SU [";
+	SU_unit.print();
+	cout << "]" << endl;
+}
+
 void ally_army::update_num_killed_su()
 {
 	num_killed_su++;
@@ -61,3 +69,4 @@ bool ally_army::Attack_Alien()
 		flage1 = Sptr->attack();
 	return flage1;
 }
+

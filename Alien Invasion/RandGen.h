@@ -13,7 +13,7 @@ class RandGen
 {
 
 private:
-	int array[21];
+	int array[28];
 	//array[0]-> number of unit to generate each timestep 
 	//array[1]-> % of ES
 	//array[2]-> % of ET
@@ -35,6 +35,13 @@ private:
 	//array[18]-> min of attack capcity for Alien
 	//array[19]-> max of attack capcity for Alien
 	//aarray[20]->empty place for H.U in phase 2
+	//array[21]-> min for unit power for ally
+	//array[22]-> max for unit power for ally
+	//array[23]-> min of health for ally
+	//array[24]-> max of health for ally
+	//array[25]-> min of attack capcity for ally
+	//array[26]-> max of attack capcity for ally
+	//array[27]->persenteg to recust ally 
 	int Earth_count_id = 1;
 	int Alien_count_id = 2000;
 	int Rand_Num;
@@ -47,12 +54,14 @@ private:
 	int num_GEN_AS = 0;
 	int num_GEN_AM = 0;
 	int num_GEN_AD = 0;
+	int num_GEN_SU = 0;
 public:
 	RandGen(Game* g);
 	float gen_rand(int min, int max);
 	void Create_Unit_Earth(int prob, int ID, int Jt, float H, float AP, int AC);
 	void Create_Random();
 	void Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int AC);
+	void Create_Unit_Ally(int prob, int ID, int Jt, float H, float AP, int AC);
 	void trans_data();
 	int get_num_prop();  //for check
 	int get_num_HU(); //for check 
@@ -63,6 +72,7 @@ public:
 	int get_num_GEN_AS ();
 	int get_num_GEN_AM ();
 	int get_num_GEN_AD ();
+	int get_num_GEN_SU();
 	/*void set_game(Game* g);*/
 };
 #endif

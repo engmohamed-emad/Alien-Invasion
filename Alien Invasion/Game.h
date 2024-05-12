@@ -10,10 +10,12 @@
 #include"HealingUnit.h"
 #include"solderunit.h"
 #include"Tank.h"
+#include"ally_army.h"
 class RandGen;
 class HealingUnit;
 class EarthArmy;
 class AlienArmy;
+class ally_army;
 class unit;
 class EG;
 class Game
@@ -23,12 +25,13 @@ class Game
 	/// ////////////
 	AlienArmy* Aarmy;
 	EarthArmy* Earmy;
+	ally_army* ally;
 	RandGen* rand;
 	LinkedQueue<unit*>killedlist;
 	ArrayStack<HealingUnit*> HU;
 	priQueue<Solderunit*> UML_ES;        
 	LinkedQueue<Tank*>UML_ET;
-	int num[21];
+	int num[28];
 	int timestep = 0;
 	int num_Killed;
 	int num_healed_tank = 0;  //in UML
@@ -44,6 +47,7 @@ public:
 	/// ///////
 	AlienArmy* get_Aarmy();
 	EarthArmy* get_Earmy();
+	ally_army* get_ally();
 	RandGen* get_RandGen();
 	bool read_data();
 	void set_data(int a[]);

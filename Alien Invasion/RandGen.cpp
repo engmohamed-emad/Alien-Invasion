@@ -73,8 +73,19 @@ void RandGen::Create_Random()
 			H = gen_rand(array[16], array[17]);
 			AC = gen_rand(array[18], array[19]);
 			AP = gen_rand(array[14], array[15]);
+			
 			Create_Unit_Alian(prob, ID, Jt, H, AP, AC);
 			//call Alian arramy using game pointer to add this unit			}
+		}
+		for (int i = 0; i < array[0]&&!game->get_Earmy()->retret_ally(); i++)
+		{
+			Jt = game->get_timestep();
+			ID = Alien_count_id++;
+			prob = gen_rand(1, 100);
+			H = gen_rand(array[23], array[24]);
+			AC = gen_rand(array[25], array[26]);
+			AP = gen_rand(array[21], array[22]);
+			Create_Unit_Ally(prob, ID, Jt, H, AP, AC);
 		}
 	}
 	
@@ -104,6 +115,14 @@ void RandGen::Create_Unit_Alian(int prob, int ID, int Jt, float H, float AP, int
 	}
 }
 
+void RandGen::Create_Unit_Ally(int prob, int ID, int Jt, float H, float AP, int AC)
+{
+	num_GEN_SU++;
+	SU* U = new SU(ID, Jt, H, AP, AC, this->game);
+	game->get_ally()->addSU_unit(U);
+
+}
+
 void RandGen::trans_data()
 {
 	game->set_data(array);
@@ -126,6 +145,10 @@ int RandGen::get_num_HU()
 int RandGen::get_num_GEN_AD()
 {
 	return num_GEN_AD;
+}
+int RandGen::get_num_GEN_SU()
+{
+	return num_GEN_SU;
 }
 int RandGen::get_num_GEN_AS()
 {

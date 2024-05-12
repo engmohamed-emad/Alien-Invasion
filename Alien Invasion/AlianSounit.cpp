@@ -68,7 +68,6 @@ bool AlianSounit::attack()
 			{
 				
 				ptr->set_Td(game->get_timestep());
-				
 				game->add_killedlist(ptr);
 			}
 			else if (ptr->need_help())

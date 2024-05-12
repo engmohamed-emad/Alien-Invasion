@@ -6,6 +6,7 @@
 #include "AlianSounit.h"
 #include "unit.h"
 #include "LinkedQueue.h"
+#include "SU.h"
 using namespace std;
 
 
@@ -69,6 +70,27 @@ public:
 };
 
 
+template <>
+class SoModQueue<SU*> : public LinkedQueue<SU*>
+{
+public:
+	void print()
+	{
+		Node<SU*>* ptr = this->frontPtr;
+		while (ptr)
+		{
+			cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")";
+			ptr = ptr->getNext();
+			if (ptr)
+				cout << ", ";
+		}
+	}
 
+	~SoModQueue()
+	{
+		SU* temp;
+		while (this->dequeue(temp));
+	}
+};
 
 

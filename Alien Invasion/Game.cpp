@@ -27,13 +27,17 @@ EarthArmy* Game::get_Earmy()
 {
 	return Earmy;
 }
+ally_army* Game::get_ally()
+{
+	return ally;
+}
 RandGen* Game::get_RandGen()
 {
 	return rand;
 }
 void Game::set_data(int a[])
 {
-	for (int i = 0; i < 21; i++)
+	for (int i = 0; i < 28; i++)
 		a[i] = num[i];
 }
 void Game::add_killedlist(unit*& U)
@@ -209,7 +213,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
@@ -257,6 +261,23 @@ bool Game::read_data()
 		num[18] = stoi(line.c_str());
 		getline(infile, line);
 		num[19] = stoi(line.c_str());
+
+		getline(infile, line, '-');
+		num[21] = stoi(line.c_str());
+		getline(infile, line, ' ');
+		num[22] = stoi(line.c_str());
+		getline(infile, line, '-');
+		num[23] = stoi(line.c_str());
+		getline(infile, line, ' ');
+		num[24] = stoi(line.c_str());
+		getline(infile, line, '-');
+		num[25] = stoi(line.c_str());
+		getline(infile, line);
+		num[26] = stoi(line.c_str());
+
+		getline(infile, line);
+		num[27] = stoi(line.c_str());
+		Earmy->set_need_ally(num[27]);
 		return true;
 	}
 	else

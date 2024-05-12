@@ -16,6 +16,7 @@ protected:
 	SoModQueue<Solderunit*> solders;
 	priQueue<EG*> Earth_Gun;
 	ArrayStack<Tank*> tanks;
+	int need_allay;
 	int num_tank = 0;
 	int num_EG = 0;
 	int num_sol = 0;
@@ -32,19 +33,10 @@ public:
 	void increment_infected();//**********************************
 	void decrement_infected();//*************************************
 	void spread_infection();//***************************************
-	//edit
-	/*
-	* void attak (Alienarmy* a)
-	* {
-	* node* ES=solders.peek();
-	* if(!ES->attack2(a->getsolder))
-	* Retuen_solder;
-	* }
-	* 
-	* 
-		*/
-	
-	
+	void set_need_ally(int a);
+	bool need_a();//*********************************************
+	bool retret_ally();//************************************
+
 	bool Add_tank(Tank*& tank);
 	void print();
 

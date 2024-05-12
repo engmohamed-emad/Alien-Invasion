@@ -1,3 +1,45 @@
-﻿  Source.cpp
-E:\Documents\GitHub\project\Alien Invasion\Source.cpp(30,6): warning C4101: 'x': unreferenced local variable
-  Alien Invasion.vcxproj -> E:\Documents\GitHub\project\x64\Debug\Alien Invasion.exe
+﻿  AlianSounit.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\AlianSounit.cpp(59,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  ally_army.cpp
+  Drones.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Drones.cpp(96,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Drones.cpp(136,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  EarthArmy.cpp
+  EG.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\EG.cpp(33,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\EG.cpp(40,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\EG.cpp(110,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\EG.cpp(151,56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\EG.cpp(154,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\EG.cpp(197,56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Game.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Game.cpp(71,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  HealingUnit.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\HealingUnit.cpp(96,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\HealingUnit.cpp(96,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\HealingUnit.cpp(99,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\HealingUnit.cpp(145,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Monster.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Monster.cpp(55,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Monster.cpp(95,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  RandGen.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\RandGen.cpp(12,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\RandGen.cpp(63,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\RandGen.cpp(65,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\RandGen.cpp(74,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\RandGen.cpp(77,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\RandGen.cpp(86,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\RandGen.cpp(88,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Solderunit.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Solderunit.cpp(81,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Solderunit.cpp(148,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Source.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Source.cpp(30,6): warning C4101: 'x': unreferenced local variable
+  SU.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\SU.cpp(56,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Tank.cpp
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Tank.cpp(79,56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\Tank.cpp(117,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+C:\Users\pc\Documents\GitHub\project\Alien Invasion\EarthArmy.cpp(14,1): warning C4715: 'EarthArmy::Add_unit': not all control paths return a value
+  Alien Invasion.vcxproj -> C:\Users\pc\Documents\GitHub\project\x64\Debug\Alien Invasion.exe

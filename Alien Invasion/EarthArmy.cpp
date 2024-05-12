@@ -105,6 +105,23 @@ void EarthArmy::spread_infection()
 
 }
 
+void EarthArmy::set_need_ally(int a)
+{
+    need_allay = a;
+}
+
+bool EarthArmy::retret_ally()
+{
+    return !Num_infect_solid;
+}
+
+bool EarthArmy::need_a()
+{
+    if (float(Num_infect_solid / num_sol) * 100 >= need_allay)
+        return true;
+    return false;
+}
+
 //edit
 bool EarthArmy::Add_tank(Tank*& tank)
 {

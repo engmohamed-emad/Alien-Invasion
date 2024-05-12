@@ -54,7 +54,8 @@ bool SU::attack()
 		if (templist.dequeue(ptr))
 		{
 			ptr->dec_health(this->detect_damage(ptr->getcurrhealth()));
-			cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
+			if (game->is_interactive())
+				cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
 			if (!(ptr->get_firstAttack()))
 			{
 				ptr->set_Ta(game->get_timestep());
@@ -79,7 +80,10 @@ bool SU::attack()
 			}
 		}
 	}
-	cout << "\b \b" << "\b \b";
-	cout << "]\n";
+	if(game->is_interactive())
+	{
+		cout << "\b \b" << "\b \b";
+		cout << "]\n";
+	}
 	return true;
 }
