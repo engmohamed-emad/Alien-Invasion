@@ -22,6 +22,7 @@ double generate_ran(int num1, int num2)
 		return  random_num;
 
 }
+// if the infectet does not get attacked by the alien it will not enter the UMl so we need to edit it 
 
 int main()
 {

@@ -27,6 +27,8 @@ public:
 	void update_num_killed_su();
 	void ubdate_D(unit*& U);
 	bool Attack_Alien();
+
+	void retret_all();
 	~ally_army();
 };
 

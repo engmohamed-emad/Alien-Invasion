@@ -34,7 +34,8 @@ bool SU::attack()
 	AlianSounit* Sptr = nullptr;//it is damy pointer to use the function that take two prametars
 	unit* ptr = nullptr;
 	LinkedQueue<unit*> templist;
-	cout << "ES " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+	if (game->is_interactive())
+		cout << "SU " << this->getID() << " (" << this->getApower() << ") " << " shots [";
 	for (int i = 0; i < Acapacity; i++)
 	{
 		if (game->get_Aarmy()->ReturnSo_uint(Sptr, ptr))
@@ -46,7 +47,8 @@ bool SU::attack()
 	}
 	if (templist.isEmpty())
 	{
-		cout << "]\n";
+		if (game->is_interactive())
+			cout << "]\n";
 		return false;
 	}
 	for (int i = 0; i < Acapacity; i++)

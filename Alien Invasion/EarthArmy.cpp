@@ -67,13 +67,21 @@ int EarthArmy::get_num_sol()
 {
     return num_sol;
 }
+bool EarthArmy::get_allay_canAttack()
+{
+    return allay_canAttack;
+}
 void EarthArmy::increment_infected()
 {
     Num_infect_solid++;
+    if (this->need_a())
+        allay_canAttack = true;
 }
 void EarthArmy::decrement_infected()
 {
     Num_infect_solid--;
+    if (Num_infect_solid == 0)
+        allay_canAttack = false;
 }
 void EarthArmy::spread_infection()
 {
@@ -121,6 +129,8 @@ bool EarthArmy::retret_ally()
 
 bool EarthArmy::need_a()
 {
+    if (num_sol == 0)
+        return false;
     if (float(Num_infect_solid / num_sol) * 100 >= need_allay)
         return true;
     return false;

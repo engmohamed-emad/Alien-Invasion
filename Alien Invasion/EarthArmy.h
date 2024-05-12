@@ -16,7 +16,8 @@ protected:
 	SoModQueue<Solderunit*> solders;
 	priQueue<EG*> Earth_Gun;
 	ArrayStack<Tank*> tanks;
-	int need_allay;
+	int need_allay = 1;
+	bool allay_canAttack = false;
 	int num_tank = 0;
 	int num_EG = 0;
 	int num_sol = 0;
@@ -30,6 +31,7 @@ public:
 	void Add_Earth_Gun(EG*& G);              
 	bool Return_Gun(EG*& G,int pri,unit*&pt);
 	int get_num_sol();
+	bool get_allay_canAttack();
 	void increment_infected();//**********************************
 	void decrement_infected();//*************************************
 	void spread_infection();//***************************************

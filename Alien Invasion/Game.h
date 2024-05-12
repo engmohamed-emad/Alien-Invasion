@@ -40,6 +40,7 @@ class Game
 	int total_num_healed=0;   // healed and returned to its original list
 	bool flageE = true;
 	bool flageA = true;
+	bool flageAll = true;
 	
 public:
 	Game();

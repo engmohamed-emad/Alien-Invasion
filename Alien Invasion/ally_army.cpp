@@ -2,6 +2,16 @@
 #include <iostream>
 using namespace std;
 
+void ally_army::retret_all()
+{
+	SU* temp1;
+	while (SU_unit.dequeue(temp1))
+	{
+		delete temp1;
+		temp1 = nullptr;
+	}
+}
+
 ally_army::~ally_army()
 {
 	SU* temp1;

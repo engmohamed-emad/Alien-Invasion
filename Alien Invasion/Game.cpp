@@ -130,11 +130,15 @@ int Game::fight()
 {
 	 flageE = true;
      flageA = true;
+	 flageAll = true;
 	HealingUnit* hu;
 	unit* hptr;
 	flageE = this->Earmy->Attack_Alien();
 	flageA = this->Aarmy->Attack_Earth();
-
+	if (this->Earmy->get_allay_canAttack())
+		flageAll = this->ally->Attack_Alien();
+	else
+		this->ally->retret_all();
 	if (!UML_ES.isEmpty() || !UML_ET.isEmpty())
 	{
 		if (HU.pop(hu))
@@ -214,7 +218,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
+	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
