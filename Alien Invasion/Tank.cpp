@@ -69,7 +69,6 @@ bool Tank::attack()
 			if (game->get_Aarmy()->ReturnSo_uint(AS, AS_ptr))
 			{
 				AS_templist.enqueue(AS);
-				
 				flag1 = true;
 			}
 			else break;

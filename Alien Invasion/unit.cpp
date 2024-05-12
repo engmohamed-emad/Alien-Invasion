@@ -83,6 +83,13 @@ int unit::get_Ta()
 {
 	return Ta;
 }
+void unit::set_state(int x)
+{
+}
+int unit::get_state()
+{
+	return 2;
+}
 void unit::set_Ta(int t)
 {
 	Ta = t;

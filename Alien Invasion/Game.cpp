@@ -4,6 +4,9 @@
 #include"solderunit.h"
 #include"Tank.h"
 #include "Game.h"
+#define RESET   "\033[0m"
+#define RED     "\033[31m"  
+
 using namespace std;
 Game::Game() {
 	Aarmy = new AlienArmy;
@@ -65,6 +68,9 @@ void Game::print_armys()
 	this->get_Aarmy()->print();
 	cout << endl;
 	this->print_healing_lists();
+	cout << endl;
+	this->get_ally()->print();
+	cout << endl;
 }
 void Game::addto_UML_ES(Solderunit*& s)
 {
@@ -128,17 +134,31 @@ bool Game::Get_HU(HealingUnit* H)
 //}
 int Game::fight()
 {
-	 flageE = true;
-     flageA = true;
-	 flageAll = true;
+	flageE = true;
+	flageA = true;
+	flageAll = true;
 	HealingUnit* hu;
 	unit* hptr;
 	flageE = this->Earmy->Attack_Alien();
 	flageA = this->Aarmy->Attack_Earth();
+	this->Earmy->set_num_hsol(num_healed_sol);
 	if (this->Earmy->get_allay_canAttack())
 		flageAll = this->ally->Attack_Alien();
 	else
-		this->ally->retret_all();
+	{
+		SU* S_U;
+		unit* SU_ptr;
+		while (this->ally->ReturnSU_uint(S_U, SU_ptr))
+		{
+			if (S_U->get_firstAttack())
+			{
+				S_U->set_Ta(this->get_timestep());
+			}
+			S_U->set_Td(this->get_timestep());
+			this->add_killedlist(SU_ptr);
+		}
+	}
+	
 	if (!UML_ES.isEmpty() || !UML_ET.isEmpty())
 	{
 		if (HU.pop(hu))
@@ -218,7 +238,7 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");
+	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
 	if (infile.is_open())
 	{
 		string line;
@@ -364,6 +384,7 @@ void Game::output_file()
 	int num_killed_AS = 0;
 	int num_killed_AM = 0;
 	int num_killed_AD = 0;
+	int num_killed_SU = 0;
 	int E_Df = 0;
 	int E_Db = 0;
 	int E_Dd = 0;
@@ -372,6 +393,7 @@ void Game::output_file()
 	int A_Dd = 0;
 	int total_GEN_E = this->rand->get_num_GEN_ES() + this->rand->get_num_GEN_ET() + this->rand->get_num_GEN_EG() + this->rand->get_num_GEN_HU();
 	int total_GEN_A = this->rand->get_num_GEN_AS() + this->rand->get_num_GEN_AM() + this->rand->get_num_GEN_AD();
+	int num_infected = this->Earmy->get_total_num_infected();
 	if (out_file.is_open())
 	{
 		out_file << "		Td	ID	Tj	Df	Dd	Db	\n";
@@ -447,7 +469,7 @@ void Game::output_file()
 			out_file << "Df/Db % = " << float(E_Df * 100) / float(E_Db) << "%\n";
 			out_file << "Dd/Db % = " << float(E_Dd * 100) / float(E_Db) << "%\n";
 			out_file << "Healed units / total units % = " << float(total_num_healed * 100) / float(total_GEN_E)<<"%\n";
-
+			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(this->rand->get_num_GEN_ES())<<"%\n";
 
 			out_file << "\nLoser Alien Army \n";
 			out_file << "===============Alien Army statistics===================== \n";
@@ -482,6 +504,7 @@ void Game::output_file()
 			out_file << "Df/Db % = " << float(E_Df * 100) / float(E_Db) << "%\n";
 			out_file << "Dd/Db % = " << float(E_Dd * 100) / float(E_Db) << "%\n";
 			out_file << "Healed units / total units % = " << float(total_num_healed * 100) / float(total_GEN_E) << "%\n";
+			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(this->rand->get_num_GEN_ES()) << "%\n";
 
 
 			out_file << "\nWinner Alien Army \n";
@@ -516,6 +539,7 @@ void Game::output_file()
 			out_file << "Df/Db % = " << float(E_Df * 100) / float(E_Db) << "%\n";
 			out_file << "Dd/Db % = " << float(E_Dd * 100) / float(E_Db) << "%\n";
 			out_file << "Healed units / total units % = " << float(total_num_healed * 100) / float(total_GEN_E) << "%\n";
+			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(this->rand->get_num_GEN_ES()) << "%\n";
 
 
 			out_file << "\nDrawn \n";

@@ -13,7 +13,7 @@ class RandGen
 {
 
 private:
-	int array[28];
+	int array[29];
 	//array[0]-> number of unit to generate each timestep 
 	//array[1]-> % of ES
 	//array[2]-> % of ET

@@ -21,9 +21,11 @@ protected:
 	int num_tank = 0;
 	int num_EG = 0;
 	int num_sol = 0;
+	int num_hsol = 0;
 	int Num_infect_solid = 0;//***********************************
+	int Num_total_infected = 0;
 public:
-
+	void set_num_hsol(int n);
 	bool Add_unit(unit* ptr);
 	bool addSo_unit(Solderunit*& s);
 	bool ReturnSo_uint(Solderunit*& SoUnit,unit*&pt);
@@ -38,7 +40,7 @@ public:
 	void set_need_ally(int a);
 	bool need_a();//*********************************************
 	bool retret_ally();//************************************
-
+	int get_total_num_infected();
 	bool Add_tank(Tank*& tank);
 	void print();
 

@@ -3,6 +3,11 @@
 #include<random>
 using namespace std;
 
+void EarthArmy::set_num_hsol(int n)
+{
+    num_hsol = n;
+}
+
 bool EarthArmy::Add_unit(unit* ptr)
 {
     if (ptr->get_type() == "EG")
@@ -74,6 +79,7 @@ bool EarthArmy::get_allay_canAttack()
 void EarthArmy::increment_infected()
 {
     Num_infect_solid++;
+    Num_total_infected++;
     if (this->need_a())
         allay_canAttack = true;
 }
@@ -89,9 +95,10 @@ void EarthArmy::spread_infection()
     int prob=0;
     {   random_device rd;
         mt19937 gen(rd());
-        uniform_int_distribution<int> dis(0, 100);
+        uniform_int_distribution<int> dis(1, 100);
         prob = dis(gen);
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     int c = num_sol;
         if (prob <= 2 && Num_infect_solid!=0)
         {
@@ -127,11 +134,16 @@ bool EarthArmy::retret_ally()
     return !Num_infect_solid;
 }
 
+int EarthArmy::get_total_num_infected()
+{
+    return Num_total_infected;
+}
+
 bool EarthArmy::need_a()
 {
     if (num_sol == 0)
         return false;
-    if (float(Num_infect_solid / num_sol) * 100 >= need_allay)
+    if ((float(Num_infect_solid)*100 /float( num_sol+num_hsol)) >= need_allay)
         return true;
     return false;
 }
@@ -162,6 +174,7 @@ void EarthArmy::print()
     cout << num_EG << " EG [";
     Earth_Gun.print();
     cout << "]" << endl;
+
 }
 
 
@@ -179,11 +192,10 @@ bool EarthArmy::Attack_Alien()
 
 
     spread_infection();//********************************
-
+    bool x=false;
    if( solders.peek(Sptr))
        if (Sptr->get_state() == 0)
        {
-           bool x;
            x=Sptr->attack_infected();
        }
        else
@@ -194,7 +206,7 @@ bool EarthArmy::Attack_Alien()
        flage2 = Tptr->attack(); //edit it to return bool to chick;
    if (Earth_Gun.peek(Gptr, pri))
        flage3 = Gptr->attack();
-    return flage1 || flage2 || flage3;
+   return flage1 || flage2 || flage3;
 }
 
 

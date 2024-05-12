@@ -53,6 +53,8 @@ public:
 
 	int get_Td();
 	int get_Ta();
+	virtual void set_state(int x);//**********************
+	virtual int get_state();
 	//virtual bool attack()=0;
 	
 };

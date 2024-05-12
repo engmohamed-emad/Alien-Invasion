@@ -4,6 +4,8 @@ using namespace std;
 #include "Solderunit.h"
 #include"unit.h"
 #include"Tank.h"
+#define RESET   "\033[0m"
+#define RED     "\033[31m"  
 /*
 This is a program that implements the queue abstract data type using a linked list.
 The queue is implemented as a chain of linked nodes that has two pointers,
@@ -162,6 +164,9 @@ bool LinkedQueue<T>::dequeue(T& frntEntry)
 	  Node<unit*>* ptr = this->frontPtr;
 	  while (ptr)
 	  {
+		  if(ptr->getItem()->get_type()=="ES"&&ptr->getItem()->get_state()==0)
+			  cout << RED<<ptr->getItem()->getID()<<RESET;
+		  else
 		  cout << ptr->getItem()->getID();
 		  ptr = ptr->getNext();
 		  if (ptr)

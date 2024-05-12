@@ -32,15 +32,19 @@ void Monster::dec_health(float damage)
 bool Monster::attack()
 {
 	mode_inf =game->get_RandGen()->get_flag_inf();
-	
+	int counter_SU=0;
 	bool flag1 = false;
 	bool flag2 = false;
+	bool flag3 = false;
 	Solderunit* ES = nullptr;
 	Tank* T = nullptr;
 	unit* ES_ptr = nullptr;
 	unit* T_ptr = nullptr;
+	SU* S_U = nullptr;
+	unit* SU_ptr = nullptr;
 	LinkedQueue<Solderunit*>ES_templist;
 	LinkedQueue<Tank*>T_templist;
+	LinkedQueue<SU*>SU_templist;
 	if (game->is_interactive())
 	{
 		if (mode_inf)
@@ -57,7 +61,11 @@ bool Monster::attack()
 			T_templist.enqueue(T);
 			flag1 = true;
 		}
-		else break;
+		else
+		{
+			counter_SU += (Acapacity / 2 - i);
+			break;
+		}
 	}
 
 	while (T_templist.dequeue(T))
@@ -98,11 +106,14 @@ bool Monster::attack()
 				ES_templist.enqueue(ES);
 				flag2 = true;
 		}
-		else break;
+		else
+		{
+			counter_SU += (cap - i);
+			break;
+		}
 	}
 	while (ES_templist.dequeue(ES))
 	{
-		
 		if (mode_inf)
 		{
 			if (ES->get_state() == -1)
@@ -125,7 +136,7 @@ bool Monster::attack()
 				else cout << ES->getID() << " (" << ES->getcurrhealth() << ") " << ", ";
 			}
 		}
-			/// you have to add something loaded from file to know if solider will get infected or not if he will infected you have to make its state_solider(variable in ES unit) equal 0  and you have to call function increment infected in earth army and return it to list if he didnt die after attack  if state_solider equal 1 then it is immuned cant infected
+
 		if (!(ES->get_firstAttack()))
 		{
 			ES->set_Ta(game->get_timestep());
@@ -133,7 +144,10 @@ bool Monster::attack()
 		}
 		if (ES->is_dead())
 		{
-			
+			if (ES->get_state() == 0)
+			{
+				game->get_Earmy()->decrement_infected();
+			}
 			ES->set_Td(game->get_timestep());
 			ES_ptr = dynamic_cast<unit*>(ES);
 			
@@ -150,12 +164,47 @@ bool Monster::attack()
 				game->get_Earmy()->addSo_unit(ES);
 		}
 	}
+	for (int i = 0; i < counter_SU; i++)
+	{
+		if (game->get_ally()->ReturnSU_uint(S_U, SU_ptr))
+		{
+			SU_templist.enqueue(S_U);
+			flag3 = true;
+		}
+		else
+		{
+			break;
+		}
+	}
+	while (SU_templist.dequeue(S_U))
+	{
+		S_U->dec_health(this->detect_damage(S_U->getcurrhealth()));
+		if (game->is_interactive())
+			cout << S_U->getID() << " (" << S_U->getcurrhealth() << ") " << ", ";
+		if (!(S_U->get_firstAttack()))
+		{
+			S_U->set_Ta(game->get_timestep());
+			S_U->set_firtAttack();
+		}
+		if (S_U->is_dead())
+		{
+			S_U->set_Td(game->get_timestep());
+			SU_ptr = dynamic_cast<unit*>(S_U);
+			if(SU_ptr)
+			game->add_killedlist(SU_ptr);
+		}
+		else
+		{   
+			game->get_ally()->addSU_unit(S_U);
+		}
+	}
 	if (game->is_interactive())
 	{
-		if (flag1 || flag2)
+		if (flag1 || flag2 || flag3)
 			cout << "\b \b" << "\b \b";
 		cout << "]\n";
 	}
+
 	return (flag1 || flag2);
 }
 

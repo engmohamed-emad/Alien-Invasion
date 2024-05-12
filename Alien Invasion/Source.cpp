@@ -43,7 +43,8 @@ int main()
 	RandGen* rand = mygame->get_RandGen();
 	rand->trans_data();
 	int flag = 0;
-	for (int i = 1; i <= 200; i++)
+
+	for (int i = 1; i <= 500; i++)
 	{
 		mygame->set_timestep(i);
 		rand->Create_Random();
@@ -54,16 +55,17 @@ int main()
 			cout << "===================Units fighting at current timestep========================\n";
 		}
 	    flag = mygame->fight();
+		cout << endl;
+		mygame->print_healing_lists();
+		cout << endl;
 		if (mygame->is_interactive())
 			cout << endl;
 
-	//	mygame->Healing();
 		if (mygame->is_interactive())
 		{
 			cout << endl;
 			cout << "===================After  fighting at current timestep=====================================\n";
 			mygame->print_armys();
-			//print enter to continue
 			cout << endl;
 			mygame->print_Killed();
 		}
@@ -75,11 +77,11 @@ int main()
 			cout << "prop : " << rand->get_num_prop() << "\nnum real : " << num_real << "\nnum expected : " << num_expected << "\n";
 			cout << "=====================================================================================================\n";
 		}
-		if (num_real != num_expected)
+		/*if (num_real != num_expected)
 		{
 			cout << "ERROR\n";
 			getline(cin, s);
-		}
+		}*/
 		if (mygame->is_interactive())
 		{
 			cout << "\n";
@@ -87,43 +89,7 @@ int main()
 		}
 		//getline(cin,s);
     }
-	if (flag == 1)
-	{
-		if (mygame->is_interactive())
-			cout << "Winner Earth Army\n";
-		mygame->set_left_items();
-		if (mygame->is_interactive())
-			
-		
-		if (mygame->is_interactive())
-		{
-			cout << "Loser Alien Army\n";
-			
-		}
-	}
-	else if (flag == -1)
-	{
-		if (mygame->is_interactive())
-			cout << "Loser Earth Army\n";
-		mygame->set_left_items();
-		if (mygame->is_interactive())
-		{
-			cout << "Winner Alien Army\n";
-		}
-	}
-	else
-	{
-		if (mygame->is_interactive())
-			cout << "Draw\n";
-		mygame->set_left_items();
-		if (mygame->is_interactive())
-		{
-			
-			
-			cout << "Draw\n";
-			
-		}
-	}
+	mygame->set_left_items();
 	if (mygame->is_interactive())
 		cout << "\n\nnum HU Generated : " << rand->get_num_HU() << endl;
 	mygame->output_file();

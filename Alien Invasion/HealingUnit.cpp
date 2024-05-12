@@ -124,7 +124,6 @@ void HealingUnit::attack()
 					game->get_Earmy()->addSo_unit(Sptr);
 					num_healed++;
 					game->get_Earmy()->decrement_infected();
-					
 				}
 			}
 			    

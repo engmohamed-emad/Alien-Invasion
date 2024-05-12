@@ -5,6 +5,9 @@
 #include "EG.h"
 #include <iostream>
 #include"Solderunit.h"
+#define RESET   "\033[0m"
+#define RED     "\033[31m"  
+
 using namespace std;
 
 
@@ -150,7 +153,9 @@ inline void priQueue<Solderunit*>::print()
     while (ptr)
     {
         pri = head->getPri();
-        cout << ptr->getItem(pri)->getID() << "(" << ptr->getItem(pri)->getcurrhealth() << ")";
+        if (ptr->getItem(pri)->get_state() == 0)
+            cout << RED << ptr->getItem(pri)->getID() << "(" << ptr->getItem(pri)->getcurrhealth() << ")" << RESET;
+        else cout << ptr->getItem(pri)->getID() << "(" << ptr->getItem(pri)->getcurrhealth() << ")";
         ptr = ptr->getNext();
         if (ptr)
             cout << ", ";

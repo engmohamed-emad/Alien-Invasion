@@ -123,7 +123,7 @@ bool Solderunit::attack_infected()
 	int c = game->get_Earmy()->get_num_sol();
 	if (game->is_interactive())
 	{		
-		cout <<RED<< "ES inf " << this->getID() << " (" << this->getApower() << ") " << " shots"<<RESET<<"[";
+		cout <<RED<< "ES inf " << this->getID() << " (" << this->getApower() << ") " << " shots "<<RESET<<"[";
 	}
 	for (int i = 0; (i < Acapacity && c>0); i++)
 	{

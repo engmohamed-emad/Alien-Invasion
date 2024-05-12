@@ -7,6 +7,9 @@
 #include "unit.h"
 #include "LinkedQueue.h"
 #include "SU.h"
+#define RESET   "\033[0m"
+#define RED     "\033[31m"  
+
 using namespace std;
 
 
@@ -32,7 +35,10 @@ public:
 		Node<Solderunit*>* ptr = this->frontPtr;
 		while (ptr)
 		{
-			cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")";
+			if (ptr->getItem()->get_state() == 0)
+				cout << RED << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")" << RESET;
+			else
+				cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")";
 			ptr = ptr->getNext();
 			if (ptr)
 				cout << ", ";
@@ -79,6 +85,7 @@ public:
 		Node<SU*>* ptr = this->frontPtr;
 		while (ptr)
 		{
+			
 			cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")";
 			ptr = ptr->getNext();
 			if (ptr)

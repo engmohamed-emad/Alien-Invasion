@@ -2,15 +2,6 @@
 #include <iostream>
 using namespace std;
 
-void ally_army::retret_all()
-{
-	SU* temp1;
-	while (SU_unit.dequeue(temp1))
-	{
-		delete temp1;
-		temp1 = nullptr;
-	}
-}
 
 ally_army::~ally_army()
 {
@@ -21,7 +12,6 @@ ally_army::~ally_army()
 		temp1 = nullptr;
 	}
 }
-
 bool ally_army::addSU_unit(SU*& s)
 {
 	if (SU_unit.enqueue(s)) 
@@ -57,24 +47,10 @@ void ally_army::print()
 	cout << "]" << endl;
 }
 
-void ally_army::update_num_killed_su()
-{
-	num_killed_su++;
-}
-
-void ally_army::ubdate_D(unit*& U)
-{
-	Df = Df + U->get_Df();
-	Dd = Dd + U->get_Dd();
-	Db = Db + U->get_Db();
-}
-
 bool ally_army::Attack_Alien()
 {
 	SU* Sptr;
 	bool flage1 = true;
-	
-
 	if (SU_unit.peek(Sptr))
 		flage1 = Sptr->attack();
 	return flage1;
