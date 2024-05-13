@@ -145,11 +145,6 @@ int RandGen::get_num_HU()
 {
 	return num_GEN_HU;
 }
-//void RandGen::set_game(Game* g)
-//{
-//	game = g;
-//}
-
 int RandGen::get_num_GEN_AD()
 {
 	return num_GEN_AD;
@@ -177,7 +172,8 @@ int RandGen::get_num_GEN_ES()
 int RandGen::get_num_GEN_ET()
 {
 	return num_GEN_ET;
-}int RandGen::get_num_GEN_EG()
+}
+int RandGen::get_num_GEN_EG()
 {
 	return num_GEN_EG;
 }

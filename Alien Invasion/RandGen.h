@@ -45,7 +45,7 @@ private:
 	//array[28]->persenteg to recust ally 
 	int Earth_count_id = 1;
 	int Alien_count_id = 2000;
-	int Allay_count_id = 3000;
+	int Allay_count_id = 4000;
 	int Rand_Num;
 	Game* game;
 	int num_prop = 0;

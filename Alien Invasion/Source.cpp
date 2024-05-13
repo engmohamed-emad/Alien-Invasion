@@ -43,8 +43,10 @@ int main()
 	RandGen* rand = mygame->get_RandGen();
 	rand->trans_data();
 	int flag = 0;
+	int etration = 100;
 
-	for (int i = 1; i <= 500; i++)
+	////loop for the secuanse of the game////
+	for (int i = 1; i <= etration; i++)
 	{
 		mygame->set_timestep(i);
 		rand->Create_Random();
@@ -81,6 +83,10 @@ int main()
 		{
 			cout << "\n";
 			cout << "========================================================================================================================================\n";
+		}
+		if (i == etration - 1)
+		{
+			mygame->remove_allSU();
 		}
 		//getline(cin,s);
     }

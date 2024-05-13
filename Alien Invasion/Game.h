@@ -46,6 +46,7 @@ public:
 	Game();
 	void set_mode(bool f);
 	bool is_interactive();
+	void remove_allSU();
 	/// ///////
 	AlienArmy* get_Aarmy();
 	EarthArmy* get_Earmy();

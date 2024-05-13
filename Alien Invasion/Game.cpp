@@ -23,6 +23,20 @@ bool Game::is_interactive()
 {
 	return is_active;
 }
+void Game::remove_allSU()
+{
+	SU* S_U;
+	unit* SU_ptr;
+	while (this->ally->ReturnSU_uint(S_U, SU_ptr))
+	{
+		if (!(S_U->get_firstAttack()))
+		{
+			S_U->set_Ta(this->get_timestep());
+		}
+		S_U->set_Td(this->get_timestep());
+		this->add_killedlist(SU_ptr);
+	}
+}
 AlienArmy* Game::get_Aarmy()
 {
 	return Aarmy;
@@ -146,20 +160,7 @@ int Game::fight()
 		flageAll = this->ally->Attack_Alien();
 	else if(this->Earmy->retret_ally())
 	{
-		
-		SU* S_U;
-		unit* SU_ptr;
-		while (this->ally->ReturnSU_uint(S_U, SU_ptr))
-		{
-			string s;
-			getline(cin, s);
-			if (S_U->get_firstAttack())
-			{
-				S_U->set_Ta(this->get_timestep());
-			}
-			S_U->set_Td(this->get_timestep());
-			this->add_killedlist(SU_ptr);
-		}
+		this->remove_allSU();
 	}
 	cout << endl;
 	this->print_healing_lists();
@@ -243,7 +244,9 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("E:\\Documents\\GitHub\\project\\test.txt");
+	//infile.open("E:\\Documents\\GitHub\\project\\test.txt");//Emad
+	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");//Hossam
+	//infile.open("E:\\Documents\\GitHub\\project\\test.txt");//Ayman
 	if (infile.is_open())
 	{
 		string line;
@@ -473,7 +476,7 @@ void Game::output_file()
 			out_file << "Average Db = " << float(E_Db) / float(total_DES_E) << "\n";
 			out_file << "Df/Db % = " << float(E_Df * 100) / float(E_Db) << "%\n";
 			out_file << "Dd/Db % = " << float(E_Dd * 100) / float(E_Db) << "%\n";
-			out_file << "Healed units / total units % = " << float(total_num_healed * 100) / float(total_GEN_E)<<"%\n";
+			out_file << "Healed units / total units % = " << float(total_num_healed *100) / float(total_GEN_E) << "%\n";
 			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(this->rand->get_num_GEN_ES())<<"%\n";
 
 			out_file << "\nLoser Alien Army \n";
