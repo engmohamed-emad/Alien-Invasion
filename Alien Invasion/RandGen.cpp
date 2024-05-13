@@ -185,3 +185,8 @@ int RandGen::get_num_GEN_HU()
 {
 	return num_GEN_HU;
 }
+int RandGen::get_total_num_GEN_check()   // to check 
+{
+	return num_GEN_HU+num_GEN_SU+num_GEN_ES+num_GEN_AS+num_GEN_AD+ num_GEN_AM+num_GEN_ET+num_GEN_EG;
+}
+

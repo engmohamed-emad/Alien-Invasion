@@ -56,32 +56,27 @@ int main()
 		}
 	    flag = mygame->fight();
 		cout << endl;
-		mygame->print_healing_lists();
-		cout << endl;
-		if (mygame->is_interactive())
-			cout << endl;
-
 		if (mygame->is_interactive())
 		{
-			cout << endl;
+			cout << endl<<endl;
 			cout << "===================After  fighting at current timestep=====================================\n";
 			mygame->print_armys();
 			cout << endl;
 			mygame->print_Killed();
 		}
-		int num_real = mygame->get_num_check() + mygame->get_Aarmy()->get_num_Army() + mygame->get_Earmy()->get_num_Army() + mygame->get_num_killed();
-		int num_expected = rand->get_num_prop() * 6;
+		int num_real = mygame->get_num_heal_check() + mygame->get_Aarmy()->get_num_Army() + mygame->get_Earmy()->get_num_Army() + mygame->get_num_killed()+mygame->get_ally()->get_num_su();
+		int num_expected = rand->get_total_num_GEN_check();
 		if (mygame->is_interactive())
 		{
 			cout << "=====================================================================================================\n";
 			cout << "prop : " << rand->get_num_prop() << "\nnum real : " << num_real << "\nnum expected : " << num_expected << "\n";
 			cout << "=====================================================================================================\n";
 		}
-		/*if (num_real != num_expected)
+		if (num_real != num_expected)
 		{
 			cout << "ERROR\n";
 			getline(cin, s);
-		}*/
+		}
 		if (mygame->is_interactive())
 		{
 			cout << "\n";

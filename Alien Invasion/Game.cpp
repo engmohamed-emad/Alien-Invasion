@@ -101,12 +101,12 @@ bool Game::get_UML_ET(Tank* &s)
 	}
 	else return false;
 }
-void Game::ADD_HealUint(HealingUnit* H)
+void Game::ADD_HealUint(HealingUnit*& H)
 {
 	if(HU.push(H))
 	num_HU++;
 }
-bool Game::Get_HU(HealingUnit* H)
+bool Game::Get_HU(HealingUnit*& H)
 {
 	if (HU.pop(H))
 	{
@@ -142,14 +142,17 @@ int Game::fight()
 	flageE = this->Earmy->Attack_Alien();
 	flageA = this->Aarmy->Attack_Earth();
 	this->Earmy->set_num_hsol(num_healed_sol);
-	if (this->Earmy->get_allay_canAttack())
+	if(this->Earmy->get_allay_canAttack())
 		flageAll = this->ally->Attack_Alien();
-	else
+	else if(this->Earmy->retret_ally())
 	{
+		
 		SU* S_U;
 		unit* SU_ptr;
 		while (this->ally->ReturnSU_uint(S_U, SU_ptr))
 		{
+			string s;
+			getline(cin, s);
 			if (S_U->get_firstAttack())
 			{
 				S_U->set_Ta(this->get_timestep());
@@ -158,7 +161,9 @@ int Game::fight()
 			this->add_killedlist(SU_ptr);
 		}
 	}
-	
+	cout << endl;
+	this->print_healing_lists();
+	cout<< endl;
 	if (!UML_ES.isEmpty() || !UML_ET.isEmpty())
 	{
 		if (HU.pop(hu))
@@ -313,7 +318,7 @@ bool Game::read_data()
 		return false;
 	}
 }
-int Game::get_num_check()
+int Game::get_num_heal_check()
 {
 	return num_HU + num_healed_tank + num_healed_sol;
 }

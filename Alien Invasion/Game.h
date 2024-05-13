@@ -62,8 +62,8 @@ public:
 	bool get_UML_ES(Solderunit*& s);
 	bool addto_UML_ET(Tank*& T);
 	bool get_UML_ET(Tank*& s);
-	void ADD_HealUint(HealingUnit*H);
-	bool Get_HU(HealingUnit* H);
+	void ADD_HealUint(HealingUnit*&H);
+	bool Get_HU(HealingUnit*& H);
 //	void Healing();
 	int fight();
 	// {
@@ -80,7 +80,7 @@ public:
 	void set_arr(int arr[]);
 	void print_healing_lists();
 	int get_total_num_healed();
-	int get_num_check();  //for check
+	int get_num_heal_check();  //for check
 	int get_num_killed();  //for check
 	void set_left_items();  // to handle UML_lists after last time step
 	void output_file();

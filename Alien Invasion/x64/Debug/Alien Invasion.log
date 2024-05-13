@@ -1,3 +1,3 @@
-﻿  Source.cpp
-E:\Documents\GitHub\project\Alien Invasion\Source.cpp(31,6): warning C4101: 'x': unreferenced local variable
+﻿  Game.cpp
+E:\Documents\GitHub\project\Alien Invasion\Game.cpp(78,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Alien Invasion.vcxproj -> E:\Documents\GitHub\project\x64\Debug\Alien Invasion.exe

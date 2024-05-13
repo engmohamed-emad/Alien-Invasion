@@ -77,6 +77,7 @@ public:
 	int get_num_GEN_AD ();
 	int get_num_GEN_SU();
 	bool get_flag_inf();
+	int get_total_num_GEN_check();
 	/*void set_game(Game* g);*/
 };
 #endif
