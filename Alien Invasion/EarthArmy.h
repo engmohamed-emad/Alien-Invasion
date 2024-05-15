@@ -43,7 +43,6 @@ public:
 	int get_total_num_infected();
 	bool Add_tank(Tank*& tank);
 	void print();
-
 	bool Attack_Alien();/***************************************/
 	int get_num_Army();
 	~EarthArmy();
