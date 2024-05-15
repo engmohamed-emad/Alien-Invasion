@@ -85,15 +85,22 @@ void RandGen::Create_Random()
 			Create_Unit_Alian(prob, ID, Jt, H, AP, AC);
 			//call Alian arramy using game pointer to add this unit			}
 		}
-		for (int i = 0; i < array[0]&&!game->get_Earmy()->retret_ally(); i++)
+		if ((game->get_ally()->is_emty()) || game->get_Earmy()->get_allay_canAttack())
 		{
-			Jt = game->get_timestep();
-			ID = Allay_count_id++;
-			prob = gen_rand(1, 100);
-			H = gen_rand(array[23], array[24]);
-			AC = gen_rand(array[25], array[26]);
-			AP = gen_rand(array[21], array[22]);
-			Create_Unit_Ally(prob, ID, Jt, H, AP, AC); 
+			for (int i = 0; i < array[0] && !game->get_Earmy()->retret_ally(); i++)
+			{
+				
+
+
+				Jt = game->get_timestep();
+				ID = Allay_count_id++;
+				prob = gen_rand(1, 100);
+				H = gen_rand(array[23], array[24]);
+				AC = gen_rand(array[25], array[26]);
+				AP = gen_rand(array[21], array[22]);
+				Create_Unit_Ally(prob, ID, Jt, H, AP, AC);
+
+			}
 		}
 	}
 	

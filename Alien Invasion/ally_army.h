@@ -12,7 +12,7 @@ private:
 	SoModQueue<SU*>SU_unit;
 	int num_su = 0;
 public:
-
+	bool is_emty();
 	bool addSU_unit(SU*& s);
 	bool ReturnSU_uint(SU*& SuUnit, unit*& pt);
 	int get_num_su();

@@ -12,6 +12,12 @@ ally_army::~ally_army()
 		temp1 = nullptr;
 	}
 }
+bool ally_army::is_emty()
+{
+	if (SU_unit.isEmpty())
+		return true;
+	return false;
+}
 bool ally_army::addSU_unit(SU*& s)
 {
 	if (SU_unit.enqueue(s)) 

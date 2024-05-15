@@ -102,12 +102,23 @@ void EarthArmy::spread_infection()
     int c = num_sol;
         if (prob <= 2 && Num_infect_solid!=0)
         {
+            int j = 0;
+            {
+                random_device rd;
+                mt19937 gen(rd());
+                uniform_int_distribution<int> dis(1, num_sol);
+                j = dis(gen);
+            }
             while (c>0 && solders.dequeue(s))
             {
-                if (s->get_state() == -1)
+                if (j==1)
                 {
-                    s->set_state(0);
-                    increment_infected();
+                    //ask
+                    if(s->get_state()==-1)
+                    {
+                        s->set_state(0);
+                        increment_infected(); 
+                    }
                     solders.enqueue(s);
                     break;
                 }
@@ -116,6 +127,7 @@ void EarthArmy::spread_infection()
                     solders.enqueue(s);
                     c--;
                 }
+                j--;
             }
         }
         else
