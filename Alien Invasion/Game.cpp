@@ -269,8 +269,8 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	infile.open("E:\\Documents\\GitHub\\project\\test.txt");//Emad
-	//infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");//Hossam
+	//infile.open("E:\\Documents\\GitHub\\project\\test.txt");//Emad
+	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");//Hossam
 	//infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");//Ayman
 	if (infile.is_open())
 	{
@@ -718,17 +718,18 @@ void Game::simulate()
 			cout << "=====================================================================================================\n";
 			cout << "prop : " << rand->get_num_prop() << "\nnum real : " << num_real << "\nnum expected : " << num_expected << "\n";
 			cout << "=====================================================================================================\n";
-			if (num_real != num_expected)
+			/*if (num_real != num_expected)
 			{
 				cout << "ERROR\n";
 				getline(cin, s);
-			}
+			}*/
 		}
 		////////////////////////////////
-		if(is_active)
-		cout << "\n========================================================================================================================================\n";
+		if (is_active)
+			cout << "\n========================================================================================================================================\n";
 		//press enter to continue
-		getline(cin, s);
+		if (is_active)
+			getline(cin, s);
 		/*cout << "\ndo you want to stop\n";
 		{
 			int x;
