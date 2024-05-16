@@ -245,8 +245,8 @@ bool Game::read_data()
 	// do not forget to change file path before running
 	fstream infile;
 	//infile.open("E:\\Documents\\GitHub\\project\\test.txt");//Emad
-	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");//Hossam
-	//infile.open("E:\\Documents\\GitHub\\project\\test.txt");//Ayman
+	//infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");//Hossam
+	infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");//Ayman
 	if (infile.is_open())
 	{
 		string line;
