@@ -164,8 +164,8 @@ bool LinkedQueue<T>::dequeue(T& frntEntry)
 	  Node<unit*>* ptr = this->frontPtr;
 	  while (ptr)
 	  {
-		  if(ptr->getItem()->get_type()=="ES"&&ptr->getItem()->get_state()==0)
-			  cout << RED<<ptr->getItem()->getID()<<RESET;
+		  if (ptr->getItem()->get_type() == "ES" && ptr->getItem()->get_state() == 0)
+			  cout << RED << "inf " << ptr->getItem()->getID() << RESET;
 		  else
 		  cout << ptr->getItem()->getID();
 		  ptr = ptr->getNext();

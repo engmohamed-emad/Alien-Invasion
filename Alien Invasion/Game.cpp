@@ -269,8 +269,8 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	//infile.open("E:\\Documents\\GitHub\\project\\test.txt");//Emad
-	infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");//Hossam
+	infile.open("E:\\Documents\\GitHub\\project\\test.txt");//Emad
+	//infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");//Hossam
 	//infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");//Ayman
 	if (infile.is_open())
 	{
@@ -381,7 +381,7 @@ void Game::set_left_items()
 	{
 		this->addto_UML_ET(T);
 	}
-	            //Ask Hossam
+	            
 	while (this->get_UML_ES(S))
 	{
 		if (this->get_timestep() - S->get_Heal_Time() < 10)
@@ -618,7 +618,7 @@ void Game::output_file()
 		}
 		else
 		{
-			out_file << "\nDrawn \n";
+			out_file << "\nDraw \n";
 			out_file << "===============Earth Army statistics===================== \n";
 			out_file << "ES total number : " << this->rand->get_num_GEN_ES() << " \n";
 			out_file << "ET total number : " << this->rand->get_num_GEN_ET() << "\n";
@@ -644,7 +644,7 @@ void Game::output_file()
 			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(num_GEN_ES) << "%\n";
 
 
-			out_file << "\nDrawn \n";
+			out_file << "\nDraw \n";
 			out_file << "===============Alien Army statistics===================== \n";
 			out_file << "AS total number : " << this->rand->get_num_GEN_AS() << " \n";
 			out_file << "AM total number : " << this->rand->get_num_GEN_AM() << "\n";
@@ -682,7 +682,7 @@ void Game::simulate()
 		this->set_mode(false);
 	this->read_data();
 	rand->trans_data();
-	int etration=50;
+	int etration=40;
 	int flag = 0;
 	string s;
 	for (int i = 1; (i <= etration) || (flag == 0) ; i++)
@@ -697,8 +697,6 @@ void Game::simulate()
 		}
 		flag = this->fight();
 		
-		
-
 		// we did that to iterate before and after fighting
 		/*cout << endl<<endl;
 		cout << "===================After  fighting at current timestep=====================================\n";
@@ -711,33 +709,26 @@ void Game::simulate()
 		}
 		/////////////////////////////////////////////////////
 		// tester to check num generated and num in lists 
-		if (is_active)
+		/*if (is_active)
 		{
 			int num_real = this->get_num_heal_check() + this->get_Aarmy()->get_num_Army() + this->get_Earmy()->get_num_Army() + this->get_num_killed() + this->get_ally()->get_num_su();
 			int num_expected = rand->get_total_num_GEN_check();
 			cout << "=====================================================================================================\n";
 			cout << "prop : " << rand->get_num_prop() << "\nnum real : " << num_real << "\nnum expected : " << num_expected << "\n";
 			cout << "=====================================================================================================\n";
-			/*if (num_real != num_expected)
+			if (num_real != num_expected)
 			{
 				cout << "ERROR\n";
 				getline(cin, s);
-			}*/
-		}
+			}
+		}*/
 		////////////////////////////////
 		if (is_active)
 			cout << "\n========================================================================================================================================\n";
 		//press enter to continue
-		if (is_active)
-			getline(cin, s);
-		/*cout << "\ndo you want to stop\n";
-		{
-			int x;
-			cin >> x;
-			if (x != 0)
-				etration = i + 2;
-			else etration = i;
-		}*/
+		/*if (is_active)
+			getline(cin, s);*/
+		
 	}
 	// to update killed list after battle end
 	this->set_left_items();

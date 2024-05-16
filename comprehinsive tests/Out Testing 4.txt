@@ -1,0 +1,58 @@
+		Td	ID	Tj	Df	Dd	Db	
+		8	2000	7	0	1	1
+		8	2001	7	0	1	1
+		8	2003	7	0	1	1
+		18	2005	17	0	1	1
+		18	2006	17	0	1	1
+		18	2007	17	0	1	1
+		18	2008	17	0	1	1
+		18	2009	17	0	1	1
+		18	2004	7	10	1	11
+		18	2002	7	10	1	11
+		28	2010	28	0	0	0
+		28	2011	28	0	0	0
+		29	2013	28	0	1	1
+		29	2014	28	0	1	1
+		29	2012	28	0	1	1
+		29	2015	29	0	0	0
+		29	2016	29	0	0	0
+		29	2017	29	0	0	0
+		29	2019	29	0	0	0
+		30	2018	29	0	1	1
+		30	2020	30	0	0	0
+		30	2022	30	0	0	0
+		30	2023	30	0	0	0
+		31	2024	30	0	1	1
+		31	2021	30	0	1	1
+
+Winner Earth Army 
+===============Earth Army statistics===================== 
+ES total number : 20 
+ET total number : 2
+EG total number : 2
+ES Destructed/ES total = 0%
+ET Destructed/ET total = 0%
+EG Destructed/EG total = 0%
+Total Destructed/Total Units = 0%
+Average Df = 0
+Average Dd = 0
+Average Db = 0
+Df/Db % = 0%
+Dd/Db % = 0%
+Healed units / total units % = 0%
+Num infected / total soldier units % = 15%
+
+Loser Alien Army 
+===============Alien Army statistics===================== 
+AS total number : 19 
+AM total number : 4
+AD total number : 2
+AS Destructed/AS total : 100%
+AM Destructed/AM total = 100%
+AD Destructed/AD total = 100%
+Total Destructed/Total Units = 100%
+Average Df = 0.8
+Average Dd = 0.64
+Average Db = 1.44
+Df/Db % = 55.5556%
+Dd/Db % = 44.4444%

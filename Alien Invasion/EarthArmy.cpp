@@ -199,19 +199,20 @@ bool EarthArmy::Attack_Alien()
     bool flage2 = true;
     bool flage3 = true;
     int pri = 0;
-
-
-    spread_infection();//********************************
+    //********************************
     bool x=false;
-   if( solders.peek(Sptr))
-       if (Sptr->get_state() == 0)
-       {
-           x=Sptr->attack_infected();
-       }
-       else
-       {
-           flage1 = Sptr->attack();
-       }
+    if (solders.peek(Sptr))
+    {
+        spread_infection();
+        if (Sptr->get_state() == 0)
+        {
+            x = Sptr->attack_infected();
+        }
+        else
+        {
+            flage1 = Sptr->attack();
+        }
+    }
    if (tanks.peek(Tptr))
        flage2 = Tptr->attack(); //edit it to return bool to chick;
    if (Earth_Gun.peek(Gptr, pri))
