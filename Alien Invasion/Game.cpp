@@ -4,16 +4,8 @@
 #include"solderunit.h"
 #include"Tank.h"
 #include "Game.h"
-
 #define RESET   "\033[0m"
 #define RED     "\033[31m"  
-
-
-
-
-
-
-
 double generate_ran(int num1, int num2)
 {
 	random_device rd;
@@ -183,14 +175,16 @@ int Game::fight()
 	{
 		if (HU.pop(hu))
 		{
-			hu->attack();
-			total_num_healed += hu->get_num_healed();
-			hu->set_Td(this->get_timestep());
-			hu->set_Ta(this->get_timestep());
-			hptr = dynamic_cast<unit*>(hu);
-			add_killedlist(hptr);
-			num_HU--;
-			
+			if (hu->attack())
+			{
+				total_num_healed += hu->get_num_healed();
+				hu->set_Td(this->get_timestep());
+				hu->set_Ta(this->get_timestep());
+				hptr = dynamic_cast<unit*>(hu);
+				add_killedlist(hptr);
+				num_HU--;
+			}
+			else HU.push(hu);
 		}
 	}
 	if (flageE && flageA)
@@ -688,10 +682,10 @@ void Game::simulate()
 		this->set_mode(false);
 	this->read_data();
 	rand->trans_data();
-	int etration=10;
+	int etration=50;
 	int flag = 0;
 	string s;
-	for (int i = 1; (i <= etration) /* || (flag == 0)*/; i++)
+	for (int i = 1; (i <= etration) || (flag == 0) ; i++)
 	{
 		this->set_timestep(i);
 		this->rand->Create_Random();
@@ -735,6 +729,14 @@ void Game::simulate()
 		cout << "\n========================================================================================================================================\n";
 		//press enter to continue
 		getline(cin, s);
+		/*cout << "\ndo you want to stop\n";
+		{
+			int x;
+			cin >> x;
+			if (x != 0)
+				etration = i + 2;
+			else etration = i;
+		}*/
 	}
 	// to update killed list after battle end
 	this->set_left_items();

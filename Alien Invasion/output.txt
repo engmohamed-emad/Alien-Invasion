@@ -1,12 +1,10 @@
 		Td	ID	Tj	Df	Dd	Db	
-		6	2000	2	0	4	4
-		10	2010	7	0	3	3
 
 Drawn 
 ===============Earth Army statistics===================== 
-ES total number : 6 
-ET total number : 4
-EG total number : 3
+ES total number : 2 
+ET total number : 0
+EG total number : 1
 ES Destructed/ES total = 0%
 ET Destructed/ET total = 0%
 EG Destructed/EG total = 0%
@@ -21,15 +19,15 @@ Num infected / total soldier units % = 0%
 
 Drawn 
 ===============Alien Army statistics===================== 
-AS total number : 13 
-AM total number : 2
-AD total number : 0
+AS total number : 2 
+AM total number : 0
+AD total number : 1
 AS Destructed/AS total : 0%
-AM Destructed/AM total = 100%
+AM Destructed/AM total = 0%
 AD Destructed/AD total = 0%
-Total Destructed/Total Units = 13.3333%
+Total Destructed/Total Units = 0%
 Average Df = 0
-Average Dd = 3.5
-Average Db = 3.5
+Average Dd = 0
+Average Db = 0
 Df/Db % = 0%
-Dd/Db % = 100%
+Dd/Db % = 0%

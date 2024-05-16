@@ -69,7 +69,7 @@ void RandGen::Create_Random()
 			AC = gen_rand(array[12], array[13]);
 			AP = gen_rand(array[8], array[9]);
 			Create_Unit_Earth(prob, ID, Jt, H, AP, AC);
-			//call Earth arramy using game pointer to add this unit
+			
 		}
 		for (int i = 0; i < array[0]; i++)
 		{
@@ -81,7 +81,7 @@ void RandGen::Create_Random()
 			AP = gen_rand(array[14], array[15]);
 			
 			Create_Unit_Alian(prob, ID, Jt, H, AP, AC);
-			//call Alian arramy using game pointer to add this unit			}
+			
 		}
 		if ((game->get_ally()->is_emty()) || game->get_Earmy()->get_allay_canAttack())
 		{

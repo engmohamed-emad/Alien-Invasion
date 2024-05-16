@@ -28,11 +28,12 @@ void HealingUnit::dec_health(float damage)
 	currhealth = -1;
 }
 
-void HealingUnit::attack()
+bool HealingUnit::attack()
 {
 	if (game->is_interactive())
 		cout << "========================== Healing operation ==========================\n";
 	bool flag = false;
+	
 	if (game->is_interactive())
 		cout << "HU " << this->getID() << " healing [";
 	int c = 0;
@@ -175,7 +176,7 @@ void HealingUnit::attack()
 			cout << "\b \b" << "\b \b";
 		cout << "]\n\n";
 	}
-	
+	return flag;
 }
 
 int HealingUnit::get_num_healed()
