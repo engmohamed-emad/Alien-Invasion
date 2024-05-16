@@ -15,6 +15,8 @@
 #include <vector>
 #include <windows.h>
 #include<mmsystem.h>
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
 #pragma comment(lib,"winmm.lib")
 using namespace std;
 
@@ -133,16 +135,29 @@ void play_allAudio(bool x)
 {
 	if(x)
 	{
-		// Load audio file path from command-line argument
-
-
-	   // Example script with words and timing (in milliseconds)
+		// Example script with words and timing (in milliseconds)
 		std::vector<std::pair<std::string, int>> script = {
 			//{"hello", 0},
 			{"Commander: There's no point standing around ", 1000}, // Display "world" after 1 second
 			{"You'll only be showered by more boulders ", 2000} ,
-			{"Ready your horses on the double!\n ", 3000},
-			{"Soldier: Be honest, are all of us riding to our death?\n ", 4000},
+			{"Ready your horses on the double!\n", 4000},
+			{"Soldier: Be honest, are all of us riding to our death?\n", 8000},
+			{"Commander: Yes, we are...\n", 13000},
+			{"Soldier: And since we're dying anyway, you're saying that it's better? if we at least die fighting?\n", 15000},
+			{"Commander: I am...\n", 22000},
+			{"Soldier: But wait, if we'll die anyway, then who cares what we do? We could just disobey your orders. And it wouldn't mean a thing, would it?\n", 24000},
+			{"Commander: Yes, you're precisely right.................\n", 33000},
+			{"Everything that you thought had meaning, every hope, dream, or moment of happiness.\n", 35000},
+			{"None of it matters as you lie bleeding out on the battlefield.\n", 42000},
+			{"None of it changes what a speeding rock does to a body.\n", 45500},
+			{"We all die. But does that mean our lives are meaningless.\n", 49000},
+			{"Does that mean that there was no point in our being born.\n", 55000},
+			{"Would you say that of our slain comrades. What about their lives, were they meaningless.\n", 59000},
+			{"They were not, their memory serves as an example to us all! The courageous fallen, the anguished fallen, their lives have meaning because we, the living refuse to forget them and as we ride to certain death, ", 69000},
+			{"we trust our successors to do the same for us! Because my soldiers do not buckle or yield when faced with the cruelty of this world!\n", 83000},
+			{"MY SOLDIERS PUSH FORWARD!\n", 92000},
+			{"MY SOLDIERS SCREAM OUT!\n", 94000},
+			{"MY SOLDIERS RAGE!\n", 97000},
 			//{"standing ", 1300},
 			//{"around ", 1400} ,// Display "!" after 2 seconds
 		};
@@ -168,6 +183,8 @@ void play_allAudio(bool x)
 		std::cout << std::endl;
 
 		// Wait for audio to finish playing
-		Sleep(200000); // Adjust this delay according to the length of your audio file
+		Sleep(6000); // Adjust this delay according to the length of your audio file
+		cout << "=============================="<< RED<<"ATTAAAAAAAAAAACK"<<RESET<<"========================================\n";
+		Sleep(2000);
 	}
 }
