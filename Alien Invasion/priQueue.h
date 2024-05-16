@@ -138,7 +138,7 @@ public:
         while (ptr)
         {
             pri = head->getPri();
-            cout << ptr->getItem(pri)->getID() << "(" << ptr->getItem(pri)->getcurrhealth() << ")";
+            cout << ptr->getItem(pri)->getID() /* << "(" << ptr->getItem(pri)->getcurrhealth() << ")"*/;
             ptr = ptr->getNext();
             if (ptr)
                 cout << ", ";
@@ -152,10 +152,11 @@ inline void priQueue<Solderunit*>::print()
     priNode<Solderunit*>* ptr = this->head;
     while (ptr)
     {
+        //comments were added to see the current health while iterating
         pri = head->getPri();
         if (ptr->getItem(pri)->get_state() == 0)
-            cout << RED << ptr->getItem(pri)->getID() << "(" << ptr->getItem(pri)->getcurrhealth() << ")" << RESET;
-        else cout << ptr->getItem(pri)->getID() << "(" << ptr->getItem(pri)->getcurrhealth() << ")";
+            cout << RED << "inf " << ptr->getItem(pri)->getID()<<RESET /* << "(" << ptr->getItem(pri)->getcurrhealth() << ")" << RESET*/;
+        else cout << ptr->getItem(pri)->getID() /* << "(" << ptr->getItem(pri)->getcurrhealth() << ")" */ ;
         ptr = ptr->getNext();
         if (ptr)
             cout << ", ";

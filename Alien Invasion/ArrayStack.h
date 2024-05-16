@@ -67,7 +67,8 @@ inline void ArrayStack<Tank*>::print()
 {
 	for (int i = 0; i <= top; i++)
 	{
-		cout << items[i]->getID() << "(" << items[i]->getcurrhealth() << ")";
+		//comments were added to see the current health while iterating
+		cout << items[i]->getID() /* << "(" << items[i]->getcurrhealth() << ")"*/;
 		if (i < top)
 			cout << ", ";
 	}
@@ -77,7 +78,8 @@ inline void ArrayStack<HealingUnit*>::print()
 {
 	for (int i = 0; i <= top; i++)
 	{
-		cout << items[i]->getID() << "(" << items[i]->getcurrhealth() << ")";
+		//comments were added to see the current health while iterating
+		cout << items[i]->getID() /* << "(" << items[i]->getcurrhealth() << ")"*/;
 		if (i < top)
 			cout << ", ";
 	}

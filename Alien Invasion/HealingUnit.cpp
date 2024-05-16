@@ -4,6 +4,8 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
 HealingUnit::HealingUnit()
 {
 	this->set_type("HU");
@@ -92,13 +94,20 @@ void HealingUnit::attack()
 	while (c > 0&&temp_Sol.dequeue(Sptr))
 	{
 		if (Sptr->get_state() == 0)
-		{                 
-			Sptr->inc_health((detect_damage(Sptr->getcurrhealth()))/2.0);
+		{
+			Sptr->inc_health((detect_damage(Sptr->getcurrhealth())) / 2.0);
 		}
-
-		Sptr->inc_health(detect_damage(Sptr->getcurrhealth()));
+		else
+			Sptr->inc_health(detect_damage(Sptr->getcurrhealth()));
 		if (game->is_interactive())
-			cout << Sptr->getID() << " (" << Sptr->getcurrhealth() << ") " << ", ";
+		{
+			//comments were added to see the current health while iterating
+			if (Sptr->get_state() == 0)
+			{
+				cout << RED << "inf " << Sptr->getID() /*<< " (" << Sptr->getcurrhealth() << ") " */ << RESET << ", ";
+			}
+			else cout << Sptr->getID() /*<< " (" << Sptr->getcurrhealth() << ") " */ << ", ";
+		}
 		if (Sptr->need_help())
 		{
 			if (Sptr->get_state() == 0)
@@ -142,8 +151,9 @@ void HealingUnit::attack()
 	while (T > 0 && temp_tank.dequeue(Tptr))
 	{   
 		Tptr->inc_health(detect_damage(Tptr->getcurrhealth()));
+		//comments were added to see the current health while iterating
 		if (game->is_interactive())
-			cout << Tptr->getID() << " (" << Tptr->getcurrhealth() << ") " << ", ";
+			cout << Tptr->getID() /* << " (" << Tptr->getcurrhealth() << ") " */<< ", ";
 		if (Tptr->need_help())
 		{
 			temp_tank.enqueue(Tptr);

@@ -141,7 +141,7 @@ public:
 		Node<Drones*>* ptr = this->frontPtr;
 		while (ptr)
 		{
-			cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")";
+			cout << ptr->getItem()->getID() /* << "(" << ptr->getItem()->getcurrhealth() << ")"*/;
 			ptr = ptr->getNext();
 			if (ptr)
 				cout << ", ";

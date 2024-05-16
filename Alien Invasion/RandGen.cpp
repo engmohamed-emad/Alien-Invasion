@@ -57,8 +57,6 @@ void RandGen::Create_Random()
 	{
 		flag_inf = false;
 	}
-	if (game->is_interactive())
-		cout << "prop = " << prob << endl;
 	if (prob <= array[7])
 	{
 		num_prop++;
@@ -89,9 +87,6 @@ void RandGen::Create_Random()
 		{
 			for (int i = 0; i < array[0] && !game->get_Earmy()->retret_ally(); i++)
 			{
-				
-
-
 				Jt = game->get_timestep();
 				ID = Allay_count_id++;
 				prob = gen_rand(1, 100);
@@ -99,7 +94,6 @@ void RandGen::Create_Random()
 				AC = gen_rand(array[25], array[26]);
 				AP = gen_rand(array[21], array[22]);
 				Create_Unit_Ally(prob, ID, Jt, H, AP, AC);
-
 			}
 		}
 	}
@@ -150,14 +144,17 @@ int RandGen::get_num_prop()
 }
 int RandGen::get_num_HU()
 {
+	
 	return num_GEN_HU;
 }
 int RandGen::get_num_GEN_AD()
 {
+	
 	return num_GEN_AD;
 }
 int RandGen::get_num_GEN_SU()
 {
+	
 	return num_GEN_SU;
 }
 bool RandGen::get_flag_inf()
@@ -166,30 +163,40 @@ bool RandGen::get_flag_inf()
 }
 int RandGen::get_num_GEN_AS()
 {
+	
 	return num_GEN_AS;
 }
 int RandGen::get_num_GEN_AM()
 {
+	
 	return num_GEN_AM;
 }
 int RandGen::get_num_GEN_ES()
 {
+	
 	return num_GEN_ES;
 }
 int RandGen::get_num_GEN_ET()
 {
+	
 	return num_GEN_ET;
 }
 int RandGen::get_num_GEN_EG()
 {
+	
 	return num_GEN_EG;
 }
 int RandGen::get_num_GEN_HU()
 {
+	
 	return num_GEN_HU;
 }
 int RandGen::get_total_num_GEN_check()   // to check 
 {
 	return num_GEN_HU+num_GEN_SU+num_GEN_ES+num_GEN_AS+num_GEN_AD+ num_GEN_AM+num_GEN_ET+num_GEN_EG;
+}
+
+RandGen::~RandGen()
+{
 }
 

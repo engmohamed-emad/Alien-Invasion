@@ -4,9 +4,26 @@
 #include"solderunit.h"
 #include"Tank.h"
 #include "Game.h"
+
 #define RESET   "\033[0m"
 #define RED     "\033[31m"  
 
+
+
+
+
+
+
+double generate_ran(int num1, int num2)
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> dis(num1, num2);
+
+	int random_num = dis(gen);
+	return  random_num;
+
+}
 using namespace std;
 Game::Game() {
 	Aarmy = new AlienArmy;
@@ -162,9 +179,6 @@ int Game::fight()
 	{
 		this->remove_allSU();
 	}
-	cout << endl;
-	this->print_healing_lists();
-	cout<< endl;
 	if (!UML_ES.isEmpty() || !UML_ET.isEmpty())
 	{
 		if (HU.pop(hu))
@@ -223,20 +237,37 @@ int Game::get_total_num_healed()
 {
 	return total_num_healed;
 }
-//LinkedQueue<unit*>* Game::gt_temp()
-//{
-//	return &templist;
-//}
+
 Game::~Game()
 {
 	delete Aarmy;
 	delete Earmy;
 	delete rand;
+	delete ally;
 	unit* temp;
+	Tank* Ttemp;
+	HealingUnit* HUtemp;
+	Solderunit* Stemp;
+	int pri = 0;
 	while (killedlist.dequeue(temp))
 	{
 		delete temp;
 		temp = nullptr;
+	}
+	while (UML_ET.dequeue(Ttemp))
+	{
+		delete Ttemp;
+		Ttemp = nullptr;
+	}
+	while (HU.pop(HUtemp))
+	{
+		delete HUtemp;
+		HUtemp = nullptr;
+	}
+	while (UML_ES.dequeue(Stemp,pri))
+	{
+		delete Stemp;
+		Stemp = nullptr;
 	}
 }
 
@@ -244,9 +275,9 @@ bool Game::read_data()
 {
 	// do not forget to change file path before running
 	fstream infile;
-	//infile.open("E:\\Documents\\GitHub\\project\\test.txt");//Emad
+	infile.open("E:\\Documents\\GitHub\\project\\test.txt");//Emad
 	//infile.open("C:\\Users\\pc\\Documents\\GitHub\\project\\test.txt");//Hossam
-	infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");//Ayman
+	//infile.open("C:\\Users\\LENONO\\OneDrive\\Documents\\GitHub\\project\\test.txt");//Ayman
 	if (infile.is_open())
 	{
 		string line;
@@ -382,6 +413,7 @@ void Game::set_left_items()
 
 void Game::output_file()
 {
+	// handling divide by 0
 	fstream out_file;
 	out_file.open("output.txt", ios::out);
 	unit* ptr = nullptr;
@@ -393,14 +425,39 @@ void Game::output_file()
 	int num_killed_AM = 0;
 	int num_killed_AD = 0;
 	int num_killed_SU = 0;
+	int num_GEN_ES = this->rand->get_num_GEN_ES();
+	int num_GEN_ET = this->rand->get_num_GEN_ET();
+	int num_GEN_EG = this->rand->get_num_GEN_EG();
+	int num_GEN_HU = this->rand->get_num_GEN_HU();
+	int num_GEN_AS = this->rand->get_num_GEN_AS();
+	int num_GEN_AM = this->rand->get_num_GEN_AM();
+	int num_GEN_AD = this->rand->get_num_GEN_AD();
+	int num_GEN_SU = this->rand->get_num_GEN_SU();
 	int E_Df = 0;
 	int E_Db = 0;
 	int E_Dd = 0;
 	int A_Df = 0;
 	int A_Db = 0;
 	int A_Dd = 0;
-	int total_GEN_E = this->rand->get_num_GEN_ES() + this->rand->get_num_GEN_ET() + this->rand->get_num_GEN_EG() + this->rand->get_num_GEN_HU();
-	int total_GEN_A = this->rand->get_num_GEN_AS() + this->rand->get_num_GEN_AM() + this->rand->get_num_GEN_AD();
+	int total_GEN_E = num_GEN_ES + num_GEN_ET + num_GEN_EG + num_GEN_HU;
+	int total_GEN_A = num_GEN_AS + num_GEN_AM + num_GEN_AD;
+	// to check that no domintaor equal zero to avoid exception
+	if (total_GEN_E == 0)
+		total_GEN_E = 1;
+	if (total_GEN_A == 0)
+		total_GEN_A = 1;
+	if (num_GEN_ES == 0)
+		num_GEN_ES = 1;
+	if (num_GEN_AS == 0)
+		num_GEN_AS = 1;
+	if (num_GEN_ET == 0)
+		num_GEN_ET = 1;
+	if (num_GEN_AD == 0)
+		num_GEN_AD = 1;
+	if (num_GEN_EG == 0)
+		num_GEN_EG = 1;
+	if (num_GEN_AM == 0)
+		num_GEN_AM = 1;
 	int num_infected = this->Earmy->get_total_num_infected();
 	if (out_file.is_open())
 	{
@@ -460,6 +517,9 @@ void Game::output_file()
 		}
 		int total_DES_E = num_killed_EG + num_killed_ET + num_killed_ES + num_killed_HU;
 		int total_DES_A = num_killed_AM + num_killed_AS + num_killed_AD;
+		
+		
+		
 		if (!flageE && flageA)
 		{
 			out_file << "\nWinner Earth Army \n";
@@ -467,30 +527,46 @@ void Game::output_file()
 			out_file << "ES total number : " <<this->rand->get_num_GEN_ES() << " \n";
 			out_file << "ET total number : " << this->rand->get_num_GEN_ET() << "\n";
 			out_file << "EG total number : " << this->rand->get_num_GEN_EG() << "\n";
-			out_file << "ES Destructed/ES total = " <<float(num_killed_ES *100 )/float(this->rand->get_num_GEN_ES()) << "%\n";
-			out_file << "ET Destructed/ET total = " << float(num_killed_ET * 100) / float(this->rand->get_num_GEN_ET()) << "%\n";
-			out_file << "EG Destructed/EG total = " << float(num_killed_EG * 100) / float(this->rand->get_num_GEN_EG()) << "%\n";
+			out_file << "ES Destructed/ES total = " <<float(num_killed_ES *100 )/float(num_GEN_ES) << "%\n";
+			out_file << "ET Destructed/ET total = " << float(num_killed_ET * 100) / float(num_GEN_ET) << "%\n";
+			out_file << "EG Destructed/EG total = " << float(num_killed_EG * 100) / float(num_GEN_EG) << "%\n";
 			out_file << "Total Destructed/Total Units = " << float(total_DES_E * 100) / float(total_GEN_E) << "%\n";
+			if (total_DES_E == 0)
+			{
+				total_DES_E = 1;
+			}
 			out_file << "Average Df = " << float(E_Df) / float(total_DES_E) << "\n";
 			out_file << "Average Dd = " << float(E_Dd) / float(total_DES_E) << "\n";
 			out_file << "Average Db = " << float(E_Db) / float(total_DES_E) << "\n";
+			if (E_Dd == 0)
+			{
+				E_Db = 1;
+			}
 			out_file << "Df/Db % = " << float(E_Df * 100) / float(E_Db) << "%\n";
 			out_file << "Dd/Db % = " << float(E_Dd * 100) / float(E_Db) << "%\n";
 			out_file << "Healed units / total units % = " << float(total_num_healed *100) / float(total_GEN_E) << "%\n";
-			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(this->rand->get_num_GEN_ES())<<"%\n";
+			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(num_GEN_ES)<<"%\n";
 
 			out_file << "\nLoser Alien Army \n";
 			out_file << "===============Alien Army statistics===================== \n";
 			out_file << "AS total number : " << this->rand->get_num_GEN_AS() << " \n";
 			out_file << "AM total number : " << this->rand->get_num_GEN_AM() << "\n";
 			out_file << "AD total number : " << this->rand->get_num_GEN_AD() << "\n";
-			out_file << "AS Destructed/AS total : "<< float(num_killed_AS * 100) / float(this->rand->get_num_GEN_AS()) << "%\n";
-			out_file << "AM Destructed/AM total = " << float(num_killed_AM * 100) / float(this->rand->get_num_GEN_AM()) << "%\n";
-			out_file << "AD Destructed/AD total = " << float(num_killed_AD * 100) / float(this->rand->get_num_GEN_AD()) << "%\n";
+			out_file << "AS Destructed/AS total : "<< float(num_killed_AS * 100) / float(num_GEN_AS) << "%\n";
+			out_file << "AM Destructed/AM total = " << float(num_killed_AM * 100) / float(num_GEN_AM) << "%\n";
+			out_file << "AD Destructed/AD total = " << float(num_killed_AD * 100) / float(num_GEN_AD) << "%\n";
 			out_file << "Total Destructed/Total Units = " << float(total_DES_A * 100) / float(total_GEN_A) << "%\n";
+			if (total_DES_A == 0)
+			{
+				total_DES_A = 1;
+			}
 			out_file << "Average Df = " << float(A_Df) / float(total_DES_A) << "\n";
 			out_file << "Average Dd = " << float(A_Dd) / float(total_DES_A) << "\n";
 			out_file << "Average Db = " << float(A_Db) / float(total_DES_A) << "\n";
+			if (A_Dd == 0)
+			{
+				A_Db = 1;
+			}
 			out_file << "Df/Db % = " << float(A_Df * 100) / float(A_Db) << "%\n";
 			out_file << "Dd/Db % = " << float(A_Dd * 100) / float(A_Db) << "%\n";
 
@@ -502,17 +578,25 @@ void Game::output_file()
 			out_file << "ES total number : " << this->rand->get_num_GEN_ES() << " \n";
 			out_file << "ET total number : " << this->rand->get_num_GEN_ET() << "\n";
 			out_file << "EG total number : " << this->rand->get_num_GEN_EG() << "\n";
-			out_file << "ES Destructed/ES total = " << float(num_killed_ES * 100) / float(this->rand->get_num_GEN_ES()) << "%\n";
-			out_file << "ET Destructed/ET total = " << float(num_killed_ET * 100) / float(this->rand->get_num_GEN_ET()) << "%\n";
-			out_file << "EG Destructed/EG total = " << float(num_killed_EG * 100) / float(this->rand->get_num_GEN_EG()) << "%\n";
+			out_file << "ES Destructed/ES total = " << float(num_killed_ES * 100) / float(num_GEN_ES) << "%\n";
+			out_file << "ET Destructed/ET total = " << float(num_killed_ET * 100) / float(num_GEN_ET) << "%\n";
+			out_file << "EG Destructed/EG total = " << float(num_killed_EG * 100) / float(num_GEN_EG) << "%\n";
 			out_file << "Total Destructed/Total Units = " << float(total_DES_E * 100) / float(total_GEN_E) << "%\n";
+			if (total_DES_E == 0)
+			{
+				total_DES_E = 1;
+			}
 			out_file << "Average Df = " << float(E_Df) / float(total_DES_E) << "\n";
 			out_file << "Average Dd = " << float(E_Dd) / float(total_DES_E) << "\n";
 			out_file << "Average Db = " << float(E_Db) / float(total_DES_E) << "\n";
+			if (E_Dd == 0)
+			{
+				E_Db = 1;
+			}
 			out_file << "Df/Db % = " << float(E_Df * 100) / float(E_Db) << "%\n";
 			out_file << "Dd/Db % = " << float(E_Dd * 100) / float(E_Db) << "%\n";
 			out_file << "Healed units / total units % = " << float(total_num_healed * 100) / float(total_GEN_E) << "%\n";
-			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(this->rand->get_num_GEN_ES()) << "%\n";
+			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(num_GEN_ES) << "%\n";
 
 
 			out_file << "\nWinner Alien Army \n";
@@ -520,13 +604,21 @@ void Game::output_file()
 			out_file << "AS total number : " << this->rand->get_num_GEN_AS() << " \n";
 			out_file << "AM total number : " << this->rand->get_num_GEN_AM() << "\n";
 			out_file << "AD total number : " << this->rand->get_num_GEN_AD() << "\n";
-			out_file << "AS Destructed/AS total : " << float(num_killed_AS * 100) / float(this->rand->get_num_GEN_AS()) << "%\n";
-			out_file << "AM Destructed/AM total = " << float(num_killed_AM * 100) / float(this->rand->get_num_GEN_AM()) << "%\n";
-			out_file << "AD Destructed/AD total = " << float(num_killed_AD * 100) / float(this->rand->get_num_GEN_AD()) << "%\n";
+			out_file << "AS Destructed/AS total : " << float(num_killed_AS * 100) / float(num_GEN_AS) << "%\n";
+			out_file << "AM Destructed/AM total = " << float(num_killed_AM * 100) / float(num_GEN_AM) << "%\n";
+			out_file << "AD Destructed/AD total = " << float(num_killed_AD * 100) / float(num_GEN_AD) << "%\n";
 			out_file << "Total Destructed/Total Units = " << float(total_DES_A * 100) / float(total_GEN_A) << "%\n";
+			if (total_DES_A == 0)
+			{
+				total_DES_A = 1;
+			}
 			out_file << "Average Df = " << float(A_Df) / float(total_DES_A) << "\n";
 			out_file << "Average Dd = " << float(A_Dd) / float(total_DES_A) << "\n";
 			out_file << "Average Db = " << float(A_Db) / float(total_DES_A) << "\n";
+			if (A_Dd == 0)
+			{
+				A_Db = 1;
+			}
 			out_file << "Df/Db % = " << float(A_Df * 100) / float(A_Db) << "%\n";
 			out_file << "Dd/Db % = " << float(A_Dd * 100) / float(A_Db) << "%\n";
 		}
@@ -537,17 +629,25 @@ void Game::output_file()
 			out_file << "ES total number : " << this->rand->get_num_GEN_ES() << " \n";
 			out_file << "ET total number : " << this->rand->get_num_GEN_ET() << "\n";
 			out_file << "EG total number : " << this->rand->get_num_GEN_EG() << "\n";
-			out_file << "ES Destructed/ES total = " << float(num_killed_ES * 100) / float(this->rand->get_num_GEN_ES()) << "%\n";
-			out_file << "ET Destructed/ET total = " << float(num_killed_ET * 100) / float(this->rand->get_num_GEN_ET()) << "%\n";
-			out_file << "EG Destructed/EG total = " << float(num_killed_EG * 100) / float(this->rand->get_num_GEN_EG()) << "%\n";
+			out_file << "ES Destructed/ES total = " << float(num_killed_ES * 100) / float(num_GEN_ES) << "%\n";
+			out_file << "ET Destructed/ET total = " << float(num_killed_ET * 100) / float(num_GEN_ET) << "%\n";
+			out_file << "EG Destructed/EG total = " << float(num_killed_EG * 100) / float(num_GEN_EG) << "%\n";
 			out_file << "Total Destructed/Total Units = " << float(total_DES_E * 100) / float(total_GEN_E) << "%\n";
+			if (total_DES_E == 0)
+			{
+				total_DES_E = 1;
+			}
 			out_file << "Average Df = " << float(E_Df) / float(total_DES_E) << "\n";
 			out_file << "Average Dd = " << float(E_Dd) / float(total_DES_E) << "\n";
 			out_file << "Average Db = " << float(E_Db) / float(total_DES_E) << "\n";
+			if (E_Dd == 0)
+			{
+				E_Db = 1;
+			}
 			out_file << "Df/Db % = " << float(E_Df * 100) / float(E_Db) << "%\n";
 			out_file << "Dd/Db % = " << float(E_Dd * 100) / float(E_Db) << "%\n";
 			out_file << "Healed units / total units % = " << float(total_num_healed * 100) / float(total_GEN_E) << "%\n";
-			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(this->rand->get_num_GEN_ES()) << "%\n";
+			out_file << "Num infected / total soldier units % = " << float(num_infected) * 100 / float(num_GEN_ES) << "%\n";
 
 
 			out_file << "\nDrawn \n";
@@ -555,18 +655,98 @@ void Game::output_file()
 			out_file << "AS total number : " << this->rand->get_num_GEN_AS() << " \n";
 			out_file << "AM total number : " << this->rand->get_num_GEN_AM() << "\n";
 			out_file << "AD total number : " << this->rand->get_num_GEN_AD() << "\n";
-			out_file << "AS Destructed/AS total : " << float(num_killed_AS * 100) / float(this->rand->get_num_GEN_AS()) << "%\n";
-			out_file << "AM Destructed/AM total = " << float(num_killed_AM * 100) / float(this->rand->get_num_GEN_AM()) << "%\n";
-			out_file << "AD Destructed/AD total = " << float(num_killed_AD * 100) / float(this->rand->get_num_GEN_AD()) << "%\n";
+			out_file << "AS Destructed/AS total : " << float(num_killed_AS * 100) / float(num_GEN_AS) << "%\n";
+			out_file << "AM Destructed/AM total = " << float(num_killed_AM * 100) / float(num_GEN_AM) << "%\n";
+			out_file << "AD Destructed/AD total = " << float(num_killed_AD * 100) / float(num_GEN_AD) << "%\n";
 			out_file << "Total Destructed/Total Units = " << float(total_DES_A * 100) / float(total_GEN_A) << "%\n";
+			if (total_DES_A == 0)
+			{
+				total_DES_A = 1;
+			}
 			out_file << "Average Df = " << float(A_Df) / float(total_DES_A) << "\n";
 			out_file << "Average Dd = " << float(A_Dd) / float(total_DES_A) << "\n";
 			out_file << "Average Db = " << float(A_Db) / float(total_DES_A) << "\n";
+			if (A_Dd == 0)
+			{
+				A_Db = 1;
+			}
 			out_file << "Df/Db % = " << float(A_Df * 100) / float(A_Db) << "%\n";
 			out_file << "Dd/Db % = " << float(A_Dd * 100) / float(A_Db) << "%\n";
 		}
 	}
 	else
 		cout << "Error file output is not open";
+
+}
+
+void Game::simulate()
+{
+	int mode;
+	cout << " Enter 1 for interactive and 0 for silant." << endl;
+	cin >> mode;
+	if (mode == 0)
+		this->set_mode(false);
+	this->read_data();
+	rand->trans_data();
+	int etration=10;
+	int flag = 0;
+	string s;
+	for (int i = 1; (i <= etration) /* || (flag == 0)*/; i++)
+	{
+		this->set_timestep(i);
+		this->rand->Create_Random();
+		if (is_active)
+		{
+			cout << "Current time step " << i << endl;
+			this->print_armys();
+			cout << "===================Units fighting at current timestep======================================\n";
+		}
+		flag = this->fight();
+		
+		
+
+		// we did that to iterate before and after fighting
+		/*cout << endl<<endl;
+		cout << "===================After  fighting at current timestep=====================================\n";
+		this->print_armys();
+		cout << endl;*/
+		if (is_active)
+		{
+			cout << endl;
+			this->print_Killed();
+		}
+		/////////////////////////////////////////////////////
+		// tester to check num generated and num in lists 
+		if (is_active)
+		{
+			int num_real = this->get_num_heal_check() + this->get_Aarmy()->get_num_Army() + this->get_Earmy()->get_num_Army() + this->get_num_killed() + this->get_ally()->get_num_su();
+			int num_expected = rand->get_total_num_GEN_check();
+			cout << "=====================================================================================================\n";
+			cout << "prop : " << rand->get_num_prop() << "\nnum real : " << num_real << "\nnum expected : " << num_expected << "\n";
+			cout << "=====================================================================================================\n";
+			if (num_real != num_expected)
+			{
+				cout << "ERROR\n";
+				getline(cin, s);
+			}
+		}
+		////////////////////////////////
+		if(is_active)
+		cout << "\n========================================================================================================================================\n";
+		//press enter to continue
+		getline(cin, s);
+	}
+	// to update killed list after battle end
+	this->set_left_items();
+	if (is_active)
+	{
+		this->print_Killed();
+		cout << "\n\n";
+	}
+	
+	
+	this->output_file();
+	if(!is_active)
+	cout << "Silent mode\nSimulation starts....\nSimulation ends, output file criated\n";
 
 }

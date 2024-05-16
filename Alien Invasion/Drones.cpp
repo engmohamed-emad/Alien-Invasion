@@ -52,13 +52,13 @@ bool Drones::attack()
 	LinkedQueue<unit*>templist1;
 	LinkedQueue<unit*>templist2;
 	if (game->is_interactive())
-		cout << "AD " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+		cout << "AD " << this->getID() /* << " (" << this->getApower() << ") " */<< " shots [";
 	for (int i = 0; i < Attack_Cap_Tank; i++)
 	{
 		if (game->get_Earmy()->return_tank(T, U))
 		{
 			templist1.enqueue(T);
-			//cout << T->getID() << ", ";
+			
 		}
 		else
 			break;
@@ -69,7 +69,7 @@ bool Drones::attack()
 		if (game->get_Earmy()->Return_Gun(Gun, pri, U))
 		{
 			templist2.enqueue(Gun);
-			//cout << Gun->getID() << ", ";
+			
 		}
 		else
 			break;
@@ -77,7 +77,7 @@ bool Drones::attack()
 
 	if (templist1.isEmpty() && templist2.isEmpty())
 	{
-		//cout << "\b \b" << "\b \b";
+		
 		if (game->is_interactive())
 			cout << "]\n";
 		return false;
@@ -95,7 +95,7 @@ bool Drones::attack()
 			
 			U->dec_health(this->detect_damage(U->getcurrhealth()));
 			if (game->is_interactive())
-				cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
+				cout << U->getID()/* << " (" << U->getcurrhealth() << ") " */<< ", ";
 			if (!(U->get_firstAttack()))
 			{
 				U->set_Ta(game->get_timestep());
@@ -103,10 +103,7 @@ bool Drones::attack()
 			}
 			if (U->is_dead())
 			{
-				
-				
 				U->set_Td(game->get_timestep());
-				
 				game->add_killedlist(U);
 			}
 			else if (U->need_help())
@@ -135,7 +132,7 @@ bool Drones::attack()
 		{
 			U->dec_health(this->detect_damage(U->getcurrhealth()));
 			if (game->is_interactive())
-				cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
+				cout << U->getID()/* << " (" << U->getcurrhealth() << ") "*/ << ", ";
 			if (!(U->get_firstAttack()))
 			{
 				U->set_Ta(game->get_timestep());

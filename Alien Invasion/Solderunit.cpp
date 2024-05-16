@@ -56,33 +56,35 @@ bool Solderunit::attack()
 	AlianSounit* Sptr = nullptr;//it is damy pointer to use the function that take two prametars
 	unit* ptr = nullptr;
 	LinkedQueue<unit*> templist;
+	//comments were added to see the power while iterating
 	if (game->is_interactive())
-		cout << "ES " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+		cout << "ES " << this->getID() /* << " (" << this->getApower() << ") "*/ << " shots [";
 	for (int i = 0; i < Acapacity; i++)
 	{
 		if (game->get_Aarmy()->ReturnSo_uint(Sptr, ptr))
 		{
 			templist.enqueue(ptr);
-		//	cout << ptr->getID() << ", ";
+		
 		}
 		else
 			break;
 	}	
 	if (templist.isEmpty())
 	{
-		//cout << "\b \b" << "\b \b";
+		
 		if (game->is_interactive())
 			cout << "]\n";
 		return false;
 	}
-	//game->get_Aarmy()->ReturnSo_uint(Sptr, ptr)
+	
 	for (int i = 0; i < Acapacity; i++)
 	{
 		if (templist.dequeue(ptr))
 		{
 			ptr->dec_health(this->detect_damage(ptr->getcurrhealth()));
+			//comments were added to see the current health while iterating
 			if (game->is_interactive())
-				cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
+				cout << ptr->getID() /* << " (" << ptr->getcurrhealth() << ") "*/ << ", ";
 			if (!(ptr->get_firstAttack()))
 			{
 				ptr->set_Ta(game->get_timestep());
@@ -123,7 +125,8 @@ bool Solderunit::attack_infected()
 	int c = game->get_Earmy()->get_num_sol();
 	if (game->is_interactive())
 	{		
-		cout <<RED<< "ES inf " << this->getID() << " (" << this->getApower() << ") " << " shots "<<RESET<<"[";
+		//comments were added to see the power while iterating
+		cout <<RED<< "ES inf " << this->getID()/* << " (" << this->getApower() << ") " */<< " shots " << RESET << "[";
 	}
 	for (int i = 0; (i < Acapacity && c>0); i++)
 	{
@@ -140,26 +143,26 @@ bool Solderunit::attack_infected()
 				i--;
 				c--;
 			}
-			//	cout << ptr->getID() << ", ";
 		}
 		else
 			break;
 	}
 	if (templist.isEmpty())
 	{
-		//cout << "\b \b" << "\b \b";
+		
 		if (game->is_interactive())
 			cout << "]\n";
 		return false;
 	}
-	//game->get_Aarmy()->ReturnSo_uint(Sptr, ptr)
+	
 	for (int i = 0; i < Acapacity; i++)
 	{
 		if (templist.dequeue(ptr))
 		{
 			ptr->dec_health(this->detect_damage(ptr->getcurrhealth()));
+			//comments were added to see the current health while iterating
 			if (game->is_interactive())
-				cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
+				cout << ptr->getID()/* << " (" << ptr->getcurrhealth() << ") " */<< ", ";
 			if (!(ptr->get_firstAttack()))
 			{
 				ptr->set_Ta(game->get_timestep());

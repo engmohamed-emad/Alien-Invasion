@@ -55,8 +55,9 @@ bool Tank::attack()
 	bool flag1 = false;
 	bool flag2 = false;
 	int cap = Acapacity;
+	//comments were added to see the power while iterating
 	if (game->is_interactive())
-		cout << "ET " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+		cout << "ET " << this->getID() <</**" (" << this->getApower() << ") " << */ " shots [";
 	if (this->help_soldier(game->get_Earmy()->get_num_sol(), game->get_Aarmy()->get_num_sol()))
 	{
 		
@@ -76,8 +77,9 @@ bool Tank::attack()
 		while (AS_templist.dequeue(AS))
 		{
 			AS->dec_health(this->detect_damage(AS->getcurrhealth()));
+			//comments were added to see the current health while iterating
 			if (game->is_interactive())
-				cout << AS->getID() << " (" << AS->getcurrhealth() << ") " << ", ";
+				cout << AS->getID() /* << " (" << AS->getcurrhealth() << ") " */ << ", ";
 			if (!(AS->get_firstAttack()))
 			{
 				AS->set_Ta(game->get_timestep());
@@ -106,7 +108,6 @@ bool Tank::attack()
 		if (game->get_Aarmy()->get_monster(m, m_ptr))
 		{
 			m_templist.enqueue(m);
-			//cout << m->getID() << ", ";
 			flag2 = true;
 		}
 		else break;
@@ -114,8 +115,9 @@ bool Tank::attack()
 	while (m_templist.dequeue(m))
 	{
 		m->dec_health(this->detect_damage(m->getcurrhealth()));
+		//comments were added to see the current health while iterating
 		if (game->is_interactive())
-			cout << m->getID() << " (" << m->getcurrhealth() << ") " << ", ";
+			cout << m->getID()/* << " (" << m->getcurrhealth() << ") "*/ << ", ";
 		if (!(m->get_firstAttack()))
 		{
 			m->set_Ta(game->get_timestep());
@@ -124,9 +126,9 @@ bool Tank::attack()
 		if (m->is_dead())
 		{
 			m->set_Td(game->get_timestep());
-			 ////
+			 
 			m_ptr = dynamic_cast<unit*>(m);
-			 ////
+			
 			game->add_killedlist(m_ptr);
 		}
 		else

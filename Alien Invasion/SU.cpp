@@ -34,8 +34,9 @@ bool SU::attack()
 	AlianSounit* Sptr = nullptr;//it is damy pointer to use the function that take two prametars
 	unit* ptr = nullptr;
 	LinkedQueue<unit*> templist;
+	//comments were added to see the power while iterating
 	if (game->is_interactive())
-		cout << "SU " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+		cout << "SU " << this->getID() /* << " (" << this->getApower() << ") " */<< " shots [";
 	for (int i = 0; i < Acapacity; i++)
 	{
 		if (game->get_Aarmy()->ReturnSo_uint(Sptr, ptr))
@@ -57,7 +58,7 @@ bool SU::attack()
 		{
 			ptr->dec_health(this->detect_damage(ptr->getcurrhealth()));
 			if (game->is_interactive())
-				cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
+				cout << ptr->getID() /* << " (" << ptr->getcurrhealth() << ") "*/ << ", ";
 			if (!(ptr->get_firstAttack()))
 			{
 				ptr->set_Ta(game->get_timestep());

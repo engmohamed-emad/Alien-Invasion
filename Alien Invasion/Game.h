@@ -11,6 +11,12 @@
 #include"solderunit.h"
 #include"Tank.h"
 #include"ally_army.h"
+#include <vector>
+#include <windows.h>
+#include<mmsystem.h>
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#pragma comment(lib,"winmm.lib")
 class RandGen;
 class HealingUnit;
 class EarthArmy;
@@ -65,18 +71,7 @@ public:
 	bool get_UML_ET(Tank*& s);
 	void ADD_HealUint(HealingUnit*&H);
 	bool Get_HU(HealingUnit*& H);
-//	void Healing();
 	int fight();
-	// {
-	//		
-	//		Earmy_attak();
-	//		killedlist
-	//		Aarmy_attak();
-	//		killedlist
-	//		healed
-	//		
-	// 
-	// }
 	// to be able to run project with array (easier to test while working)
 	void set_arr(int arr[]);
 	void print_healing_lists();
@@ -85,6 +80,7 @@ public:
 	int get_num_killed();  //for check
 	void set_left_items();  // to handle UML_lists after last time step
 	void output_file();
+	void simulate();
 	//LinkedQueue<unit*>* gt_temp();
 	~Game();
 };

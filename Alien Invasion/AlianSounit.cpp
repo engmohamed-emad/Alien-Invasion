@@ -40,7 +40,7 @@ bool AlianSounit::attack()
 	LinkedQueue<unit*> templist;
 	LinkedQueue<unit*> S_U;
 	if (game->is_interactive())
-		cout << "AS " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+		cout << "AS " << this->getID() /* << " (" << this->getApower() << ") " */<< " shots [";
 	for (int i = 0; i < Acapacity  ; i++)
 	{     
 		if (game->get_Earmy()->ReturnSo_uint(Sptr, ptr))
@@ -76,10 +76,11 @@ bool AlianSounit::attack()
 			if (game->is_interactive())
 			{
 				Sptr = dynamic_cast<Solderunit*>(ptr);
+				//comments were added to see the current health while iterating
 				if (Sptr->get_state() == 0)
-					cout << RED << "inf " << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << RESET << ", ";
+					cout << RED << "inf " << ptr->getID() <</* " (" << ptr->getcurrhealth() << ") " <<*/ RESET << ", ";
 				else
-					cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
+					cout << ptr->getID() << /*" (" << ptr->getcurrhealth() << ") " <<*/ ", ";
 			}
 			if (!(ptr->get_firstAttack()))
 			{
@@ -118,9 +119,10 @@ bool AlianSounit::attack()
 		while (S_U.dequeue(ptr))
 		{
 			ptr->dec_health(this->detect_damage(ptr->getcurrhealth()));
+			//comments were added to see the current health while iterating
 			if (game->is_interactive())
 			{
-				cout << ptr->getID() << " (" << ptr->getcurrhealth() << ") " << ", ";
+				cout << ptr->getID()/* << " (" << ptr->getcurrhealth() << ") "*/ << ", ";
 			}
 			if (!(ptr->get_firstAttack()))
 			{

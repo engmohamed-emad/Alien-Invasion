@@ -35,10 +35,11 @@ public:
 		Node<Solderunit*>* ptr = this->frontPtr;
 		while (ptr)
 		{
+			//comments were added to see the current health while iterating
 			if (ptr->getItem()->get_state() == 0)
-				cout << RED << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")" << RESET;
+				cout << RED <<"inf " << ptr->getItem()->getID() <<RESET/* "(" << ptr->getItem()->getcurrhealth() << ")" << RESET*/;    
 			else
-				cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")";
+				cout << ptr->getItem()->getID() /*<< "(" << ptr->getItem()->getcurrhealth() << ")" */ ;
 			ptr = ptr->getNext();
 			if (ptr)
 				cout << ", ";
@@ -61,7 +62,8 @@ public:
 		Node<AlianSounit*>* ptr = this->frontPtr;
 		while (ptr)
 		{
-			cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth()<<")";
+			//comments were added to see the current health while iterating
+			cout << ptr->getItem()->getID()/*<< "(" << ptr->getItem()->getcurrhealth() << ")"*/;
 			ptr = ptr->getNext();
 			if (ptr)
 				cout << ", ";
@@ -86,7 +88,7 @@ public:
 		while (ptr)
 		{
 			
-			cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")";
+			cout << ptr->getItem()->getID() /* << "(" << ptr->getItem()->getcurrhealth() << ")"*/;
 			ptr = ptr->getNext();
 			if (ptr)
 				cout << ", ";

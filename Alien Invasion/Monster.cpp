@@ -49,10 +49,10 @@ bool Monster::attack()
 	{
 		if (mode_inf)
 		{
-			cout << "AM " << this->getID() << " (" << this->getApower() << ") " << " infects & shots [";
+			cout << "AM " << this->getID()/* << " (" << this->getApower() << ") " */<< " infects & shots [";
 		}
 		else
-			cout << "AM " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+			cout << "AM " << this->getID() /* << " (" << this->getApower() << ") " */<< " shots [";
 	}
 	for (int i = 0; i < Acapacity / 2; i++)
 	{
@@ -72,7 +72,7 @@ bool Monster::attack()
 	{
 		T->dec_health(this->detect_damage(T->getcurrhealth()));
 		if (game->is_interactive())
-			cout << T->getID() << " (" << T->getcurrhealth() << ") " << ", ";
+			cout << T->getID() /* << " (" << T->getcurrhealth() << ") "*/ << ", ";
 		if (!(T->get_firstAttack()))
 		{
 			T->set_Ta(game->get_timestep());
@@ -122,7 +122,7 @@ bool Monster::attack()
 				game->get_Earmy()->increment_infected();
 				if (game->is_interactive())
 				{
-						cout << RED << "inf " << ES->getID() << " (" << ES->getcurrhealth() << ") " << RESET << ", ";
+						cout << RED << "inf " << ES->getID() << /*" (" << ES->getcurrhealth() << ") " <<*/ RESET << ", ";
 				}
 			}
 		}
@@ -132,8 +132,8 @@ bool Monster::attack()
 			if (game->is_interactive())
 			{
 				if (ES->get_state() == 0)
-					cout << RED << "inf " << ES->getID() << " (" << ES->getcurrhealth() << ") " << RESET << ", ";
-				else cout << ES->getID() << " (" << ES->getcurrhealth() << ") " << ", ";
+					cout << RED << "inf " << ES->getID() /* << " (" << ES->getcurrhealth() << ") "*/ << RESET << ", ";
+				else cout << ES->getID() /* << " (" << ES->getcurrhealth() << ") "*/ << ", ";
 			}
 		}
 
@@ -180,7 +180,7 @@ bool Monster::attack()
 	{
 		S_U->dec_health(this->detect_damage(S_U->getcurrhealth()));
 		if (game->is_interactive())
-			cout << S_U->getID() << " (" << S_U->getcurrhealth() << ") " << ", ";
+			cout << S_U->getID()/* << " (" << S_U->getcurrhealth() << ") "*/ << ", ";
 		if (!(S_U->get_firstAttack()))
 		{
 			S_U->set_Ta(game->get_timestep());

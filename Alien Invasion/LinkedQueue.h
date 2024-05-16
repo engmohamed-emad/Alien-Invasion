@@ -203,7 +203,7 @@ inline void LinkedQueue<Tank*>::print()
 	Node<Tank*>* ptr = this->frontPtr;
 	while (ptr)
 	{
-		cout << ptr->getItem()->getID() << "(" << ptr->getItem()->getcurrhealth() << ")";
+		cout << ptr->getItem()->getID()/* << "(" << ptr->getItem()->getcurrhealth() << ")"*/;
 		ptr = ptr->getNext();
 		if (ptr)
 			cout << ", ";

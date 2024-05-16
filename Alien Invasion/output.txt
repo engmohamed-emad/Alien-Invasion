@@ -1,74 +1,35 @@
 		Td	ID	Tj	Df	Dd	Db	
-		10	2005	3	0	7	7
-		12	2007	7	0	5	5
-		15	2011	8	0	7	7
-		17	2015	13	0	4	4
-		24	2004	3	1	20	21
-		24	2000	2	0	22	22
-		24	2021	18	0	6	6
-		25	2023	18	0	7	7
-		31	2003	3	0	28	28
-		32	2001	2	0	30	30
-		33	2002	2	0	31	31
-		41	2031	33	0	8	8
-		49	2014	10	3	36	39
-		52	2040	49	0	3	3
-		52	2042	50	0	2	2
-		57	2045	52	0	5	5
-		59	2010	8	2	49	51
-		59	2048	56	0	3	3
-		64	2049	56	0	8	8
-		68	2008	7	1	60	61
-		72	2018	16	5	51	56
-		74	2017	13	3	58	61
-		74	2022	18	4	52	56
-		75	2013	10	3	62	65
-		77	2028	23	8	46	54
-		79	2006	7	1	71	72
-		79	63	73	6	0	6
-		81	2064	77	0	4	4
-		81	2060	73	0	8	8
-		81	49	56	25	0	25
-		82	2012	10	2	70	72
-		85	2026	21	7	57	64
-		87	73	87	0	0	0
-		90	2069	86	0	4	4
-		90	2067	83	0	7	7
-		92	2009	8	1	83	84
-		94	2025	21	5	68	73
-		95	2019	16	5	74	79
-		96	2077	92	0	4	4
-		96	2079	94	0	2	2
-		98	68	83	15	0	15
+		6	2000	2	0	4	4
+		10	2010	7	0	3	3
 
 Drawn 
 ===============Earth Army statistics===================== 
-ES total number : 57 
-ET total number : 15
-EG total number : 9
+ES total number : 6 
+ET total number : 4
+EG total number : 3
 ES Destructed/ES total = 0%
 ET Destructed/ET total = 0%
 EG Destructed/EG total = 0%
-Total Destructed/Total Units = 4.44444%
-Average Df = 11.5
+Total Destructed/Total Units = 0%
+Average Df = 0
 Average Dd = 0
-Average Db = 11.5
-Df/Db % = 100%
+Average Db = 0
+Df/Db % = 0%
 Dd/Db % = 0%
-Healed units / total units % = 4.44444%
-Num infected / total soldier units % = 5.26316%
+Healed units / total units % = 0%
+Num infected / total soldier units % = 0%
 
 Drawn 
 ===============Alien Army statistics===================== 
-AS total number : 71 
-AM total number : 8
-AD total number : 11
-AS Destructed/AS total : 26.7606%
+AS total number : 13 
+AM total number : 2
+AD total number : 0
+AS Destructed/AS total : 0%
 AM Destructed/AM total = 100%
-AD Destructed/AD total = 90.9091%
-Total Destructed/Total Units = 41.1111%
-Average Df = 1.37838
-Average Dd = 28.7027
-Average Db = 30.0811
-Df/Db % = 4.58221%
-Dd/Db % = 95.4178%
+AD Destructed/AD total = 0%
+Total Destructed/Total Units = 13.3333%
+Average Df = 0
+Average Dd = 3.5
+Average Db = 3.5
+Df/Db % = 0%
+Dd/Db % = 100%

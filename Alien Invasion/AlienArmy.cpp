@@ -148,7 +148,8 @@ void AlienArmy::print()
     cout << num_monster << " AM [";
     for (int i = 0; i < num_monster; i++)
     {
-        cout << monsters[i]->getID()<< "(" << monsters[i]->getcurrhealth() << ")";
+        //comments were added to see the current health while iterating
+        cout << monsters[i]->getID()/* << "(" << monsters[i]->getcurrhealth() << ")"*/;
         if (i < num_monster - 1)
         {
             cout << ", ";

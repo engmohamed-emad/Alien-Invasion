@@ -67,13 +67,12 @@ bool EG::attack()
 	LinkedQueue<unit*>templist1;//for monsters
 	LinkedQueue<unit*>templist2;//for Drones
 	if (game->is_interactive())
-		cout << "EG " << this->getID() << " (" << this->getApower() << ") " << " shots [";
+		cout << "EG " << this->getID()/* << " (" << this->getApower() << ") " */<< " shots [";
 	for (int i = 0; i < Attack_Cap_Monster; i++)
 	{
 		if (game->get_Aarmy()->get_monster(pt, U))
 		{
 			templist1.enqueue(U);
-			//cout << U->getID() << ", ";
 		}
 		else
 			break;
@@ -84,7 +83,6 @@ bool EG::attack()
 		if (game->get_Aarmy()->Get_Drones(D, U))
 		{
 			templist2.enqueue(U);
-			//cout << U->getID() << ", ";
 		}
 		else
 			break;
@@ -93,7 +91,7 @@ bool EG::attack()
 
 	if (templist1.isEmpty() && templist2.isEmpty())
 	{
-		//cout << "\b \b" << "\b \b";
+		
 		if (game->is_interactive())
 			cout << "]\n";
 		return false;
@@ -108,8 +106,9 @@ bool EG::attack()
 		{
 			
 				U->dec_health(this->detect_damage(U->getcurrhealth()));
+				//comments were added to see the current health while iterating
 				if (game->is_interactive())
-					cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
+					cout << U->getID() /* << " (" << U->getcurrhealth() << ") " */<< ", ";
 				if (!(U->get_firstAttack()))
 				{
 					U->set_Ta(game->get_timestep());
@@ -149,11 +148,12 @@ bool EG::attack()
 				if (templist2.dequeue(U2))
 				{
 					U->dec_health(this->detect_damage(U->getcurrhealth()));
+					//comments were added to see the current health while iterating
 					if (game->is_interactive())
-						cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
+						cout << U->getID() /* << " (" << U->getcurrhealth() << ") " */<< ", ";
 					U2->dec_health(this->detect_damage(U2->getcurrhealth()));
 					if (game->is_interactive())
-						cout << U2->getID() << " (" << U2->getcurrhealth() << ") " << ", ";
+						cout << U2->getID() /* << " (" << U2->getcurrhealth() << ") " */<< ", ";
 					if (!(U->get_firstAttack()))
 					{
 						U->set_Ta(game->get_timestep());
@@ -195,14 +195,14 @@ bool EG::attack()
 				else
 				{
 					U->dec_health(this->detect_damage(U->getcurrhealth()));
+					//comments were added to see the current health while iterating
 					if (game->is_interactive())
-						cout << U->getID() << " (" << U->getcurrhealth() << ") " << ", ";
+						cout << U->getID() /* << " (" << U->getcurrhealth() << ") "*/ << ", ";
 					if (!(U->get_firstAttack()))
 					{
 						U->set_Ta(game->get_timestep());
 						U->set_firtAttack();
 					}
-
 					if (U->is_dead())
 					{
 						U->set_Td(game->get_timestep());

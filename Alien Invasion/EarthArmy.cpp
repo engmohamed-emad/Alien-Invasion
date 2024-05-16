@@ -91,6 +91,7 @@ void EarthArmy::decrement_infected()
 }
 void EarthArmy::spread_infection()
 {
+    LinkedQueue<Solderunit*>temp;
     Solderunit* s = nullptr;
     int prob=0;
     {   random_device rd;
@@ -99,7 +100,7 @@ void EarthArmy::spread_infection()
         prob = dis(gen);
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    int c = num_sol;
+    int c = 0;
         if (prob <= 2 && Num_infect_solid!=0)
         {
             int j = 0;
@@ -109,25 +110,22 @@ void EarthArmy::spread_infection()
                 uniform_int_distribution<int> dis(1, num_sol);
                 j = dis(gen);
             }
-            while (c>0 && solders.dequeue(s))
+            while (solders.dequeue(s))
             {
-                if (j==1)
+                c++;
+                temp.enqueue(s);  
+                if (j==c)
                 {
-                    //ask
                     if(s->get_state()==-1)
                     {
                         s->set_state(0);
                         increment_infected(); 
                     }
-                    solders.enqueue(s);
-                    break;
                 }
-                else
-                {
-                    solders.enqueue(s);
-                    c--;
-                }
-                j--;
+            }
+            while (temp.dequeue(s))
+            {
+                solders.enqueue(s);
             }
         }
         else
